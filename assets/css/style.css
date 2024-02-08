@@ -25,6 +25,7 @@ img {
   object-position: center center;
   width: 100%;
   height: 100%;
+  filter: grayscale(1);
 }
 .banner img.logo {
   position: absolute;
@@ -64,12 +65,45 @@ p {
   margin: 50px 20%;
 }
 
-.band {
-
+@media (min-width: 600px) {
+  .band {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
 }
 .band .member {
   margin-bottom: 40px;
 }
 .band .member img {
   margin-bottom: 40px;
+}
+
+
+
+.testimonial {
+  padding: 20px 10%;
+}
+
+.testimonials blockquote {
+  font-style: italic;
+  font-size: 18px;
+  color: #eee;
+}
+
+.testimonials .author {
+  text-align: right;
+  font-size: 11px;
+  color: #999;
+}
+
+@media (min-width: 600px) {
+  .testimonials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .testimonial {
+    padding: 0;
+  }
 }
