@@ -36,8 +36,40 @@ img {
   border-radius: 20px;
 }
 
-h1 {
-  padding: 60px 0;
+h1, h2, h3, h4 {
   font-family: 'Bebas neue', sans-serif;
-  font-size: 4em;
+}
+
+h1 {
+  padding: 60px 10% 0;
+  font-size: 40px;
+  color: rgb(192, 0, 0);
+  margin-bottom: 30px;
+  line-height: 1em;
+}
+h2 {
+  margin-bottom: 40px;
+  color: #db8300;
+  font-size: 30px;
+}
+h3 {
+  margin-bottom: 30px;
+}
+p {
+  padding: 0 5%;
+}
+
+.divider {
+  border-bottom: 1px solid #666;
+  margin: 50px 20%;
+}
+
+.band {
+
+}
+.band .member {
+  margin-bottom: 40px;
+}
+.band .member img {
+  margin-bottom: 40px;
 }
