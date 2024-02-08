@@ -13,87 +13,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
   </head>
   <body>
-
-    <?php
-if (isset($_POST['Email'])) {
-
-    // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "you@yourdomain.com";
-    $email_subject = "New form submissions";
-
-    function problem($error)
-    {
-        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-        echo "These errors appear below.<br><br>";
-        echo $error . "<br><br>";
-        echo "Please go back and fix these errors.<br><br>";
-        die();
-    }
-
-    // validation expected data exists
-    if (
-        !isset($_POST['Name']) ||
-        !isset($_POST['Email']) ||
-        !isset($_POST['Message'])
-    ) {
-        problem('We are sorry, but there appears to be a problem with the form you submitted.');
-    }
-
-    $name = $_POST['Name']; // required
-    $email = $_POST['Email']; // required
-    $message = $_POST['Message']; // required
-
-    $error_message = "";
-    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
-
-    if (!preg_match($email_exp, $email)) {
-        $error_message .= 'The Email address you entered does not appear to be valid.<br>';
-    }
-
-    $string_exp = "/^[A-Za-z .'-]+$/";
-
-    if (!preg_match($string_exp, $name)) {
-        $error_message .= 'The Name you entered does not appear to be valid.<br>';
-    }
-
-    if (strlen($message) < 2) {
-        $error_message .= 'The Message you entered do not appear to be valid.<br>';
-    }
-
-    if (strlen($error_message) > 0) {
-        problem($error_message);
-    }
-
-    $email_message = "Form details below.\n\n";
-
-    function clean_string($string)
-    {
-        $bad = array("content-type", "bcc:", "to:", "cc:", "href");
-        return str_replace($bad, "", $string);
-    }
-
-    $email_message .= "Name: " . clean_string($name) . "\n";
-    $email_message .= "Email: " . clean_string($email) . "\n";
-    $email_message .= "Message: " . clean_string($message) . "\n";
-
-    // create email headers
-    $headers = 'From: ' . $email . "\r\n" .
-        'Reply-To: ' . $email . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-    @mail($email_to, $email_subject, $email_message, $headers);
-?>
-
-    <!-- include your success message below -->
-
-    Thank you for contacting us. We will be in touch with you very soon.
-
-<?php
-}
-?>
-
-
-
-
+    
     <div class="banner">
       <img src="/assets/images/bg.jpg" class="bg" />
       <img src="/assets/images/logo.jpg" class="logo" />
@@ -206,42 +126,93 @@ if (isset($_POST['Email'])) {
       <div class="divider"></div>
 
       <h2>Contact</h2>
+martingibbs230@hotmail.com
+655b0f2b-a107-48c3-babe-3dfba400a377
+      <div class="flex items-center min-h-screen bg-gray-900">
+  <div class="container mx-auto">
+    <div class="max-w-md mx-auto my-10 bg-gray-800 p-5 rounded-md shadow-sm">
+      <div class="text-center">
+        <h1 class="my-3 text-3xl font-semibold text-gray-100">Contact Us</h1>
+        <p class="text-gray-400 dark:text-gray-400">
+          Fill up the form below to send us a message.
+        </p>
+      </div>
+      <div class="m-7">
+        <form action="https://api.web3forms.com/submit" method="POST" id="form">
+          <input type="hidden" name="access_key" value="655b0f2b-a107-48c3-babe-3dfba400a377" />
+          <input
+            type="hidden"
+            name="subject"
+            value="New Submission from Web3Forms"
+          />
+          <input type="checkbox" name="botcheck" id="" style="display: none;" />
 
-      <div class="fcf-body">
+          <div class="mb-6">
+            <label for="name" class="block mb-2 text-sm text-gray-400"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="John Doe"
+              required
+              class="w-full px-3 py-2 h-12 rounded-sm placeholder-gray-500 text-gray-900 bg-gray-100 text-sm focus:outline-none"
+            />
+          </div>
+          <div class="mb-6">
+            <label for="email" class="block mb-2 text-sm text-gray-400"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="you@company.com"
+              required
+              class="w-full px-3 py-2 h-12 rounded-sm placeholder-gray-500 text-gray-900 bg-gray-100 text-sm focus:outline-none"
+            />
+          </div>
+          <div class="mb-6">
+            <label for="phone" class="block mb-2 text-sm text-gray-400"
+              >Phone Number</label
+            >
+            <input
+              type="text"
+              name="phone"
+              id="phone"
+              placeholder="+1 (555) 1234-567"
+              required
+              class="w-full px-3 py-2 h-12 rounded-sm placeholder-gray-500 text-gray-900 bg-gray-100 text-sm focus:outline-none"
+            />
+          </div>
+          <div class="mb-6">
+            <label for="message" class="block mb-2 text-sm text-gray-400"
+              >Your Message</label
+            >
 
-    <div id="fcf-form">
-
-    <form id="fcf-form-id" class="fcf-form-class" method="post" action="contact-form-process.php">
-        
-        <div class="fcf-form-group">
-            <label for="Name" class="fcf-label">Your name</label>
-            <div class="fcf-input-group">
-                <input type="text" id="Name" name="Name" class="fcf-form-control" required>
-            </div>
-        </div>
-
-        <div class="fcf-form-group">
-            <label for="Email" class="fcf-label">Your email address</label>
-            <div class="fcf-input-group">
-                <input type="email" id="Email" name="Email" class="fcf-form-control" required>
-            </div>
-        </div>
-
-        <div class="fcf-form-group">
-            <label for="Message" class="fcf-label">Your message</label>
-            <div class="fcf-input-group">
-                <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000" required></textarea>
-            </div>
-        </div>
-
-        <div class="fcf-form-group">
-            <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
-        </div>
-
-
-    </form>
+            <textarea
+              rows="5"
+              name="message"
+              id="message"
+              placeholder="Your Message"
+              class="w-full px-3 py-2 rounded-sm placeholder-gray-500 text-gray-900 bg-gray-100 text-sm focus:outline-none"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-6">
+            <button
+              type="submit"
+              class="w-full bg-indigo-600 inline-block text-white no-underline hover:text-indigo-100 py-4 px-4 rounded-sm focus:outline-none"
+            >
+              Send Message
+            </button>
+          </div>
+          <p class="text-base text-center text-gray-400" id="result"></p>
+        </form>
+      </div>
     </div>
-
+  </div>
 </div>
 
 
