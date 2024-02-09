@@ -101,19 +101,17 @@ async function getData() {
         accordionHeader.classList.add("accordion-header");
         accordionHeader.innerHTML = `
           <button class="accordion-button ${
-            isFirstAccordionItem && monthYear !== currentMonthYear
-              ? ""
-              : "collapsed"
+            index === 0 && monthYear === currentMonthYear
+              ? "" // Don't add 'collapsed' class for the first item when it's the current month
+              : "collapsed" // Add 'collapsed' class for other items or when the first item is not the current month
           }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear.replace(
           /\s/g,
           ""
         )}" aria-expanded="${
-          isFirstAccordionItem && monthYear === currentMonthYear
-            ? "true"
-            : "false"
+          index === 0 && monthYear === currentMonthYear ? "true" : "false"
         }" aria-controls="collapse${monthYear.replace(/\s/g, "")}">
             ${monthYear}
-          </button>
+        </button>
         `;
 
         // Create accordion collapse container
