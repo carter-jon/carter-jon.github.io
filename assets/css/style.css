@@ -172,18 +172,15 @@ button {
   text-align: left;
 }
 .event-title {
-  font-size: 18px;
+  font-size: 20px;
   color: #db8300;
+  font-weight: bold;
 }
 .event-location {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 20px;
+  font-size: 14px;
 }
 .event-date {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 20px;
+  font-size: 18px;
 }
 .accordion-button {
   margin: 0;
