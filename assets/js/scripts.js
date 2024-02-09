@@ -98,13 +98,18 @@ async function getData() {
         const accordionHeader = document.createElement("h2");
         accordionHeader.classList.add("accordion-header");
         accordionHeader.innerHTML = `
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear.replace(
-            /\s/g,
-            ""
-          )}" aria-expanded="false" aria-controls="collapse${monthYear.replace(
+          <button class="accordion-button ${
+            isFirstAccordionItem && monthYear !== currentMonthYear
+              ? ""
+              : "collapsed"
+          }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear.replace(
           /\s/g,
           ""
-        )}">
+        )}" aria-expanded="${
+          isFirstAccordionItem && monthYear === currentMonthYear
+            ? "true"
+            : "false"
+        }" aria-controls="collapse${monthYear.replace(/\s/g, "")}">
             ${monthYear}
           </button>
         `;
