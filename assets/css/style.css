@@ -225,7 +225,13 @@ button {
 .navbar-toggler {
   margin: 0;
   border: none;
-  
+}
+.nav-link {
+  padding: 10px;
+  border-top: 1px solid #333;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
 }
 /* .navbar {
   top: 0px;
