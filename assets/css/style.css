@@ -54,7 +54,7 @@ h1 {
 }
 h2 {
   margin-bottom: 40px;
-  color: #db8300;
+  color: #f25500;
   font-size: 30px;
 }
 h3 {
@@ -137,7 +137,7 @@ p {
 
 /* contact us */
 button {
-  background-color: #db8300;
+  background-color: #f25500;
   border: none;
   padding: 10px 30px;
   margin-top: 20px;
@@ -194,7 +194,7 @@ button {
 }
 .event-title {
   font-size: 18px;
-  color: #db8300;
+  color: #f25500;
   font-weight: bold;
 }
 .event-location {
@@ -203,7 +203,7 @@ button {
 .map-link a {
   font-size: 12px;
   text-decoration: none;
-  color: #db8300;
+  color: #f25500;
 }
 .event-date {
   font-size: 16px;
@@ -217,7 +217,7 @@ button {
   font-size: 22px;
 }
 .accordion-button:not(.collapsed) {
-  background-color: #db8300;
+  background-color: #f25500;
   color: #fff;
   box-shadow: none;
 }
@@ -244,6 +244,11 @@ button {
 }
 nav.navbar {
   background-color: rgba(0,0,0,0.8);
+}
+.navbar .logo {
+  height: 24px;
+  width: auto;
+  display: block;
 }
 @media(min-width: 992px) {
   .navbar-nav {
