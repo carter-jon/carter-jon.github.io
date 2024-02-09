@@ -41,3 +41,27 @@ form.addEventListener("submit", function (e) {
       }, 5000);
     });
 });
+
+//async function to handle data fetching
+async function getData() {
+  //try catch block to handle promises and errors
+  try {
+    const calendarId =
+      "057b6f9a7cd766c8f662565f303a9e0b9db8df6c3dc51f2432dd38cc73f15fdf@group.calendar.google.com";
+    const myKey = "";
+    //using await and fetch together as two standard ES6 client side features to extract the data
+    let apiCall = await fetch(
+      "https://www.googleapis.com/calendar/v3/calendars/" +
+        calendarId +
+        "/events?key=" +
+        myKey
+    );
+    //response.json() is a method on the Response object that lets you extract a JSON object from the response
+    //response.json() returns a promise resolved to a JSON object
+    let apiResponse = await apiCall.json();
+    console.log(apiResponse);
+  } catch (error) {
+    console.log(error);
+  }
+}
+getData();
