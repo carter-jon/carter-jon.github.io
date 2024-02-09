@@ -268,3 +268,17 @@ nav.navbar {
     border-top:  none;
   }
 }
+
+
+.footer-logo {
+  width: 60%;
+  height: 400px;
+  max-width: 500px;
+  margin: 0 auto 100px;
+}
+.footer-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
