@@ -144,16 +144,7 @@ button {
   align-items: center;
   margin-bottom: 10px;
 }
-@media(min-width: 600px) {
-  .form-row {
-    grid-template-columns: 160px 240px;
-    gap: 20px;
-  }
-  .form-row label {
-    text-align: right;
-  }
 
-}
 .form-row label {
   text-align: left;
 }
@@ -167,11 +158,20 @@ button {
   color: #999;
   margin-bottom: 20px;
 }
-
 #result {
   margin-top: 40px;
   color:rgb(13, 160, 13);
   font-size: 16px;
+}
+
+@media(min-width: 600px) {
+  .form-row {
+    grid-template-columns: 160px 240px;
+    gap: 20px;
+  }
+  .form-row label {
+    text-align: right;
+  }
 }
 
 
