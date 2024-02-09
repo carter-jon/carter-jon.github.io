@@ -7,10 +7,24 @@
 
     <title>Hot Tin Ruth</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon//favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon//favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon//favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/images/favicon//favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -173,6 +187,70 @@
         scrolling="no"
       ></iframe> -->
 
+      <div id="events-container"></div>
+
+      <script>
+        // Get reference to the events container
+        const eventsContainer = document.getElementById("events-container");
+
+        // Calendar events data
+        const calendarEvents = {
+          items: [
+            {
+              summary: "Kirkham Club",
+              location:
+                "Kirkham Street Sports & Social Club, Kirkham St, Paignton TQ3 3AX, UK",
+              start: {
+                dateTime: "2024-02-10T21:00:00Z",
+                timeZone: "Europe/London",
+              },
+              end: {
+                dateTime: "2024-02-11T00:00:00Z",
+                timeZone: "Europe/London",
+              },
+            },
+            {
+              summary: "The Park Hotel",
+              location: "The Park, 114 Exeter Rd, Exmouth EX8 1QH, UK",
+              start: {
+                dateTime: "2024-04-20T21:00:00+01:00",
+                timeZone: "Europe/London",
+              },
+              end: {
+                dateTime: "2024-04-21T00:00:00+01:00",
+                timeZone: "Europe/London",
+              },
+            },
+            // More events...
+          ],
+        };
+
+        // Loop through each event and create HTML elements to display them
+        calendarEvents.items.forEach((event) => {
+          // Create a div element for the event
+          const eventDiv = document.createElement("div");
+          eventDiv.classList.add("event");
+
+          // Create HTML content for the event
+          const htmlContent = `
+                <h2>${event.summary}</h2>
+                <p><strong>Location:</strong> ${event.location}</p>
+                <p><strong>Start:</strong> ${new Date(
+                  event.start.dateTime
+                ).toLocaleString()}</p>
+                <p><strong>End:</strong> ${new Date(
+                  event.end.dateTime
+                ).toLocaleString()}</p>
+            `;
+
+          // Set the HTML content of the event div
+          eventDiv.innerHTML = htmlContent;
+
+          // Append the event div to the events container
+          eventsContainer.appendChild(eventDiv);
+        });
+      </script>
+
       <!-- ******************************************* -->
       <div class="divider"></div>
 
@@ -277,7 +355,6 @@
                   id="email"
                   placeholder="you@company.com"
                   required
-
                 />
               </div>
               <div class="form-row">
@@ -290,7 +367,6 @@
                   id="phone"
                   placeholder="+1 (555) 1234-567"
                   required
-
                 />
               </div>
               <div class="form-row">
@@ -303,16 +379,11 @@
                   name="message"
                   id="message"
                   placeholder="Your Message"
-
                   required
                 ></textarea>
               </div>
               <div class="submit-row">
-                <button
-                  type="submit"
-                >
-                  Send Message
-                </button>
+                <button type="submit">Send Message</button>
               </div>
               <p class="text-base text-center text-gray-400" id="result"></p>
             </form>
