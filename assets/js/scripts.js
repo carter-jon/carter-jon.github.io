@@ -216,7 +216,8 @@ getData();
 
 
 $(function () {
-  $('.nav-link').on('click', function () {
+  $('.nav-link').on('click', function (event) {
+    event.preventDefault();
     $(".navbar-collapse").collapse("hide");
     $("html, body").animate(
       {
