@@ -53,17 +53,12 @@ async function getData() {
     let response = await fetch(
       `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${myKey}`
     );
-
-    // Parse JSON response
     let data = await response.json();
 
     // Check if the response contains items
     if (data.items && data.items.length > 0) {
-      // Get reference to the events container
-      const eventsContainer = document.getElementById("events-container");
-
-      // Clear existing content in the events container
-      eventsContainer.innerHTML = "";
+      // Get reference to the accordion container
+      const accordionContainer = document.getElementById("accordionEvents");
 
       // Group events by month
       const eventsByMonth = {};
@@ -78,37 +73,75 @@ async function getData() {
         eventsByMonth[monthYear].push(event);
       });
 
-      // Loop through each month
+      // Get current month and year
+      const currentDate = new Date();
+      const currentMonthYear = `${currentDate.toLocaleString("default", {
+        month: "long",
+      })} ${currentDate.getFullYear()}`;
+
+      // Loop through each month and create accordion items
       for (const monthYear in eventsByMonth) {
-        // Create a heading for the month
-        const monthHeading = document.createElement("h2");
-        monthHeading.textContent = monthYear;
-        eventsContainer.appendChild(monthHeading);
+        // Check if the month is in the past
+        if (new Date(monthYear) < currentDate) {
+          continue;
+        }
 
-        // Loop through events in the current month
+        // Create accordion item
+        const accordionItem = document.createElement("div");
+        accordionItem.classList.add("accordion-item");
+
+        // Create accordion header
+        const accordionHeader = document.createElement("h2");
+        accordionHeader.classList.add("accordion-header");
+        accordionHeader.innerHTML = `
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear.replace(
+                              /\s/g,
+                              ""
+                            )}" aria-expanded="false" aria-controls="collapse${monthYear.replace(
+          /\s/g,
+          ""
+        )}">
+                                ${monthYear}
+                            </button>
+                        `;
+
+        // Create accordion collapse container
+        const accordionCollapse = document.createElement("div");
+        accordionCollapse.id = `collapse${monthYear.replace(/\s/g, "")}`;
+        accordionCollapse.classList.add("accordion-collapse", "collapse");
+        if (monthYear === currentMonthYear) {
+          accordionCollapse.classList.add("show"); // Open current month accordion item
+        }
+        accordionCollapse.setAttribute(
+          "aria-labelledby",
+          `heading${monthYear.replace(/\s/g, "")}`
+        );
+        accordionCollapse.setAttribute("data-bs-parent", "#accordionEvents");
+
+        // Create accordion body
+        const accordionBody = document.createElement("div");
+        accordionBody.classList.add("accordion-body");
+
+        // Add events to the accordion body
         eventsByMonth[monthYear].forEach((event) => {
-          // Create a div element for the event
-          const eventDiv = document.createElement("div");
-          eventDiv.classList.add("event");
-
-          // Create HTML content for the event
-          const htmlContent = `
-                        <h3>${event.summary}</h3>
-                        <p><strong>Location:</strong> ${event.location}</p>
-                        <p><strong>Start:</strong> ${new Date(
-                          event.start.dateTime
-                        ).toLocaleString()}</p>
-                        <p><strong>End:</strong> ${new Date(
-                          event.end.dateTime
-                        ).toLocaleString()}</p>
-                    `;
-
-          // Set the HTML content of the event div
-          eventDiv.innerHTML = htmlContent;
-
-          // Append the event div to the events container
-          eventsContainer.appendChild(eventDiv);
+          const startDate = new Date(event.start.dateTime).toLocaleString();
+          const endDate = new Date(event.end.dateTime).toLocaleString();
+          const eventHtml = `
+                                <p><strong>${event.summary}</strong></p>
+                                <p><strong>Location:</strong> ${event.location}</p>
+                                <p><strong>Start:</strong> ${startDate}</p>
+                                <p><strong>End:</strong> ${endDate}</p>
+                            `;
+          accordionBody.innerHTML += eventHtml;
         });
+
+        // Append accordion header, body, and collapse container
+        accordionItem.appendChild(accordionHeader);
+        accordionCollapse.appendChild(accordionBody);
+        accordionItem.appendChild(accordionCollapse);
+
+        // Append accordion item to the container
+        accordionContainer.appendChild(accordionItem);
       }
     } else {
       console.log("No events found.");
