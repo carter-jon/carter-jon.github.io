@@ -257,6 +257,7 @@ nav.navbar {
   display: block;
   height: 40px;
   width: 200px;
+  padding: 0;
 }
 @media(min-width: 992px) {
   .navbar-nav {
