@@ -242,6 +242,9 @@ button {
 .navbar-nav {
   margin-top: 20px;
 }
+nav.navbar {
+  background-color: rgba(0,0,0,0.8);
+}
 @media(min-width: 992px) {
   .navbar-nav {
     margin-top: 0px;
