@@ -160,11 +160,26 @@ function formatDate(date) {
   const options = {
     weekday: "long",
     day: "numeric",
+    month: "long",
     hour: "numeric",
     minute: "numeric",
     hour12: true,
   };
-  return date.toLocaleDateString("en-GB", options);
+  const formattedDate = date.toLocaleDateString("en-GB", options);
+
+  // Add suffix to day of the month
+  const day = date.getDate();
+  let suffix = "th";
+  if (day === 1 || day === 21 || day === 31) {
+    suffix = "st";
+  } else if (day === 2 || day === 22) {
+    suffix = "nd";
+  } else if (day === 3 || day === 23) {
+    suffix = "rd";
+  }
+
+  // Replace 'day' in the formatted date with day and suffix
+  return formattedDate.replace("day", `${day}${suffix}`);
 }
 
 // Call the getData function to fetch and display calendar events
