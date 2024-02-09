@@ -168,8 +168,14 @@ button {
 
 
 /* calendar */
+.accordion-item {
+  border-color: #111;
+}
 .accordion-body {
   text-align: left;
+}
+.event-item {
+  margin-bottom: 20px;
 }
 .event-title {
   font-size: 20px;
@@ -189,4 +195,8 @@ button {
   color: #eee;
   font-family: 'Bebas Neue';
   font-size: 18px;
+}
+.accordion-button:not(.collapsed) {
+  background-color: #db8300;
+  color: #fff;
 }
