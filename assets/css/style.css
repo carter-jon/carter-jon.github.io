@@ -155,7 +155,7 @@ button {
 
 }
 .form-row label {
-  text-align: right;
+  text-align: left;
 }
 .form-row input, .form-row textarea {
   padding: 10px;
