@@ -43,26 +43,59 @@ form.addEventListener("submit", function (e) {
 });
 
 
-//async function to handle data fetching
 async function getData() {
-  //try catch block to handle promises and errors
   try {
     const calendarId =
       "057b6f9a7cd766c8f662565f303a9e0b9db8df6c3dc51f2432dd38cc73f15fdf@group.calendar.google.com";
     const myKey = "AIzaSyCvFYUkBnr1x7HjcjI9chI-8np2K0iisF4";
-    //using await and fetch together as two standard ES6 client side features to extract the data
-    let apiCall = await fetch(
-      "https://www.googleapis.com/calendar/v3/calendars/" +
-        calendarId +
-        "/events?key=" +
-        myKey
+
+    // Fetch calendar events from Google Calendar API
+    let response = await fetch(
+      `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${myKey}`
     );
-    //response.json() is a method on the Response object that lets you extract a JSON object from the response
-    //response.json() returns a promise resolved to a JSON object
-    let apiResponse = await apiCall.json();
-    console.log(apiResponse);
+
+    // Parse JSON response
+    let data = await response.json();
+
+    // Check if the response contains items
+    if (data.items && data.items.length > 0) {
+      // Get reference to the events container
+      const eventsContainer = document.getElementById("events-container");
+
+      // Clear existing content in the events container
+      eventsContainer.innerHTML = "";
+
+      // Loop through each event and create HTML elements to display them
+      data.items.forEach((event) => {
+        // Create a div element for the event
+        const eventDiv = document.createElement("div");
+        eventDiv.classList.add("event");
+
+        // Create HTML content for the event
+        const htmlContent = `
+                    <h2>${event.summary}</h2>
+                    <p><strong>Location:</strong> ${event.location}</p>
+                    <p><strong>Start:</strong> ${new Date(
+                      event.start.dateTime
+                    ).toLocaleString()}</p>
+                    <p><strong>End:</strong> ${new Date(
+                      event.end.dateTime
+                    ).toLocaleString()}</p>
+                `;
+
+        // Set the HTML content of the event div
+        eventDiv.innerHTML = htmlContent;
+
+        // Append the event div to the events container
+        eventsContainer.appendChild(eventDiv);
+      });
+    } else {
+      console.log("No events found.");
+    }
   } catch (error) {
-    console.log(error);
+    console.log("Error fetching calendar events:", error);
   }
 }
+
+// Call the getData function to fetch and display calendar events
 getData();
