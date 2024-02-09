@@ -42,6 +42,7 @@ form.addEventListener("submit", function (e) {
     });
 });
 
+
 //async function to handle data fetching
 async function getData() {
   //try catch block to handle promises and errors
