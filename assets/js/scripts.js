@@ -128,19 +128,13 @@ async function getData() {
 
         // Add events to the accordion body
         eventsByMonth[monthYear].forEach((event) => {
-          const startDate = new Date(event.start.dateTime).toLocaleString();
+          const startDate = formatDate(new Date(event.start.dateTime).toLocaleString());
           const endDate = new Date(event.end.dateTime).toLocaleString();
           const eventHtml = `
-            <div class="event-title">
-              ${event.summary}
-            </div>
-            <div class="event-date">
-              <div class="label">Start:</div>
-              <div class="value">${startDate}</div>
-            </div>
-            <div class="event-location">
-              <div class="label">Location:</div>
-              <div class="value">${event.location}</div>
+            <div class="event-item">
+              <div class="event-title">${event.summary}</div>
+              <div class="event-date">${startDate}</div>
+              <div class="event-location">${event.location}</div>
             </div>
           `;
           accordionBody.innerHTML += eventHtml;
@@ -160,6 +154,17 @@ async function getData() {
   } catch (error) {
     console.log("Error fetching calendar events:", error);
   }
+}
+
+function formatDate(date) {
+  const options = {
+    weekday: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  };
+  return date.toLocaleDateString("en-GB", options);
 }
 
 // Call the getData function to fetch and display calendar events
