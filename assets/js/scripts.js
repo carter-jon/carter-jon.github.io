@@ -48,7 +48,7 @@ async function getData() {
   try {
     const calendarId =
       "057b6f9a7cd766c8f662565f303a9e0b9db8df6c3dc51f2432dd38cc73f15fdf@group.calendar.google.com";
-    const myKey = "";
+    const myKey = "4a444d78251999d6eab4f06feaa6eda8a4e4bfc7";
     //using await and fetch together as two standard ES6 client side features to extract the data
     let apiCall = await fetch(
       "https://www.googleapis.com/calendar/v3/calendars/" +
