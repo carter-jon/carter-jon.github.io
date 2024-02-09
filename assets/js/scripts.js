@@ -217,6 +217,11 @@ getData();
 
 $(function () {
   $('.nav-link').on('click', function () {
-    alert();
+    $("html, body").animate(
+      {
+        scrollTop: $("#band").offset().top,
+      },
+      2000
+    );
   });
 });
