@@ -236,12 +236,12 @@ button {
 .navbar-nav {
   margin-top: 20px;
 }
-/* .navbar {
-  top: 0px;
-  transition: all 0.3s ease-in;
-  opacity: 0;
+@media(min-width: 992px) {
+  .navbar-nav {
+    margin-top: 0px;
+  }
+  .nav-link {
+    padding: 8px;
+    border-top:  none;
+  }
 }
-.navbar.active {
-  top: 0;
-  opacity: 0.9;
-} */
