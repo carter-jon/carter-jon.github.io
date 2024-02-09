@@ -199,4 +199,5 @@ button {
 .accordion-button:not(.collapsed) {
   background-color: #db8300;
   color: #fff;
+  box-shadow: none;
 }
