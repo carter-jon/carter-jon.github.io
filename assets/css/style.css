@@ -229,7 +229,7 @@ button {
   border: none;
   
 }
-.navbar {
+/* .navbar {
   top: 0px;
   transition: all 0.3s ease-in;
   opacity: 0;
@@ -237,4 +237,4 @@ button {
 .navbar.active {
   top: 0;
   opacity: 0.9;
-}
+} */
