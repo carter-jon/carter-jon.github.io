@@ -203,16 +203,16 @@ getData();
   const header = document.querySelector("nav");
  const dropdown = document.querySelector("navbar-collapse");
 
- window.addEventListener("scroll", function () {
-   scrollpos = window.scrollY;
-   if (scrollpos >= 200) {
-     header.classList.add("active");
-   } else {
-     header.classList.remove("active");
-   }
+//  window.addEventListener("scroll", function () {
+//    scrollpos = window.scrollY;
+//    if (scrollpos >= 200) {
+//      header.classList.add("active");
+//    } else {
+//      header.classList.remove("active");
+//    }
 
-   console.log(scrollpos);
- });
+//    console.log(scrollpos);
+//  });
 
 
 $(function () {
@@ -222,7 +222,7 @@ $(function () {
       {
         scrollTop: $("#band").offset().top - 80,
       },
-      2000
+      1000
     );
   });
 });
