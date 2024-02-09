@@ -185,7 +185,7 @@ button {
 .event-location {
   font-size: 13px;
 }
-.map-link {
+.map-link a {
   font-size: 12px;
   text-decoration: none;
   color: #db8300;
