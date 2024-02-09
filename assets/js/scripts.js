@@ -180,7 +180,7 @@ function formatDate(date) {
 
   // Construct the formatted date string
   const formattedDay = day.charAt(0).toUpperCase() + day.slice(1); // Capitalize the first letter
-  return `${formattedDay}, ${dayOfMonth}${suffix}, ${formattedDate}`;
+  return `${formattedDay}, ${dayOfMonth}${suffix} ${formattedDate}`;
 }
 
 // Call the getData function to fetch and display calendar events
