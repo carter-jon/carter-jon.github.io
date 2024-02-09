@@ -196,12 +196,10 @@ function formatDate(date) {
 // Call the getData function to fetch and display calendar events
 getData();
 
-
-
 // scroll
- let scrollpos = window.scrollY;
-  const header = document.querySelector("nav");
- const dropdown = document.querySelector("navbar-collapse");
+let scrollpos = window.scrollY;
+const header = document.querySelector("nav");
+const dropdown = document.querySelector("navbar-collapse");
 
 //  window.addEventListener("scroll", function () {
 //    scrollpos = window.scrollY;
@@ -213,7 +211,6 @@ getData();
 
 //    console.log(scrollpos);
 //  });
-
 
 // $(function () {
 //   $('.nav-link').on('click', function (event) {
@@ -228,10 +225,19 @@ getData();
 //   });
 // });
 
-document
-  .getElementById("band-link")
-  .addEventListener("click", function (event) {
+const menuItems = document.querySelectorAll(".nav-link");
+
+// Loop through each menu item and attach click event listener
+menuItems.forEach(function (menuItem) {
+  menuItem.addEventListener("click", function (event) {
     event.preventDefault(); // Prevent default link behavior
-    const bandSection = document.getElementById("band");
-    bandSection.scrollIntoView({ behavior: "smooth" }); // Scroll to the band section smoothly
+    const targetId = this.getAttribute("href").substring(1); // Get target section id
+    const targetSection = document.getElementById(targetId);
+    const offset = 80; // Offset value in pixels
+    const scrollPosition = targetSection.offsetTop - offset;
+    window.scrollTo({
+      top: scrollPosition,
+      behavior: "smooth",
+    });
   });
+});
