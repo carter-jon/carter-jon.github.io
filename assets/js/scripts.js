@@ -239,5 +239,12 @@ menuItems.forEach(function (menuItem) {
       top: scrollPosition,
       behavior: "smooth",
     });
+
+    const navbarCollapses = document.querySelectorAll(".navbar-collapse");
+
+    // Iterate over each element and remove the "show" class
+    navbarCollapses.forEach(function (navbarCollapse) {
+      navbarCollapse.classList.remove("show");
+    });
   });
 });
