@@ -1,3 +1,5 @@
+// contact form ************************************************************
+
 const form = document.getElementById("form");
 const result = document.getElementById("result");
 
@@ -42,7 +44,7 @@ form.addEventListener("submit", function (e) {
     });
 });
 
-
+// calendar ******************************************************************************************
 async function getData() {
   try {
     const calendarId =
