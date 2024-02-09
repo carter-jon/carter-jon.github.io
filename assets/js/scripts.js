@@ -128,7 +128,7 @@ async function getData() {
 
         // Add events to the accordion body
         eventsByMonth[monthYear].forEach((event) => {
-          const startDate = formatDate(new Date(event.start.dateTime).toLocaleString());
+          const startDate = formatDate(new Date(event.start.dateTime));
           const endDate = new Date(event.end.dateTime).toLocaleString();
           const eventHtml = `
             <div class="event-item">
