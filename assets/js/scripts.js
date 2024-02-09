@@ -217,6 +217,7 @@ getData();
 
 $(function () {
   $('.nav-link').on('click', function () {
+    $(".navbar-collapse").collapse("hide");
     $("html, body").animate(
       {
         scrollTop: $("#band").offset().top - 80,
