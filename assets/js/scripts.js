@@ -195,3 +195,28 @@ function formatDate(date) {
 
 // Call the getData function to fetch and display calendar events
 getData();
+
+
+
+// scroll
+ let scrollpos = window.scrollY;
+  const header = document.querySelector("nav");
+ const dropdown = document.querySelector("navbar-collapse");
+
+ window.addEventListener("scroll", function () {
+   scrollpos = window.scrollY;
+   if (scrollpos >= 200) {
+     header.classList.add("active");
+   } else {
+     header.classList.remove("active");
+   }
+
+   console.log(scrollpos);
+ });
+
+
+$(function () {
+  $('.nav-link').on('click', function () {
+    alert();
+  });
+});

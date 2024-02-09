@@ -3,7 +3,7 @@
 body {
   background-color: #111;
   color: #eee;
-  padding-top: 60px;
+
 }
 
 .text-centre {
@@ -226,4 +226,14 @@ button {
 .navbar-toggler {
   margin: 0;
   border: none;
+  
+}
+.navbar {
+  top: -56px;
+  transition: all 0.3s ease-in;
+  opacity: 0;
+}
+.navbar.active {
+  top: 0;
+  opacity: 0.9;
 }
