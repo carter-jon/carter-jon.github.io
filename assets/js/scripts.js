@@ -229,7 +229,7 @@ getData();
 // });
 
 document
-  .getElementById("band")
+  .getElementById("band-link")
   .addEventListener("click", function (event) {
     event.preventDefault(); // Prevent default link behavior
     const bandSection = document.getElementById("band");
