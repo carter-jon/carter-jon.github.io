@@ -158,7 +158,7 @@ async function getData() {
 
 function formatDate(date) {
   const optionsDate = {
-    day: "numeric",
+    // day: "numeric",
     month: "long",
     hour: "numeric",
     minute: "numeric",
