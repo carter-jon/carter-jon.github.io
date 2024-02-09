@@ -219,7 +219,7 @@ $(function () {
   $('.nav-link').on('click', function () {
     $("html, body").animate(
       {
-        scrollTop: $("#band").offset().top + 80,
+        scrollTop: $("#band").offset().top - 80,
       },
       2000
     );
