@@ -215,15 +215,23 @@ getData();
 //  });
 
 
-$(function () {
-  $('.nav-link').on('click', function (event) {
-    event.preventDefault();
-    $(".navbar-collapse").collapse("hide");
-    $("html, body").animate(
-      {
-        scrollTop: $("#band").offset().top - 80,
-      },
-      1000
-    );
+// $(function () {
+//   $('.nav-link').on('click', function (event) {
+//     event.preventDefault();
+//     $(".navbar-collapse").collapse("hide");
+//     $("html, body").animate(
+//       {
+//         scrollTop: $("#band").offset().top - 80,
+//       },
+//       1000
+//     );
+//   });
+// });
+
+document
+  .getElementById("band")
+  .addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default link behavior
+    const bandSection = document.getElementById("band");
+    bandSection.scrollIntoView({ behavior: "smooth" }); // Scroll to the band section smoothly
   });
-});
