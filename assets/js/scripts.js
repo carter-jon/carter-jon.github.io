@@ -157,29 +157,30 @@ async function getData() {
 }
 
 function formatDate(date) {
-  const options = {
-    weekday: "long",
+  const optionsDate = {
     day: "numeric",
     month: "long",
     hour: "numeric",
     minute: "numeric",
-    hour12: true,
   };
-  const formattedDate = date.toLocaleDateString("en-GB", options);
+  const optionsDay = { weekday: "long" };
+  const formattedDate = date.toLocaleDateString("en-GB", optionsDate);
+  const day = date.toLocaleDateString("en-GB", optionsDay);
 
   // Add suffix to day of the month
-  const day = date.getDate();
+  const dayOfMonth = date.getDate();
   let suffix = "th";
-  if (day === 1 || day === 21 || day === 31) {
+  if (dayOfMonth === 1 || dayOfMonth === 21 || dayOfMonth === 31) {
     suffix = "st";
-  } else if (day === 2 || day === 22) {
+  } else if (dayOfMonth === 2 || dayOfMonth === 22) {
     suffix = "nd";
-  } else if (day === 3 || day === 23) {
+  } else if (dayOfMonth === 3 || dayOfMonth === 23) {
     suffix = "rd";
   }
 
-  // Replace 'day' in the formatted date with day and suffix
-  return formattedDate.replace("day", `${day}${suffix}`);
+  // Construct the formatted date string
+  const formattedDay = day.charAt(0).toUpperCase() + day.slice(1); // Capitalize the first letter
+  return `${formattedDay}, ${dayOfMonth}${suffix}, ${formattedDate}`;
 }
 
 // Call the getData function to fetch and display calendar events
