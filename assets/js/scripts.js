@@ -75,26 +75,14 @@ async function getData() {
         eventsByMonth[monthYear].push(event);
       });
 
-      // Sort months chronologically
-      const sortedMonths = Object.keys(eventsByMonth).sort((a, b) => {
-        const dateA = new Date(a);
-        const dateB = new Date(b);
-        return dateA - dateB;
-      });
-
-      // Get current month and year
+      // Get current date
       const currentDate = new Date();
       const currentMonthYear = `${currentDate.toLocaleString("default", {
         month: "long",
       })} ${currentDate.getFullYear()}`;
 
       // Loop through each month and create accordion items
-      sortedMonths.forEach((monthYear) => {
-        // Check if the month is in the past
-        if (new Date(monthYear) < currentDate) {
-          return;
-        }
-
+      for (const monthYear in eventsByMonth) {
         // Create accordion item
         const accordionItem = document.createElement("div");
         accordionItem.classList.add("accordion-item");
@@ -151,7 +139,7 @@ async function getData() {
 
         // Append accordion item to the container
         accordionContainer.appendChild(accordionItem);
-      });
+      }
     } else {
       console.log("No events found.");
     }
