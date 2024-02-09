@@ -91,7 +91,7 @@ async function getData() {
       });
 
       // Loop through each month and create accordion items
-      sortedMonthKeys.forEach((monthYear) => {
+      sortedMonthKeys.forEach((monthYear, index) => {
         // Create accordion item
         const accordionItem = document.createElement("div");
         accordionItem.classList.add("accordion-item");
