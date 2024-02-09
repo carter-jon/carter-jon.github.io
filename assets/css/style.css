@@ -9,6 +9,9 @@ body {
 .text-centre {
   text-align: center;
 }
+.text-white {
+  color: #fff;
+}
 
 img {
   display: block;
@@ -45,7 +48,7 @@ h1, h2, h3, h4 {
 h1 {
   padding: 60px 10% 0;
   font-size: 50px;
-  color: rgb(192, 0, 0);
+  color: rgb(192, 51, 0);
   margin-bottom: 30px;
   line-height: 1em;
 }
