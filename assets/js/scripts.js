@@ -81,6 +81,8 @@ async function getData() {
         month: "long",
       })} ${currentDate.getFullYear()}`;
 
+      let isFirstAccordionItem = true;
+
       // Extract month-year keys and sort them chronologically
       const sortedMonthKeys = Object.keys(eventsByMonth).sort((a, b) => {
         const dateA = new Date(a);
@@ -155,6 +157,8 @@ async function getData() {
 
         // Append accordion item to the container
         accordionContainer.appendChild(accordionItem);
+
+        isFirstAccordionItem = false;
       });
     } else {
       console.log("No events found.");
