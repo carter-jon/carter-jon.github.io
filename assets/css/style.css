@@ -247,9 +247,16 @@ nav.navbar {
   background-color: rgba(0,0,0,0.8);
 }
 .navbar .logo {
-  height: 24px;
-  width: auto;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: left;
   display: block;
+}
+.navbar-brand {
+  display: block;
+  height: 40px;
+  width: 200px;
 }
 @media(min-width: 992px) {
   .navbar-nav {
