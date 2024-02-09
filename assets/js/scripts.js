@@ -81,8 +81,15 @@ async function getData() {
         month: "long",
       })} ${currentDate.getFullYear()}`;
 
+      // Extract month-year keys and sort them chronologically
+      const sortedMonthKeys = Object.keys(eventsByMonth).sort((a, b) => {
+        const dateA = new Date(a);
+        const dateB = new Date(b);
+        return dateA - dateB;
+      });
+
       // Loop through each month and create accordion items
-      for (const monthYear in eventsByMonth) {
+      sortedMonthKeys.forEach((monthYear) => {
         // Create accordion item
         const accordionItem = document.createElement("div");
         accordionItem.classList.add("accordion-item");
@@ -124,10 +131,17 @@ async function getData() {
           const startDate = new Date(event.start.dateTime).toLocaleString();
           const endDate = new Date(event.end.dateTime).toLocaleString();
           const eventHtml = `
-            <p><strong>${event.summary}</strong></p>
-            <p><strong>Location:</strong> ${event.location}</p>
-            <p><strong>Start:</strong> ${startDate}</p>
-            <p><strong>End:</strong> ${endDate}</p>
+            <div class="event-title">
+              ${event.summary}
+            </div>
+            <div class="event-location">
+              <div class="label">Location:</div>
+              <div class="value">${event.location}</div>
+            </div>
+            <div class="event-date">
+              <div class="label">Start:</div>
+              <div class="value">${startDate}</div>
+            </div>
           `;
           accordionBody.innerHTML += eventHtml;
         });
@@ -139,7 +153,7 @@ async function getData() {
 
         // Append accordion item to the container
         accordionContainer.appendChild(accordionItem);
-      }
+      });
     } else {
       console.log("No events found.");
     }
