@@ -65,30 +65,51 @@ async function getData() {
       // Clear existing content in the events container
       eventsContainer.innerHTML = "";
 
-      // Loop through each event and create HTML elements to display them
+      // Group events by month
+      const eventsByMonth = {};
       data.items.forEach((event) => {
-        // Create a div element for the event
-        const eventDiv = document.createElement("div");
-        eventDiv.classList.add("event");
-
-        // Create HTML content for the event
-        const htmlContent = `
-                    <h2>${event.summary}</h2>
-                    <p><strong>Location:</strong> ${event.location}</p>
-                    <p><strong>Start:</strong> ${new Date(
-                      event.start.dateTime
-                    ).toLocaleString()}</p>
-                    <p><strong>End:</strong> ${new Date(
-                      event.end.dateTime
-                    ).toLocaleString()}</p>
-                `;
-
-        // Set the HTML content of the event div
-        eventDiv.innerHTML = htmlContent;
-
-        // Append the event div to the events container
-        eventsContainer.appendChild(eventDiv);
+        const startDate = new Date(event.start.dateTime);
+        const monthYear = `${startDate.toLocaleString("default", {
+          month: "long",
+        })} ${startDate.getFullYear()}`;
+        if (!eventsByMonth[monthYear]) {
+          eventsByMonth[monthYear] = [];
+        }
+        eventsByMonth[monthYear].push(event);
       });
+
+      // Loop through each month
+      for (const monthYear in eventsByMonth) {
+        // Create a heading for the month
+        const monthHeading = document.createElement("h2");
+        monthHeading.textContent = monthYear;
+        eventsContainer.appendChild(monthHeading);
+
+        // Loop through events in the current month
+        eventsByMonth[monthYear].forEach((event) => {
+          // Create a div element for the event
+          const eventDiv = document.createElement("div");
+          eventDiv.classList.add("event");
+
+          // Create HTML content for the event
+          const htmlContent = `
+                        <h3>${event.summary}</h3>
+                        <p><strong>Location:</strong> ${event.location}</p>
+                        <p><strong>Start:</strong> ${new Date(
+                          event.start.dateTime
+                        ).toLocaleString()}</p>
+                        <p><strong>End:</strong> ${new Date(
+                          event.end.dateTime
+                        ).toLocaleString()}</p>
+                    `;
+
+          // Set the HTML content of the event div
+          eventDiv.innerHTML = htmlContent;
+
+          // Append the event div to the events container
+          eventsContainer.appendChild(eventDiv);
+        });
+      }
     } else {
       console.log("No events found.");
     }
