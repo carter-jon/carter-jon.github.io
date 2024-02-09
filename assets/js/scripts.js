@@ -134,13 +134,13 @@ async function getData() {
             <div class="event-title">
               ${event.summary}
             </div>
-            <div class="event-location">
-              <div class="label">Location:</div>
-              <div class="value">${event.location}</div>
-            </div>
             <div class="event-date">
               <div class="label">Start:</div>
               <div class="value">${startDate}</div>
+            </div>
+            <div class="event-location">
+              <div class="label">Location:</div>
+              <div class="value">${event.location}</div>
             </div>
           `;
           accordionBody.innerHTML += eventHtml;
