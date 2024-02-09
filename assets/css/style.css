@@ -208,7 +208,7 @@ button {
   background-color: #444;
   color: #eee;
   font-family: 'Bebas Neue';
-  font-size: 18px;
+  font-size: 22px;
 }
 .accordion-button:not(.collapsed) {
   background-color: #db8300;
