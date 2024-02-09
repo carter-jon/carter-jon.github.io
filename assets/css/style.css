@@ -178,15 +178,15 @@ button {
   margin-bottom: 20px;
 }
 .event-title {
-  font-size: 20px;
+  font-size: 18px;
   color: #db8300;
   font-weight: bold;
 }
 .event-location {
-  font-size: 14px;
+  font-size: 13px;
 }
 .event-date {
-  font-size: 18px;
+  font-size: 16px;
 }
 .accordion-button {
   margin: 0;
