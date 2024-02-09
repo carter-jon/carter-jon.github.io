@@ -135,6 +135,9 @@ async function getData() {
               <div class="event-title">${event.summary}</div>
               <div class="event-date">${startDate}</div>
               <div class="event-location">${event.location}</div>
+              <div class="map-link"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
+                event.location
+              )}" target="_blank">Show Map</a></div>
             </div>
           `;
           accordionBody.innerHTML += eventHtml;

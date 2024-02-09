@@ -185,6 +185,9 @@ button {
 .event-location {
   font-size: 13px;
 }
+.map-link {
+  font-size: 12px;
+}
 .event-date {
   font-size: 16px;
 }
