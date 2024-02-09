@@ -75,6 +75,13 @@ async function getData() {
         eventsByMonth[monthYear].push(event);
       });
 
+      // Sort months chronologically
+      const sortedMonths = Object.keys(eventsByMonth).sort((a, b) => {
+        const dateA = new Date(a);
+        const dateB = new Date(b);
+        return dateA - dateB;
+      });
+
       // Get current month and year
       const currentDate = new Date();
       const currentMonthYear = `${currentDate.toLocaleString("default", {
@@ -82,10 +89,10 @@ async function getData() {
       })} ${currentDate.getFullYear()}`;
 
       // Loop through each month and create accordion items
-      for (const monthYear in eventsByMonth) {
+      sortedMonths.forEach((monthYear) => {
         // Check if the month is in the past
         if (new Date(monthYear) < currentDate) {
-          continue;
+          return;
         }
 
         // Create accordion item
@@ -96,16 +103,16 @@ async function getData() {
         const accordionHeader = document.createElement("h2");
         accordionHeader.classList.add("accordion-header");
         accordionHeader.innerHTML = `
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear.replace(
-                              /\s/g,
-                              ""
-                            )}" aria-expanded="false" aria-controls="collapse${monthYear.replace(
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear.replace(
+            /\s/g,
+            ""
+          )}" aria-expanded="false" aria-controls="collapse${monthYear.replace(
           /\s/g,
           ""
         )}">
-                                ${monthYear}
-                            </button>
-                        `;
+            ${monthYear}
+          </button>
+        `;
 
         // Create accordion collapse container
         const accordionCollapse = document.createElement("div");
@@ -129,11 +136,11 @@ async function getData() {
           const startDate = new Date(event.start.dateTime).toLocaleString();
           const endDate = new Date(event.end.dateTime).toLocaleString();
           const eventHtml = `
-                                <p><strong>${event.summary}</strong></p>
-                                <p><strong>Location:</strong> ${event.location}</p>
-                                <p><strong>Start:</strong> ${startDate}</p>
-                                <p><strong>End:</strong> ${endDate}</p>
-                            `;
+            <p><strong>${event.summary}</strong></p>
+            <p><strong>Location:</strong> ${event.location}</p>
+            <p><strong>Start:</strong> ${startDate}</p>
+            <p><strong>End:</strong> ${endDate}</p>
+          `;
           accordionBody.innerHTML += eventHtml;
         });
 
@@ -144,7 +151,7 @@ async function getData() {
 
         // Append accordion item to the container
         accordionContainer.appendChild(accordionItem);
-      }
+      });
     } else {
       console.log("No events found.");
     }
