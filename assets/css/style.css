@@ -246,7 +246,7 @@ button {
 nav.navbar {
   background-color: #222;
   background-color: rgb(17,17,17);
-  background-color: linear-gradient(0deg, rgba(17,17,17,1) 0%, rgba(34,34,34,1) 100%);
+  background: linear-gradient(0deg, #111111 0%, #333333 100%) !important;
   box-shadow: 0 6px 17px rgba(0,0,0,0.6)
 }
 .navbar .logo {
