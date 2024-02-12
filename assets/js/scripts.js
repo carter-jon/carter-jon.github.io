@@ -203,7 +203,7 @@ const dropdown = document.querySelector("navbar-collapse");
 
  window.addEventListener("scroll", function () {
    scrollpos = window.scrollY;
-   if (scrollpos >= 200) {
+   if (scrollpos >= 500) {
      header.classList.add("active");
    } else {
      header.classList.remove("active");
