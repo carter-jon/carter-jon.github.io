@@ -198,19 +198,19 @@ getData();
 
 // scroll
 let scrollpos = window.scrollY;
-const header = document.querySelector("nav");
+const header = document.querySelector("navbar-brand");
 const dropdown = document.querySelector("navbar-collapse");
 
-//  window.addEventListener("scroll", function () {
-//    scrollpos = window.scrollY;
-//    if (scrollpos >= 200) {
-//      header.classList.add("active");
-//    } else {
-//      header.classList.remove("active");
-//    }
+ window.addEventListener("scroll", function () {
+   scrollpos = window.scrollY;
+   if (scrollpos >= 200) {
+     header.classList.add("active");
+   } else {
+     header.classList.remove("active");
+   }
 
-//    console.log(scrollpos);
-//  });
+   console.log(scrollpos);
+ });
 
 // $(function () {
 //   $('.nav-link').on('click', function (event) {
