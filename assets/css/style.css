@@ -217,6 +217,9 @@ button {
   font-family: 'Bebas Neue';
   font-size: 22px;
 }
+.accordion-button:focus {
+  box-shadow: none;
+}
 .accordion-button:not(.collapsed) {
   background-color: #f25500;
   color: #fff;
