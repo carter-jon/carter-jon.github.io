@@ -198,7 +198,7 @@ getData();
 
 // scroll
 let scrollpos = window.scrollY;
-const header = document.querySelector("navbar-brand");
+const header = document.querySelector(".navbar-brand");
 const dropdown = document.querySelector("navbar-collapse");
 
  window.addEventListener("scroll", function () {
