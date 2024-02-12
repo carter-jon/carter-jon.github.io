@@ -81,17 +81,14 @@ async function getData() {
         month: "long",
       })} ${currentDate.getFullYear()}`;
 
-      let isFirstAccordionItem = true;
-
-      // Extract month-year keys and sort them chronologically
-      const sortedMonthKeys = Object.keys(eventsByMonth).sort((a, b) => {
-        const dateA = new Date(a);
-        const dateB = new Date(b);
-        return dateA - dateB;
-      });
-
       // Loop through each month and create accordion items
-      sortedMonthKeys.forEach((monthYear, index) => {
+      for (const monthYear in eventsByMonth) {
+        // Check if the month is in the past
+        const monthDate = new Date(monthYear);
+        if (monthDate < currentDate) {
+          continue; // Skip to the next iteration if the month is in the past
+        }
+
         // Create accordion item
         const accordionItem = document.createElement("div");
         accordionItem.classList.add("accordion-item");
@@ -100,18 +97,15 @@ async function getData() {
         const accordionHeader = document.createElement("h2");
         accordionHeader.classList.add("accordion-header");
         accordionHeader.innerHTML = `
-          <button class="accordion-button ${
-            index === 0 && monthYear === currentMonthYear
-              ? "" // Don't add 'collapsed' class for the first item when it's the current month
-              : "collapsed" // Add 'collapsed' class for other items or when the first item is not the current month
-          }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear.replace(
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear.replace(
+            /\s/g,
+            ""
+          )}" aria-expanded="false" aria-controls="collapse${monthYear.replace(
           /\s/g,
           ""
-        )}" aria-expanded="${
-          index === 0 && monthYear === currentMonthYear ? "true" : "false"
-        }" aria-controls="collapse${monthYear.replace(/\s/g, "")}">
+        )}">
             ${monthYear}
-        </button>
+          </button>
         `;
 
         // Create accordion collapse container
@@ -155,9 +149,7 @@ async function getData() {
 
         // Append accordion item to the container
         accordionContainer.appendChild(accordionItem);
-
-        isFirstAccordionItem = false;
-      });
+      }
     } else {
       console.log("No events found.");
     }
