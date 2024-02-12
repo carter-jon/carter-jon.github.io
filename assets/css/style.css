@@ -237,6 +237,9 @@ button {
   padding: 15px;
   border-top: 1px solid #333;
 }
+.nav-link:focus {
+  color: #fff;
+}
 .navbar-toggler:focus {
   box-shadow: none;
 }
