@@ -164,6 +164,9 @@ button {
   outline: 1px solid red;
   background-color: #fff;
 }
+.form-row input:visited, .form-row textarea:visited {
+  background-color: #fff;
+}
 .form-label {
   color: #999;
   margin-bottom: 20px;
