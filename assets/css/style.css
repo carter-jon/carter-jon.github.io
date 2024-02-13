@@ -176,7 +176,7 @@ button {
 
 @media(min-width: 700px) {
   .form-row {
-    grid-template-columns: 160px 400px;
+    grid-template-columns: 160px 350px;
     gap: 20px;
     padding: 0;
     justify-content: center;
