@@ -44,6 +44,14 @@ form.addEventListener("submit", function (e) {
     });
 });
 
+
+
+
+
+
+
+
+
 // calendar ******************************************************************************************
 async function getData() {
   try {
@@ -90,7 +98,7 @@ async function getData() {
       const accordionContainer = document.getElementById("accordionEvents");
 
       // Loop through each month and create accordion items
-      sortedMonthKeys.forEach((monthYear) => {
+      sortedMonthKeys.forEach((monthYear, index) => {
         // Create accordion item
         const accordionItem = document.createElement("div");
         accordionItem.classList.add("accordion-item");
@@ -107,7 +115,11 @@ async function getData() {
         const accordionHeader = document.createElement("h2");
         accordionHeader.classList.add("accordion-header");
         accordionHeader.innerHTML = `
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="false" aria-controls="collapse${monthYear}">
+          <button class="accordion-button ${
+            index === 0 ? "" : "collapsed"
+          }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="${
+          index === 0 ? "true" : "false"
+        }" aria-controls="collapse${monthYear}">
             ${monthString}
           </button>
         `;
@@ -116,6 +128,9 @@ async function getData() {
         const accordionCollapse = document.createElement("div");
         accordionCollapse.id = `collapse${monthYear}`;
         accordionCollapse.classList.add("accordion-collapse", "collapse");
+        if (index === 0) {
+          accordionCollapse.classList.add("show"); // Open first accordion item initially
+        }
         accordionCollapse.setAttribute(
           "aria-labelledby",
           `heading${monthYear}`
@@ -197,7 +212,16 @@ function formatDate(date, currentDate) {
 // Call the getData function to fetch and display calendar events
 getData();
 
-// scroll
+
+
+
+
+
+
+
+
+
+// scroll *******************************************************************************************
 let scrollpos = window.scrollY;
 const header = document.querySelector(".navbar-brand");
 const dropdown = document.querySelector("navbar-collapse");
