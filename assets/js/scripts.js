@@ -63,9 +63,7 @@ async function getData() {
       const eventsByMonth = {};
       data.items.forEach((event) => {
         const startDate = new Date(event.start.dateTime);
-        const monthYear = `${startDate.toLocaleString("default", {
-          month: "long",
-        })} ${startDate.getFullYear()}`;
+        const monthYear = `${startDate.getFullYear()}${startDate.getMonth()}`;
         if (!eventsByMonth[monthYear]) {
           eventsByMonth[monthYear] = [];
         }
@@ -74,54 +72,49 @@ async function getData() {
 
       // Get current date
       const currentDate = new Date();
-      const currentMonthYear = `${currentDate.toLocaleString("default", {
-        month: "long",
-      })} ${currentDate.getFullYear()}`;
+      const currentMonthYear = `${currentDate.getFullYear()}${currentDate.getMonth()}`;
 
       // Extract month-year keys and sort them chronologically
-      const sortedMonthKeys = Object.keys(eventsByMonth).sort((a, b) => {
-        const [monthA, yearA] = a.split(" ");
-        const [monthB, yearB] = b.split(" ");
-        return new Date(yearA, monthA) - new Date(yearB, monthB);
-      });
+      const sortedMonthKeys = Object.keys(eventsByMonth).sort();
 
       // Get reference to the accordion container
       const accordionContainer = document.getElementById("accordionEvents");
 
       // Loop through each month and create accordion items
-      sortedMonthKeys.forEach((monthYear, index) => {
+      sortedMonthKeys.forEach((monthYear) => {
         // Create accordion item
         const accordionItem = document.createElement("div");
         accordionItem.classList.add("accordion-item");
 
         // Create accordion header
+        const month = parseInt(monthYear.substring(4));
+        const year = parseInt(monthYear.substring(0, 4));
+        const monthString = new Date(year, month).toLocaleString("en-US", {
+          month: "long",
+          year: "numeric",
+        });
         const accordionHeader = document.createElement("h2");
         accordionHeader.classList.add("accordion-header");
         accordionHeader.innerHTML = `
           <button class="accordion-button ${
-            index === 0 && monthYear === currentMonthYear
-              ? "" // Don't add 'collapsed' class for the first item when it's the current month
-              : "collapsed" // Add 'collapsed' class for other items or when the first item is not the current month
-          }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear.replace(
-          /\s/g,
-          ""
-        )}" aria-expanded="${
-          index === 0 && monthYear === currentMonthYear ? "true" : "false"
-        }" aria-controls="collapse${monthYear.replace(/\s/g, "")}">
-            ${monthYear}
+            monthYear === currentMonthYear ? "" : "collapsed"
+          }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="${
+          monthYear === currentMonthYear ? "true" : "false"
+        }" aria-controls="collapse${monthYear}">
+            ${monthString}
           </button>
         `;
 
         // Create accordion collapse container
         const accordionCollapse = document.createElement("div");
-        accordionCollapse.id = `collapse${monthYear.replace(/\s/g, "")}`;
+        accordionCollapse.id = `collapse${monthYear}`;
         accordionCollapse.classList.add("accordion-collapse", "collapse");
         if (monthYear === currentMonthYear) {
           accordionCollapse.classList.add("show"); // Open current month accordion item
         }
         accordionCollapse.setAttribute(
           "aria-labelledby",
-          `heading${monthYear.replace(/\s/g, "")}`
+          `heading${monthYear}`
         );
         accordionCollapse.setAttribute("data-bs-parent", "#accordionEvents");
 
@@ -179,9 +172,8 @@ function formatDate(date) {
   const formattedDate = date.toLocaleDateString("en-GB", optionsDate);
   const day = date.toLocaleDateString("en-GB", optionsDay);
 
-  // Add suffix to day of the month
-  const dayOfMonth = date.getDate();
   let suffix = "th";
+  const dayOfMonth = date.getDate();
   if (dayOfMonth === 1 || dayOfMonth === 21 || dayOfMonth === 31) {
     suffix = "st";
   } else if (dayOfMonth === 2 || dayOfMonth === 22) {
