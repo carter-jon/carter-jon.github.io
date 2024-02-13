@@ -199,7 +199,15 @@ button {
 }
 .event-item {
   margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
 }
+.event-item:last-child {
+  margin-bottom: 20px;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
 .event-title {
   font-size: 18px;
   color: #f25500;
