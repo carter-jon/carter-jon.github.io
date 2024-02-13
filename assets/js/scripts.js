@@ -85,10 +85,7 @@ async function getData() {
       const sortedMonthKeys = Object.keys(eventsByMonth).sort((a, b) => {
         const [monthA, yearA] = a.split(" ");
         const [monthB, yearB] = b.split(" ");
-        return (
-          new Date(yearA, monthNames.indexOf(monthA)) -
-          new Date(yearB, monthNames.indexOf(monthB))
-        );
+        return new Date(yearA, monthA) - new Date(yearB, monthB);
       });
 
       // Loop through each month and create accordion items
