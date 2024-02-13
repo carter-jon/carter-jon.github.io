@@ -208,8 +208,6 @@ const dropdown = document.querySelector("navbar-collapse");
    } else {
      header.classList.remove("active");
    }
-
-   console.log(scrollpos);
  });
 
 // $(function () {
