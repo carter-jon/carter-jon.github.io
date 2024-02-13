@@ -70,12 +70,18 @@ async function getData() {
         eventsByMonth[monthYear].push(event);
       });
 
-      // Get current date
-      const currentDate = new Date();
-      const currentMonthYear = `${currentDate.getFullYear()}${currentDate.getMonth()}`;
-
       // Extract month-year keys and sort them chronologically
-      const sortedMonthKeys = Object.keys(eventsByMonth).sort();
+      const sortedMonthKeys = Object.keys(eventsByMonth).sort((a, b) => {
+        const dateA = new Date(
+          parseInt(a.substring(0, 4)),
+          parseInt(a.substring(4))
+        );
+        const dateB = new Date(
+          parseInt(b.substring(0, 4)),
+          parseInt(b.substring(4))
+        );
+        return dateA - dateB;
+      });
 
       // Get reference to the accordion container
       const accordionContainer = document.getElementById("accordionEvents");
@@ -87,20 +93,18 @@ async function getData() {
         accordionItem.classList.add("accordion-item");
 
         // Create accordion header
-        const month = parseInt(monthYear.substring(4));
-        const year = parseInt(monthYear.substring(0, 4));
-        const monthString = new Date(year, month).toLocaleString("en-US", {
+        const startDate = new Date(
+          parseInt(monthYear.substring(0, 4)),
+          parseInt(monthYear.substring(4))
+        );
+        const monthString = startDate.toLocaleString("en-US", {
           month: "long",
           year: "numeric",
         });
         const accordionHeader = document.createElement("h2");
         accordionHeader.classList.add("accordion-header");
         accordionHeader.innerHTML = `
-          <button class="accordion-button ${
-            monthYear === currentMonthYear ? "" : "collapsed"
-          }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="${
-          monthYear === currentMonthYear ? "true" : "false"
-        }" aria-controls="collapse${monthYear}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="false" aria-controls="collapse${monthYear}">
             ${monthString}
           </button>
         `;
@@ -109,9 +113,6 @@ async function getData() {
         const accordionCollapse = document.createElement("div");
         accordionCollapse.id = `collapse${monthYear}`;
         accordionCollapse.classList.add("accordion-collapse", "collapse");
-        if (monthYear === currentMonthYear) {
-          accordionCollapse.classList.add("show"); // Open current month accordion item
-        }
         accordionCollapse.setAttribute(
           "aria-labelledby",
           `heading${monthYear}`
@@ -159,32 +160,6 @@ async function getData() {
   } catch (error) {
     console.log("Error fetching calendar events:", error);
   }
-}
-
-function formatDate(date) {
-  const optionsDate = {
-    // day: "numeric",
-    month: "long",
-    hour: "numeric",
-    minute: "numeric",
-  };
-  const optionsDay = { weekday: "long" };
-  const formattedDate = date.toLocaleDateString("en-GB", optionsDate);
-  const day = date.toLocaleDateString("en-GB", optionsDay);
-
-  let suffix = "th";
-  const dayOfMonth = date.getDate();
-  if (dayOfMonth === 1 || dayOfMonth === 21 || dayOfMonth === 31) {
-    suffix = "st";
-  } else if (dayOfMonth === 2 || dayOfMonth === 22) {
-    suffix = "nd";
-  } else if (dayOfMonth === 3 || dayOfMonth === 23) {
-    suffix = "rd";
-  }
-
-  // Construct the formatted date string
-  const formattedDay = day.charAt(0).toUpperCase() + day.slice(1); // Capitalize the first letter
-  return `${formattedDay}, ${dayOfMonth}${suffix} ${formattedDate}`;
 }
 
 // Call the getData function to fetch and display calendar events
