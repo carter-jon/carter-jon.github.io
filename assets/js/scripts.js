@@ -59,9 +59,6 @@ async function getData() {
 
     // Check if the response contains items
     if (data.items && data.items.length > 0) {
-      // Get reference to the accordion container
-      const accordionContainer = document.getElementById("accordionEvents");
-
       // Group events by month
       const eventsByMonth = {};
       data.items.forEach((event) => {
@@ -87,6 +84,9 @@ async function getData() {
         const [monthB, yearB] = b.split(" ");
         return new Date(yearA, monthA) - new Date(yearB, monthB);
       });
+
+      // Get reference to the accordion container
+      const accordionContainer = document.getElementById("accordionEvents");
 
       // Loop through each month and create accordion items
       sortedMonthKeys.forEach((monthYear, index) => {
