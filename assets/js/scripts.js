@@ -70,6 +70,9 @@ async function getData() {
         eventsByMonth[monthYear].push(event);
       });
 
+      // Get current date
+      const currentDate = new Date();
+
       // Extract month-year keys and sort them chronologically
       const sortedMonthKeys = Object.keys(eventsByMonth).sort((a, b) => {
         const dateA = new Date(
@@ -130,7 +133,10 @@ async function getData() {
 
         // Add events to the accordion body
         eventsByMonth[monthYear].forEach((event) => {
-          const startDate = formatDate(new Date(event.start.dateTime));
+          const startDate = formatDate(
+            new Date(event.start.dateTime),
+            currentDate
+          );
           const endDate = new Date(event.end.dateTime).toLocaleString();
           const isExpired = new Date(event.start.dateTime) < currentDate;
           const eventHtml = `
@@ -162,7 +168,7 @@ async function getData() {
   }
 }
 
-function formatDate(date) {
+function formatDate(date, currentDate) {
   const optionsDate = {
     // day: "numeric",
     month: "long",
