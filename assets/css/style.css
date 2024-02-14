@@ -97,7 +97,7 @@ p {
 
 .divider {
   border-bottom: 1px solid #666;
-  margin: 70px 20%;
+  margin: 70px 0;
 }
 
 @media (min-width: 600px) {
