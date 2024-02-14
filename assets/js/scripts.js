@@ -256,7 +256,7 @@ menuItems.forEach(function (menuItem) {
     event.preventDefault(); // Prevent default link behavior
     const targetId = this.getAttribute("href").substring(1); // Get target section id
     const targetSection = document.getElementById(targetId);
-    const offset = 80; // Offset value in pixels
+    const offset = 90; // Offset value in pixels
     const scrollPosition = targetSection.offsetTop - offset;
     window.scrollTo({
       top: scrollPosition,
