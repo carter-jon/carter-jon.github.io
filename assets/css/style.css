@@ -42,8 +42,13 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   width: auto;
-  height: 280px;
+  height: 200px;
   border-radius: 20px;
+}
+@media (min-width: 800px) {
+  .banner img.logo {
+    height: 280px;
+  }
 }
 
 h1, h2, h3, h4 {
