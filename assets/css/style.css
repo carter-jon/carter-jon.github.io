@@ -132,7 +132,7 @@ p {
 .audio .track {
   margin: 0 0 30px 0;
 }
-@media (min-width: 900px) {
+@media (min-width: 800px) {
   .audio {
     grid-template-columns: auto auto;
     gap: 30px;
@@ -140,6 +140,12 @@ p {
   }
   .audio .track {
     margin: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .audio {
+    grid-template-columns: auto auto auto;
+    gap: 40px;
   }
 }
 
