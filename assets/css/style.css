@@ -128,8 +128,9 @@ p {
 }
 @media (min-width: 900px) {
   .audio {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
     gap: 30px;
+    justify-content: center;
   }
   .audio .track {
     margin: 0;
