@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 body {
   background-color: #111;
   color: #eee;
-
 }
 
 .text-centre {
@@ -12,7 +11,6 @@ body {
 .text-white {
   color: #fff;
 }
-
 
 img {
   display: block;
@@ -51,8 +49,10 @@ img {
   }
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Bebas neue', sans-serif;
+h1,
+h2,
+h3 {
+  font-family: "Bebas neue", sans-serif;
 }
 
 h1 {
@@ -110,11 +110,12 @@ p {
 .band .member {
   margin-bottom: 40px;
 }
+.band p {
+  color: #bbb;
+}
 .band .member img {
   margin-bottom: 40px;
 }
-
-
 
 .testimonial {
   padding: 20px 10%;
@@ -149,6 +150,14 @@ p {
 }
 .audio .track {
   margin: 0 0 30px 0;
+}
+.audio .title {
+  color: #fff;
+}
+.audio .artist {
+  color: #999;
+  margin-bottom: 12px;
+  font-size: 13px;
 }
 @media (min-width: 800px) {
   .audio {
@@ -185,17 +194,20 @@ button {
 .form-row label {
   text-align: left;
 }
-.form-row input, .form-row textarea {
+.form-row input,
+.form-row textarea {
   padding: 10px;
   background-color: #ccc;
   border: none;
   font-weight: bold;
 }
-.form-row input:focus, .form-row textarea:focus {
+.form-row input:focus,
+.form-row textarea:focus {
   outline: 1px solid red;
   background-color: #fff;
 }
-.form-row input:visited, .form-row textarea:visited {
+.form-row input:visited,
+.form-row textarea:visited {
   background-color: #fff;
 }
 .form-label {
@@ -204,11 +216,11 @@ button {
 }
 #result {
   margin-top: 40px;
-  color:rgb(13, 160, 13);
+  color: rgb(13, 160, 13);
   font-size: 16px;
 }
 
-@media(min-width: 700px) {
+@media (min-width: 700px) {
   .form-row {
     grid-template-columns: 160px 350px;
     gap: 20px;
@@ -219,7 +231,6 @@ button {
     text-align: right;
   }
 }
-
 
 /* calendar */
 .accordion-item {
@@ -271,7 +282,7 @@ button {
   border: none;
   background-color: #444;
   color: #eee;
-  font-family: 'Bebas Neue';
+  font-family: "Bebas Neue";
   font-size: 22px;
 }
 .accordion-button:focus {
@@ -287,7 +298,7 @@ button {
   max-width: 600px;
   margin: 0 auto;
   --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23cccccc'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23cccccc'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 /* navbar */
@@ -310,9 +321,9 @@ button {
 }
 nav.navbar {
   background-color: #222;
-  background-color: rgb(17,17,17);
+  background-color: rgb(17, 17, 17);
   background: linear-gradient(0deg, #333333 0%, #111111 100%) !important;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.6)
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
 }
 .navbar .logo {
   height: 100%;
@@ -332,13 +343,13 @@ nav.navbar {
 .navbar-brand.active {
   opacity: 1;
 }
-@media(min-width: 992px) {
+@media (min-width: 992px) {
   .navbar-nav {
     margin-top: 0px;
   }
   .nav-link {
     padding: 8px;
-    border-top:  none;
+    border-top: none;
   }
 }
 
