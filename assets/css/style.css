@@ -156,7 +156,7 @@ p {
 }
 .audio .artist {
   color: #999;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   font-size: 13px;
 }
 @media (min-width: 800px) {
