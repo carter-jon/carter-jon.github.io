@@ -30,7 +30,6 @@ img {
   object-position: center center;
   width: 100%;
   height: 100%;
-  filter: grayscale(1);
 }
 .banner img.logo {
   position: absolute;

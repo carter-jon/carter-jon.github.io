@@ -77,7 +77,11 @@
     <div id="home"></div>
 
     <div class="banner">
-      <img src="/assets/images/bg.jpg" class="bg" />
+      <picture>
+        <source media="(min-width:1600px)" srcset="/assets/images/bg.webp">
+        <source media="(min-width:600px)" srcset="/assets/images/bg1600.webp">
+        <img class="bg" src="/assets/images/bg600.webp" alt="Background">
+      </picture>
       <img src="/assets/images/logo2.png" class="logo" />
     </div>
     <div class="container text-centre">
