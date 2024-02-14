@@ -255,9 +255,10 @@ menuItems.forEach(function (menuItem) {
   menuItem.addEventListener("click", function (event) {
     event.preventDefault(); // Prevent default link behavior
     const targetId = this.getAttribute("href").substring(1); // Get target section id
+    console.log(targetId);
     const targetSection = document.getElementById(targetId);
     const offset = 90;
-    if (targetId == "#about") {
+    if (targetId == "about") {
       offset = 40;
     }
     const scrollPosition = targetSection.offsetTop - offset;
