@@ -257,7 +257,7 @@ menuItems.forEach(function (menuItem) {
     const targetId = this.getAttribute("href").substring(1); // Get target section id
     console.log(targetId);
     const targetSection = document.getElementById(targetId);
-    const offset = 90;
+    let offset = 90;
     if (targetId == "about") {
       offset = 40;
     }
