@@ -200,6 +200,7 @@ button {
   background-color: #ccc;
   border: none;
   font-weight: bold;
+  transition: all 0.3s ease-out;
 }
 .form-row input:focus,
 .form-row textarea:focus {
