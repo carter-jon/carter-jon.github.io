@@ -274,3 +274,17 @@ menuItems.forEach(function (menuItem) {
     });
   });
 });
+
+
+
+// gallery
+const images = document.querySelectorAll(".images img");
+const overlay = document.querySelectorAll(".overlay img");
+images.forEach(function (image) {
+  image.addEventListener("click", function (event) {
+    const target = this.getAttribute("src");
+    alert(target);
+    overlay.setAttribute("src") = target;
+    overlay.classList.add('active');
+  });
+});
