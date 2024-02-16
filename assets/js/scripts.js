@@ -284,7 +284,7 @@ images.forEach(function (image) {
   image.addEventListener("click", function (event) {
     const target = this.getAttribute("src");
     alert(target);
-    overlay.setAttribute("src") = target;
+    overlay.setAttribute("src", target);
     overlay.classList.add('active');
   });
 });
