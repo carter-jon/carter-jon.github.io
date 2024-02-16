@@ -394,7 +394,7 @@ nav.navbar {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 80%;
+  width: 20%;
   height: auto;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 50px rgba(0,0,0,0.8);
@@ -411,6 +411,7 @@ nav.navbar {
 .gallery .overlay.active {
   opacity: 1;
   visibility: visible;
+  width: 80%;
 }
 @media (min-width: 600px) {
   .images {
