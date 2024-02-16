@@ -349,7 +349,7 @@ nav.navbar {
     margin-top: 0px;
   }
   .nav-link {
-    padding: 8px;
+    padding: 8px 12px !important;
     border-top: none;
   }
 }
@@ -364,4 +364,18 @@ nav.navbar {
   height: 100%;
   object-fit: contain;
   object-position: center;
+}
+
+
+/* images */
+.images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px
+}
+@media (min-width: 600px) {
+  .images {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
 }
