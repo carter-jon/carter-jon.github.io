@@ -311,7 +311,7 @@ button {
   padding: 10px 15px;
   border-top: 1px solid #333;
   font-family: 'Bebas Neue';
-  font-size: 18px;
+  font-size: 20px;
 }
 .nav-link:focus {
   color: #fff;
@@ -353,6 +353,7 @@ nav.navbar {
   .nav-link {
     padding: 0px 12px !important;
     border-top: none;
+    font-size: 22px;
   }
 }
 
