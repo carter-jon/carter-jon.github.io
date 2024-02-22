@@ -43,11 +43,11 @@ img {
   height: 280px;
   border-radius: 20px;
 }
-/* @media (min-width: 800px) {
+@media (min-width: 800px) {
   .banner img.logo {
-    height: 280px;
+    height: 380px;
   }
-} */
+}
 
 h1,
 h2,
