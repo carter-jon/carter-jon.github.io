@@ -266,7 +266,7 @@ button {
 }
 
 .event-item.expired {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 .event-item.expired .event-title {
   color: #111;
