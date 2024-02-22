@@ -351,9 +351,8 @@ nav.navbar {
     margin-top: 0px;
   }
   .nav-link {
-    padding: 0px 12px !important;
+    padding: 0px 16px !important;
     border-top: none;
-    font-size: 22px;
   }
 }
 
