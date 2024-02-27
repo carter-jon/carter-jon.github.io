@@ -371,7 +371,7 @@ nav.navbar {
 /* images */
 .gallery {
   position: relative;
-  max-width: 800px;
+  max-width: calc(100vh - 80px);
   margin: 0 auto;
 }
 .images {
@@ -412,7 +412,7 @@ nav.navbar {
 .gallery .overlay.active {
   opacity: 1;
   visibility: visible;
-  width: 90%;
+  width: 96%;
 }
 @media (min-width: 600px) {
   .images {
