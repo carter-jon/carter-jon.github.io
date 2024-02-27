@@ -310,7 +310,7 @@ button {
 .nav-link {
   padding: 10px 15px;
   border-top: 1px solid #333;
-  font-family: 'Bebas Neue';
+  font-family: "Bebas Neue";
   font-size: 20px;
 }
 .nav-link:focus {
@@ -368,7 +368,6 @@ nav.navbar {
   object-position: center;
 }
 
-
 /* images */
 .gallery {
   position: relative;
@@ -384,7 +383,7 @@ nav.navbar {
   filter: grayscale();
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .images.dark img {
   filter: blur(6px) grayscale();
@@ -399,8 +398,8 @@ nav.navbar {
   width: 20%;
   height: auto;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 50px rgba(0,0,0,0.8);
-  border: 10px solid rgba(255,255,255,0.5);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  border: 10px solid rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease-in-out;
 }
 .gallery .overlay svg {
@@ -413,7 +412,7 @@ nav.navbar {
 .gallery .overlay.active {
   opacity: 1;
   visibility: visible;
-  width: 80%;
+  width: 90%;
 }
 @media (min-width: 600px) {
   .images {
