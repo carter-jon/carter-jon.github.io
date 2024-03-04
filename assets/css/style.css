@@ -302,6 +302,10 @@ button {
   box-shadow: none;
 }
 
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-radius: 0;
+}
+
 .accordion {
   max-width: 600px;
   margin: 0 auto;
