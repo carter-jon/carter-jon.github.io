@@ -82,6 +82,14 @@ async function getData() {
       // Get reference to the accordion container
       const accordionContainer = document.getElementById("accordionEvents");
 
+      // Get current date
+      const currentDate = new Date();
+      const currentYear = currentDate.getFullYear();
+      const currentMonth = (currentDate.getMonth() + 1)
+        .toString()
+        .padStart(2, "0");
+      const currentMonthYear = `${currentYear}${currentMonth}`;
+
       // Loop through each year and create accordion
       for (const year in eventsByYear) {
         // Create year header
@@ -106,30 +114,28 @@ async function getData() {
           eventsByMonth[monthYear].push(event);
         });
 
-        // Get current date
-        const currentDate = new Date();
-
         // Sort keys (months) chronologically
         const sortedMonthKeys = Object.keys(eventsByMonth).sort();
 
         // Loop through each month and create accordion items
         for (const month of sortedMonthKeys) {
-          // Skip past months
-          const monthDate = new Date(`${year}-${month}-01`);
-          if (monthDate < currentDate) continue;
-
           // Create accordion item
           const accordionItem = document.createElement("div");
           accordionItem.classList.add("accordion-item");
 
           // Create accordion header
+          const monthDate = new Date(`${year}-${month}-01`);
           const monthString = monthDate.toLocaleString("en-US", {
             month: "long",
           });
           const accordionHeader = document.createElement("h2");
           accordionHeader.classList.add("accordion-header");
           accordionHeader.innerHTML = `
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
+            <button class="accordion-button ${
+              year + month === currentMonthYear ? "" : "collapsed"
+            }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="${
+            year + month === currentMonthYear ? "true" : "false"
+          }" aria-controls="collapse${year}${month}">
               ${monthString}
             </button>
           `;
