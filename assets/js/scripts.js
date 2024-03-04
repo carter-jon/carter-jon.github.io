@@ -44,12 +44,6 @@ form.addEventListener("submit", function (e) {
     });
 });
 
-
-
-
-
-
-
 // calendar ******************************************************************************************
 async function getData() {
   try {
@@ -98,7 +92,6 @@ async function getData() {
         const currentDate = new Date();
         const currentYear = currentDate.getFullYear();
         const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so add 1
-        
 
         // Loop through each month in the year
         for (let month = 1; month <= 12; month++) {
@@ -167,12 +160,12 @@ async function getData() {
                   <div class="event-item-content">
                     <div class="event-title">${event.summary}</div>
                     <div class="event-date">${startDate}</div>
-                  <div class="event-location">${event.location}</div>
+                    <div class="event-location">${event.location}</div>
                   </div>
                   <div class="map-link">
                     <a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
-                        event.location
-                      )}" target="_blank" title="Show on map"><i class="fa-solid fa-location-dot"></i></a>
+                      event.location
+                    )}" target="_blank" title="Show on map"><i class="fa-solid fa-location-dot"></i></a>
                   </div>
                 </div>
               `;
@@ -230,41 +223,19 @@ function formatDate(date, currentDate) {
 
 getData();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // scroll *******************************************************************************************
 let scrollpos = window.scrollY;
 const header = document.querySelector(".navbar-brand");
 const dropdown = document.querySelector("navbar-collapse");
 
- window.addEventListener("scroll", function () {
-   scrollpos = window.scrollY;
-   if (scrollpos >= 500) {
-     header.classList.add("active");
-   } else {
-     header.classList.remove("active");
-   }
- });
+window.addEventListener("scroll", function () {
+  scrollpos = window.scrollY;
+  if (scrollpos >= 500) {
+    header.classList.add("active");
+  } else {
+    header.classList.remove("active");
+  }
+});
 
 // $(function () {
 //   $('.nav-link').on('click', function (event) {
@@ -306,8 +277,6 @@ menuItems.forEach(function (menuItem) {
   });
 });
 
-
-
 // gallery
 const imageWrapper = document.querySelector(".images");
 const images = document.querySelectorAll(".images img");
@@ -317,7 +286,7 @@ images.forEach(function (image) {
   image.addEventListener("click", function (event) {
     const target = this.getAttribute("src");
     overlayImage.setAttribute("src", target);
-    overlay.classList.add('active');
+    overlay.classList.add("active");
     imageWrapper.classList.add("dark");
   });
 });
