@@ -281,6 +281,11 @@ button {
   align-items: center;
   justify-content: center;
   border: 1px solid #333;
+  transition: all 0.3s ease-in-out;
+}
+.map-link a:hover {
+  background-color: #333;
+  color: #fff;
 }
 
 .event-item.expired {
