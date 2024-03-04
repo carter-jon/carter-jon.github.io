@@ -149,9 +149,17 @@ async function getData() {
 
             // Add events as list items
             eventsByMonth[month].forEach((event) => {
-              const eventItem = document.createElement("div");
-              eventItem.textContent = event.summary;
-              accordionBody.appendChild(eventItem);
+              const eventHtml = `
+                <div class="event-item ${isExpired ? "expired" : ""}">
+                  <div class="event-title">${event.summary}</div>
+                  <div class="event-date">${startDate}</div>
+                  <div class="event-location">${event.location}</div>
+                  <div class="map-link"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
+                    event.location
+                  )}" target="_blank">Show Map</a></div>
+                </div>
+              `;
+              accordionBody.innerHTML += eventHtml;
             });
 
             // Append accordion header, body, and collapse container
