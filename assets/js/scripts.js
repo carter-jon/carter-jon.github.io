@@ -164,12 +164,15 @@ async function getData() {
               const isExpired = new Date(event.start.dateTime) < currentDate;
               const eventHtml = `
                 <div class="event-item ${isExpired ? "expired" : ""}">
-                  <div class="event-title">${event.summary}</div>
+                  <div class="event-item-header">
+                    <div class="event-title">${event.summary}</div>
+                    <div class="map-link"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
+                      event.location
+                    )}" target="_blank"><i class="fa-solid fa-location-dot"></i> Map</a></div>
+                  </div>
+
                   <div class="event-date">${startDate}</div>
                   <div class="event-location">${event.location}</div>
-                  <div class="map-link"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
-                    event.location
-                  )}" target="_blank">Show Map</a></div>
                 </div>
               `;
               accordionBody.innerHTML += eventHtml;
