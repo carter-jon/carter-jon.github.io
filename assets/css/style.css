@@ -239,6 +239,7 @@ button {
 }
 .accordion-body {
   text-align: left;
+  background-color: #ddd;
 }
 .event-item {
   margin-bottom: 20px;
@@ -263,6 +264,11 @@ button {
 }
 .event-location {
   font-size: 12px;
+}
+.map-link {
+  background-color: #333;
+  padding: 5px 12px;
+  border-radius: 10px;
 }
 .map-link a {
   font-size: 12px;
