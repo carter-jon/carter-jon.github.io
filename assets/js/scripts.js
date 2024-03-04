@@ -70,7 +70,7 @@ async function getData() {
         const year = startDate.getFullYear();
         const month = startDate.getMonth() + 1; // Month is zero-indexed, so add 1
         const monthYear = `${startDate.getFullYear()}${startDate.getMonth()}`;
-console.log(monthYear);
+
         if (!eventsByYear[year]) {
           eventsByYear[year] = {};
         }
@@ -152,7 +152,7 @@ console.log(monthYear);
             accordionBody.classList.add("accordion-body");
 
             // Sort events by start date
-            eventsByMonth[monthYear].sort((a, b) => {
+            eventsByMonth[month].sort((a, b) => {
               return new Date(a.start.dateTime) - new Date(b.start.dateTime);
             });
 
