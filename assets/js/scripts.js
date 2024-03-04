@@ -68,17 +68,22 @@ async function getData() {
     // Check if the response contains items
     if (data.items && data.items.length > 0) {
       // Group events by year and month
-      const eventsByYearMonth = {};
+      const eventsByYear = {};
       data.items.forEach((event) => {
         const startDate = new Date(event.start.dateTime);
         const year = startDate.getFullYear();
+
+        if (!eventsByYear[year]) {
+          eventsByYear[year] = {};
+        }
+
         const month = startDate.getMonth() + 1; // Month is zero-indexed, so we add 1
         const monthYear = `${year}-${month.toString().padStart(2, "0")}`; // Format as 'YYYY-MM'
 
-        if (!eventsByYearMonth[monthYear]) {
-          eventsByYearMonth[monthYear] = [];
+        if (!eventsByYear[year][monthYear]) {
+          eventsByYear[year][monthYear] = [];
         }
-        eventsByYearMonth[monthYear].push(event);
+        eventsByYear[year][monthYear].push(event);
       });
 
       // Get reference to the accordion container
@@ -87,52 +92,35 @@ async function getData() {
       // Get current year and month
       const currentDate = new Date();
       const currentYear = currentDate.getFullYear();
-      const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so we add 1
-      const currentMonthYear = `${currentYear}-${currentMonth
-        .toString()
-        .padStart(2, "0")}`;
 
-      // Sort keys (months) chronologically
-      const sortedYearMonthKeys = Object.keys(eventsByYearMonth).sort();
-
-      // Find the first year with events starting from the current year
-      let firstYearWithEvents = sortedYearMonthKeys.find(
-        (yearMonth) => yearMonth >= currentMonthYear
-      );
-
-      // If no events found starting from the current year, then find the first year with events
-      if (!firstYearWithEvents) {
-        firstYearWithEvents = sortedYearMonthKeys[0];
-      }
+      // Sort years chronologically
+      const sortedYears = Object.keys(eventsByYear).sort();
 
       // Loop through each year and create accordions
-      for (const yearMonth of sortedYearMonthKeys) {
-        if (yearMonth < firstYearWithEvents) continue; // Skip past years
-
+      for (const year of sortedYears) {
         // Create accordion for the year
         const accordionYear = document.createElement("div");
         accordionYear.classList.add("accordion-year");
 
         // Create year header
         const yearHeader = document.createElement("h3");
-        yearHeader.textContent = yearMonth.split("-")[0]; // Extract year from yearMonth
+        yearHeader.textContent = year;
         accordionYear.appendChild(yearHeader);
 
-        // Create accordion for months within the year
-        const accordionYearMonths = document.createElement("div");
-        accordionYearMonths.classList.add("accordion-year-months");
+        // Get months with events for the current year
+        const monthsWithEvents = Object.keys(eventsByYear[year]);
+
+        // Sort months chronologically
+        monthsWithEvents.sort();
 
         // Loop through each month and create accordion items
-        for (const monthYear of sortedYearMonthKeys) {
-          if (monthYear.split("-")[0] !== yearMonth.split("-")[0]) continue; // Skip months from other years
-
+        for (const monthYear of monthsWithEvents) {
           // Create accordion item for the month
           const accordionItem = document.createElement("div");
           accordionItem.classList.add("accordion-item");
 
           // Create accordion header for the month
-          const [year, month] = monthYear.split("-");
-          const startDate = new Date(year, parseInt(month) - 1); // Month is zero-indexed, so we subtract 1
+          const startDate = new Date(`${monthYear}-01`); // Set day to 01 for consistent date parsing
           const monthString = startDate.toLocaleString("en-US", {
             month: "long",
             year: "numeric",
@@ -140,11 +128,7 @@ async function getData() {
           const accordionHeader = document.createElement("h2");
           accordionHeader.classList.add("accordion-header");
           accordionHeader.innerHTML = `
-            <button class="accordion-button ${
-              monthYear === currentMonthYear ? "" : "collapsed"
-            }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="${
-            monthYear === currentMonthYear ? "true" : "false"
-          }" aria-controls="collapse${monthYear}">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="false" aria-controls="collapse${monthYear}">
               ${monthString}
             </button>
           `;
@@ -153,9 +137,6 @@ async function getData() {
           const accordionCollapse = document.createElement("div");
           accordionCollapse.id = `collapse${monthYear}`;
           accordionCollapse.classList.add("accordion-collapse", "collapse");
-          if (monthYear === currentMonthYear) {
-            accordionCollapse.classList.add("show"); // Open current month initially
-          }
           accordionCollapse.setAttribute(
             "aria-labelledby",
             `heading${monthYear}`
@@ -167,12 +148,12 @@ async function getData() {
           accordionBody.classList.add("accordion-body");
 
           // Sort events by start date
-          eventsByYearMonth[monthYear].sort((a, b) => {
+          eventsByYear[year][monthYear].sort((a, b) => {
             return new Date(a.start.dateTime) - new Date(b.start.dateTime);
           });
 
           // Add events to the accordion body for the month
-          eventsByYearMonth[monthYear].forEach((event) => {
+          eventsByYear[year][monthYear].forEach((event) => {
             const startDate = formatDate(new Date(event.start.dateTime));
             const endDate = new Date(event.end.dateTime).toLocaleString();
             const isExpired = new Date(event.start.dateTime) < currentDate;
@@ -196,12 +177,9 @@ async function getData() {
           accordionItem.appendChild(accordionHeader);
           accordionItem.appendChild(accordionCollapse);
 
-          // Append accordion item for the month to the container for months within the year
-          accordionYearMonths.appendChild(accordionItem);
+          // Append accordion item for the month to the accordion for the year
+          accordionYear.appendChild(accordionItem);
         }
-
-        // Append accordion for months within the year to the accordion for the year
-        accordionYear.appendChild(accordionYearMonths);
 
         // Append accordion for the year to the container
         accordionContainer.appendChild(accordionYear);
