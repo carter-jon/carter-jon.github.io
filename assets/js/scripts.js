@@ -104,7 +104,9 @@ async function getData() {
           const accordionHeader = document.createElement("h2");
           accordionHeader.classList.add("accordion-header");
           accordionHeader.innerHTML = `
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="true" aria-controls="collapse${monthYear}">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="${
+            startDate.getMonth() === new Date().getMonth() ? "true" : "false"
+          }" aria-controls="collapse${monthYear}">
               ${monthString}
             </button>
           `;
@@ -115,7 +117,7 @@ async function getData() {
           accordionCollapse.classList.add(
             "accordion-collapse",
             "collapse",
-            "show"
+            startDate.getMonth() === new Date().getMonth() ? "show" : ""
           );
           accordionCollapse.setAttribute(
             "aria-labelledby",
