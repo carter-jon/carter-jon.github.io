@@ -106,22 +106,26 @@ async function getData() {
           eventsByMonth[monthYear].push(event);
         });
 
+        // Get current date
+        const currentDate = new Date();
+
         // Sort keys (months) chronologically
         const sortedMonthKeys = Object.keys(eventsByMonth).sort();
 
         // Loop through each month and create accordion items
         for (const month of sortedMonthKeys) {
+          // Skip past months
+          const monthDate = new Date(`${year}-${month}-01`);
+          if (monthDate < currentDate) continue;
+
           // Create accordion item
           const accordionItem = document.createElement("div");
           accordionItem.classList.add("accordion-item");
 
           // Create accordion header
-          const monthString = new Date(`${year}-${month}-01`).toLocaleString(
-            "en-US",
-            {
-              month: "long",
-            }
-          );
+          const monthString = monthDate.toLocaleString("en-US", {
+            month: "long",
+          });
           const accordionHeader = document.createElement("h2");
           accordionHeader.classList.add("accordion-header");
           accordionHeader.innerHTML = `
@@ -151,11 +155,13 @@ async function getData() {
 
           // Add events to the accordion body
           eventsByMonth[month].forEach((event) => {
-            const startDate = formatDate(new Date(event.start.dateTime));
+            const startDate = new Date(event.start.dateTime);
             const eventHtml = `
-              <div class="event-item">
+              <div class="event-item ${
+                startDate < currentDate ? "expired" : ""
+              }">
                 <div class="event-title">${event.summary}</div>
-                <div class="event-date">${startDate}</div>
+                <div class="event-date">${formatDate(startDate)}</div>
                 <div class="event-location">${event.location}</div>
                 <div class="map-link"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
                   event.location
