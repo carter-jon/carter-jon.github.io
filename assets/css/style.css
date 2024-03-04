@@ -245,7 +245,6 @@ button {
 .event-item {
   border-bottom: 1px solid #bbb;
   padding: 20px;
-  position: relative;
 }
 .event-item:last-child {
   border-bottom: none;
@@ -268,10 +267,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
-  top: 50%;
   transform: translateY(-50%);
-  right: 20px;
 }
 .map-link a {
   background-color: #eee;
