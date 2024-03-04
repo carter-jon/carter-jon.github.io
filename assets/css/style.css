@@ -267,14 +267,15 @@ button {
   font-size: 12px;
 }
 .map-link {
+  
+}
+.map-link a {
   background-color: #333;
   padding: 5px 12px;
   border-radius: 10px;
-}
-.map-link a {
   font-size: 12px;
   text-decoration: none;
-  color: #f25500;
+  color: #fff;
 }
 
 .event-item.expired {
