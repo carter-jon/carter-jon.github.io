@@ -97,19 +97,15 @@ async function getData() {
         const currentDate = new Date();
         const currentYear = currentDate.getFullYear();
         const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so add 1
-        console.log('Current Date: ' + currentDate);
-        console.log("Current Year: " + currentYear);
-        console.log("Loop year: " + year);
 
         // Loop through each month in the year
         for (let month = 1; month <= 12; month++) {
 
           // Check if the month has events and is not in the past
           if (
-            eventsByMonth[month] &&
-            eventsByMonth[month].length > 0 &&
-            (year > currentYear ||
-              (year === currentYear && month >= currentMonth))
+            // eventsByMonth[month] &&
+            // eventsByMonth[month].length > 0 &&
+            (year > currentYear || (year === currentYear && month >= currentMonth))
           ) {
             // Create accordion item for the month
             const accordionItem = document.createElement("div");
