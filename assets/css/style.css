@@ -260,7 +260,6 @@ button {
   font-size: 15px;
   color: #111;
   font-weight: bold;
-  
 }
 .event-location {
   font-size: 12px;
@@ -275,7 +274,7 @@ button {
   right: 20px;
 }
 .map-link a {
-  background-color: transparent;
+  background-color: #eee;
   border-radius: 50%;
   font-size: 12px;
   text-decoration: none;
@@ -286,8 +285,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
   transition: all 0.2s ease-in-out;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 .map-link a:hover {
   background-color: #333;
@@ -323,7 +323,7 @@ button {
 .accordion-button:not(.collapsed) {
   background-color: #f25500;
   color: #fff;
-  box-shadow: 0 0 6px rgba(0,0,0,0.4);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
 }
 
 .accordion-item:last-of-type .accordion-button.collapsed {
