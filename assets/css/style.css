@@ -371,7 +371,7 @@ nav.navbar {
 /* images */
 .gallery {
   position: relative;
-  max-width: calc(100vh - 100px);
+  max-width: calc(100vh - 200px);
   margin: 0 auto;
 }
 .images {
