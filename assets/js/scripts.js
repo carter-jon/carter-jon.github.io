@@ -103,9 +103,19 @@ async function getData() {
         }
       });
 
+      // Find the first month with events starting from the current month
+      let firstMonthWithEvents = sortedMonthKeys.find(
+        (month) => month >= currentMonthYear
+      );
+
+      // If no events found starting from the current month, then find the first month with events
+      if (!firstMonthWithEvents) {
+        firstMonthWithEvents = sortedMonthKeys[0];
+      }
+
       // Loop through each month and create accordion items
       for (const monthYear of sortedMonthKeys) {
-        if (monthYear < currentMonthYear) continue; // Skip past months
+        if (monthYear < firstMonthWithEvents) continue; // Skip past months
 
         // Create accordion item
         const accordionItem = document.createElement("div");
@@ -122,9 +132,9 @@ async function getData() {
         accordionHeader.classList.add("accordion-header");
         accordionHeader.innerHTML = `
           <button class="accordion-button ${
-            monthYear === currentMonthYear ? "" : "collapsed"
+            monthYear === firstMonthWithEvents ? "" : "collapsed"
           }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="${
-          monthYear === currentMonthYear ? "true" : "false"
+          monthYear === firstMonthWithEvents ? "true" : "false"
         }" aria-controls="collapse${monthYear}">
             ${monthString}
           </button>
@@ -134,7 +144,7 @@ async function getData() {
         const accordionCollapse = document.createElement("div");
         accordionCollapse.id = `collapse${monthYear}`;
         accordionCollapse.classList.add("accordion-collapse", "collapse");
-        if (monthYear === currentMonthYear) {
+        if (monthYear === firstMonthWithEvents) {
           accordionCollapse.classList.add("show"); // Open current month initially
         }
         accordionCollapse.setAttribute(
@@ -162,7 +172,7 @@ async function getData() {
               <div class="event-item-header">
                 <div class="event-title">${event.summary}</div>
                 <div class="map-link"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
-                event.location
+                  event.location
                 )}" target="_blank"><i class="fa-solid fa-location-dot"></i> Map</a></div>
               </div>
               <div class="event-date">${startDate}</div>
@@ -179,6 +189,14 @@ async function getData() {
 
         // Append accordion item to the container
         accordionContainer.appendChild(accordionItem);
+
+        // If current month was included and it has events, break the loop
+        if (
+          monthYear === currentMonthYear &&
+          eventsByMonth[monthYear].length > 0
+        ) {
+          break;
+        }
       }
     } else {
       console.log("No events found.");
