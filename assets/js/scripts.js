@@ -57,8 +57,7 @@ async function getData() {
   try {
     const calendarId =
       "057b6f9a7cd766c8f662565f303a9e0b9db8df6c3dc51f2432dd38cc73f15fdf@group.calendar.google.com";
-    const myKey =
-      "AIzaSyCvFYUkBnr1x7HjcjI9chI-8np2K0iisF4";
+    const myKey = "AIzaSyCvFYUkBnr1x7HjcjI9chI-8np2K0iisF4";
 
     // Fetch calendar events from Google Calendar API
     let response = await fetch(
@@ -96,25 +95,15 @@ async function getData() {
       // Sort keys (months) chronologically
       const sortedMonthKeys = Object.keys(eventsByYearMonth).sort();
 
-      let previousYear = null;
-      let accordion = null;
-
       // Loop through each year-month and create accordion items
       for (const yearMonth of sortedMonthKeys) {
         const [year, month] = yearMonth.split("-");
-        if (year < currentYear || (year == currentYear && month < currentMonth.toString().padStart(2, "0"))) continue; // Skip past months in previous years or past months in the current year
-
-        if (year !== previousYear) {
-          if (accordion) {
-            accordionContainer.appendChild(accordion);
-          }
-          accordion = document.createElement("div");
-          accordion.classList.add("accordion-item");
-          const accordionHeader = document.createElement("h3");
-          accordionHeader.innerHTML = year;
-          accordion.appendChild(accordionHeader);
-          previousYear = year;
-        }
+        if (
+          year < currentYear ||
+          (year == currentYear &&
+            month < currentMonth.toString().padStart(2, "0"))
+        )
+          continue; // Skip past months in previous years or past months in the current year
 
         // Create accordion item
         const accordionItem = document.createElement("div");
@@ -186,11 +175,7 @@ async function getData() {
         accordionItem.appendChild(accordionCollapse);
 
         // Append accordion item to the container
-        accordion.appendChild(accordionItem);
-      }
-
-      if (accordion) {
-        accordionContainer.appendChild(accordion);
+        accordionContainer.appendChild(accordionItem);
       }
     } else {
       console.log("No events found.");
