@@ -103,9 +103,9 @@ async function getData() {
 
           // Check if the month has events and is not in the past
           if (
-            eventsByMonth[month] &&
+            eventsByMonth[month] //&&
             // eventsByMonth[month].length > 0 &&
-            (year > currentYear || (year === currentYear && month >= currentMonth))
+            // (year > currentYear || (year === currentYear && month >= currentMonth))
           ) {
             // Create accordion item for the month
             const accordionItem = document.createElement("div");
