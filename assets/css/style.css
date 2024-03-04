@@ -248,6 +248,7 @@ button {
   display: grid;
   gap: 30px;
   grid-template-columns: 1fr auto;
+  align-items: center;
 }
 .event-item:last-child {
   border-bottom: none;
@@ -265,7 +266,6 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: translateY(-50%);
 }
 .map-link a {
   background-color: #eee;
