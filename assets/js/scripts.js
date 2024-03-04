@@ -99,19 +99,11 @@ async function getData() {
         const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so add 1
         console.log('Current Date: ' + currentDate);
         console.log("Current Year: " + currentYear);
-        console.log("Current Month: " + currentMonth);
+        console.log("Loop year: " + year);
 
         // Loop through each month in the year
         for (let month = 1; month <= 12; month++) {
-          console.log("Checking month", month);
-          console.log("Events for month", month, ":", eventsByMonth[month]);
-          console.log(
-            "Is month",
-            month,
-            "not in the past:",
-            year > currentYear ||
-              (year === currentYear && month >= currentMonth)
-          );
+
           // Check if the month has events and is not in the past
           if (
             eventsByMonth[month] &&
@@ -119,7 +111,6 @@ async function getData() {
             (year > currentYear ||
               (year === currentYear && month >= currentMonth))
           ) {
-            console.log("Month", month, "has events and is not in the past");
             // Create accordion item for the month
             const accordionItem = document.createElement("div");
             accordionItem.classList.add("accordion-item");
