@@ -149,6 +149,10 @@ async function getData() {
 
             // Add events as list items
             eventsByMonth[month].forEach((event) => {
+              const startDate = formatDate(
+                new Date(event.start.dateTime),
+                currentDate
+              );
               const isExpired = new Date(event.start.dateTime) < currentDate;
               const eventHtml = `
                 <div class="event-item ${isExpired ? "expired" : ""}">
@@ -184,6 +188,32 @@ async function getData() {
   } catch (error) {
     console.log("Error fetching calendar events:", error);
   }
+}
+
+function formatDate(date, currentDate) {
+  const optionsDate = {
+    // day: "numeric",
+    month: "long",
+    hour: "numeric",
+    minute: "numeric",
+  };
+  const optionsDay = { weekday: "long" };
+  const formattedDate = date.toLocaleDateString("en-GB", optionsDate);
+  const day = date.toLocaleDateString("en-GB", optionsDay);
+
+  let suffix = "th";
+  const dayOfMonth = date.getDate();
+  if (dayOfMonth === 1 || dayOfMonth === 21 || dayOfMonth === 31) {
+    suffix = "st";
+  } else if (dayOfMonth === 2 || dayOfMonth === 22) {
+    suffix = "nd";
+  } else if (dayOfMonth === 3 || dayOfMonth === 23) {
+    suffix = "rd";
+  }
+
+  // Construct the formatted date string
+  const formattedDay = day.charAt(0).toUpperCase() + day.slice(1); // Capitalize the first letter
+  return `${formattedDay}, ${dayOfMonth}${suffix} ${formattedDate}`;
 }
 
 getData();
