@@ -100,7 +100,15 @@ async function getData() {
 
         // Loop through each month in the year
         for (let month = 1; month <= 12; month++) {
-           console.log("Checking month", month);
+          console.log("Checking month", month);
+          console.log("Events for month", month, ":", eventsByMonth[month]);
+          console.log(
+            "Is month",
+            month,
+            "not in the past:",
+            year > currentYear ||
+              (year === currentYear && month >= currentMonth)
+          );
           // Check if the month has events and is not in the past
           if (
             eventsByMonth[month] &&
