@@ -289,7 +289,9 @@ button {
   background-color: #444;
   color: #eee;
   font-family: "Bebas Neue";
-  font-size: 22px;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 10px 20px;
 }
 .accordion-button:focus {
   box-shadow: none;
