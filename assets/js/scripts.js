@@ -97,11 +97,17 @@ async function getData() {
 
         // Get the current date
         const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so add 1
 
         // Loop through each month in the year
         for (let month = 1; month <= 12; month++) {
-          // Check if the month has events
-          if (eventsByMonth[month]) {
+          // Check if the month has events and is not in the past
+          if (
+            eventsByMonth[month] &&
+            (year > currentYear ||
+              (year === currentYear && month >= currentMonth))
+          ) {
             // Create accordion item for the month
             const accordionItem = document.createElement("div");
             accordionItem.classList.add("accordion-item");
@@ -163,6 +169,7 @@ async function getData() {
 }
 
 getData();
+
 
 
 
