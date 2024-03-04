@@ -157,8 +157,10 @@ async function getData() {
           }
         }
 
-        // Append the accordion to the container
-        container.appendChild(accordion);
+        // Append the accordion to the container if it contains items
+        if (accordion.childElementCount > 0) {
+          container.appendChild(accordion);
+        }
       });
     } else {
       console.log("No events found.");
@@ -169,6 +171,7 @@ async function getData() {
 }
 
 getData();
+
 
 
 
