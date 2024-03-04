@@ -79,8 +79,6 @@ async function getData() {
         eventsByYear[year][month].push(event);
       });
 
-      const currentDate = new Date();
-
       // Get the container element
       const container = document.getElementById("accordionEvents");
 
