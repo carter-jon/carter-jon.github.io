@@ -84,7 +84,7 @@ async function getData() {
       // Get the container element
       const container = document.getElementById("accordionEvents");
 
-      // Output events by year and month
+      // Output events by year and month, filtering out past months
       Object.entries(eventsByYear).forEach(([year, eventsByMonth]) => {
         // Create an h3 tag for the year
         const yearHeader = document.createElement("h3");
@@ -95,8 +95,19 @@ async function getData() {
         const accordion = document.createElement("div");
         accordion.classList.add("accordion", "mb-3");
 
+        // Get the current date
+        const currentDate = new Date();
+
         // Loop through each month in the year
         Object.entries(eventsByMonth).forEach(([month, events]) => {
+          // Create a date object for the month
+          const monthDate = new Date(`${year}-${month}-01`);
+
+          // Check if the month is in the past
+          if (monthDate < currentDate) {
+            return; // Skip past months
+          }
+
           // Create accordion item for the month
           const accordionItem = document.createElement("div");
           accordionItem.classList.add("accordion-item");
@@ -106,9 +117,7 @@ async function getData() {
           accordionHeader.classList.add("accordion-header");
           accordionHeader.innerHTML = `
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
-              ${new Date(`${year}-${month}-01`).toLocaleString("en-US", {
-                month: "long",
-              })}
+              ${monthDate.toLocaleString("en-US", { month: "long" })}
             </button>
           `;
 
@@ -154,6 +163,7 @@ async function getData() {
 }
 
 getData();
+
 
 
 
