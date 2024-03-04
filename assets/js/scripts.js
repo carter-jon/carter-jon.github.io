@@ -77,12 +77,30 @@ async function getData() {
         eventsByYear[year].push(event);
       });
 
+      // Get the accordion container
+      const accordionContainer = document.getElementById("accordionEvents");
+
       // Output events by year
       Object.entries(eventsByYear).forEach(([year, events]) => {
-        console.log(`Events for ${year}:`);
+        // Create list element for the year
+        const yearList = document.createElement("ul");
+        yearList.classList.add("accordion-item");
+
+        // Add year as the header of the accordion
+        const yearHeader = document.createElement("h2");
+        yearHeader.classList.add("accordion-header");
+        yearHeader.innerHTML = year;
+        yearList.appendChild(yearHeader);
+
+        // Create list items for events
         events.forEach((event) => {
-          console.log(`- ${event.summary}`);
+          const eventItem = document.createElement("li");
+          eventItem.textContent = event.summary;
+          yearList.appendChild(eventItem);
         });
+
+        // Append the year's list to the accordion container
+        accordionContainer.appendChild(yearList);
       });
     } else {
       console.log("No events found.");
