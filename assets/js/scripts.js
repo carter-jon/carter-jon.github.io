@@ -83,7 +83,8 @@ async function getData() {
       const container = document.getElementById("accordionEvents");
 
       // Output events by year and month, filtering out past months
-      Object.entries(eventsByYear).forEach(([year, eventsByMonth]) => {
+      // Output events by year and month, filtering out past months
+      Object.entries(eventsByYear).forEach(([year, eventsByMonth], index) => {
         // Create an h3 tag for the year
         const yearHeader = document.createElement("h3");
         yearHeader.textContent = year;
@@ -103,7 +104,8 @@ async function getData() {
           if (
             eventsByMonth[month] &&
             eventsByMonth[month].length > 0 &&
-            (year > currentYear || (year == currentYear && month >= currentMonth))
+            (year > currentYear ||
+              (year == currentYear && month >= currentMonth))
           ) {
             // Create accordion item for the month
             const accordionItem = document.createElement("div");
@@ -113,12 +115,12 @@ async function getData() {
             const accordionHeader = document.createElement("h2");
             accordionHeader.classList.add("accordion-header");
             accordionHeader.innerHTML = `
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
-                ${new Date(`${year}-${month}-01`).toLocaleString("en-US", {
-                  month: "long",
-                })}
-              </button>
-            `;
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
+          ${new Date(`${year}-${month}-01`).toLocaleString("en-US", {
+            month: "long",
+          })}
+        </button>
+      `;
 
             // Create accordion collapse container
             const accordionCollapse = document.createElement("div");
@@ -132,6 +134,11 @@ async function getData() {
               "data-bs-parent",
               `#accordionEvents`
             );
+
+            // Add 'show' class to the first accordion collapse container
+            if (index === 0 && month === 1) {
+              accordionCollapse.classList.add("show");
+            }
 
             // Create accordion body
             const accordionBody = document.createElement("div");
