@@ -252,12 +252,12 @@ button {
 }
 
 .event-title {
-  font-size: 18px;
-  color: #f25500;
+  font-size: 16px;
+  color: #111;
   font-weight: bold;
 }
 .event-location {
-  font-size: 13px;
+  font-size: 12px;
 }
 .map-link a {
   font-size: 12px;
@@ -266,7 +266,7 @@ button {
 }
 
 .event-item.expired {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 .event-item.expired .event-title {
   color: #111;
@@ -276,7 +276,7 @@ button {
 }
 
 .event-date {
-  font-size: 16px;
+  font-size: 14px;
 }
 .accordion-button {
   margin: 0;
