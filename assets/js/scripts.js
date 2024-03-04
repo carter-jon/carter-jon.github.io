@@ -86,6 +86,11 @@ async function getData() {
 
       // Output events by year and month
       Object.entries(eventsByYear).forEach(([year, eventsByMonth]) => {
+        // Create an h3 tag for the year
+        const yearHeader = document.createElement("h3");
+        yearHeader.textContent = year;
+        container.appendChild(yearHeader);
+
         // Create accordion element for the year
         const accordion = document.createElement("div");
         accordion.classList.add("accordion", "mb-3");
@@ -149,6 +154,7 @@ async function getData() {
 }
 
 getData();
+
 
 
 
