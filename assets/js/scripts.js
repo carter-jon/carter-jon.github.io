@@ -100,12 +100,14 @@ async function getData() {
 
         // Loop through each month in the year
         for (let month = 1; month <= 12; month++) {
+           console.log("Checking month", month);
           // Check if the month has events and is not in the past
           if (
             eventsByMonth[month] &&
             (year > currentYear ||
               (year === currentYear && month >= currentMonth))
           ) {
+            console.log("Month", month, "has events and is not in the past");
             // Create accordion item for the month
             const accordionItem = document.createElement("div");
             accordionItem.classList.add("accordion-item");
