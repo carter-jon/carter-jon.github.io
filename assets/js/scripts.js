@@ -82,8 +82,7 @@ async function getData() {
       // Get the container element
       const container = document.getElementById("accordionEvents");
 
-      // Output events by year and month, filtering out past months
-      // Output events by year and month, filtering out past months
+      let openMonthAccordionItem = true;
       // Output events by year and month, filtering out past months
       Object.entries(eventsByYear).forEach(([year, eventsByMonth]) => {
         // Create an h3 tag for the year
@@ -99,7 +98,7 @@ async function getData() {
         const currentDate = new Date();
         const currentYear = currentDate.getFullYear();
         const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so add 1
-        let isFirstMonth = true;
+        
 
         // Loop through each month in the year
         for (let month = 1; month <= 12; month++) {
@@ -139,9 +138,9 @@ async function getData() {
             );
 
             // Add 'show' class to the first accordion collapse container that meets the criteria
-            if (isFirstMonth) {
+            if (openMonthAccordionItem) {
               accordionCollapse.classList.add("show");
-              isFirstMonth = false;
+              openMonthAccordionItem = false;
             }
 
             // Create accordion body
