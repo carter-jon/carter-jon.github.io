@@ -57,7 +57,8 @@ async function getData() {
   try {
     const calendarId =
       "057b6f9a7cd766c8f662565f303a9e0b9db8df6c3dc51f2432dd38cc73f15fdf@group.calendar.google.com";
-    const myKey = "AIzaSyCvFYUkBnr1x7HjcjI9chI-8np2K0iisF4";
+    const myKey =
+      "AIzaSyCvFYUkBnr1x7HjcjI9chI-8np2K0iisF4";
 
     // Fetch calendar events from Google Calendar API
     let response = await fetch(
@@ -91,9 +92,7 @@ async function getData() {
       const currentDate = new Date();
       const currentYear = currentDate.getFullYear();
       const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so we add 1
-      const currentMonthYear = `${currentYear}-${currentMonth
-        .toString()
-        .padStart(2, "0")}`;
+      const currentMonthYear = `${currentYear}-${currentMonth.toString().padStart(2, "0")}`;
 
       // Sort years chronologically
       const sortedYears = Object.keys(eventsByYear).sort((a, b) => a - b);
@@ -116,19 +115,9 @@ async function getData() {
         // Create accordion collapse container for the year
         const accordionCollapseYear = document.createElement("div");
         accordionCollapseYear.id = `collapseYear${year}`;
-        accordionCollapseYear.classList.add(
-          "accordion-collapse",
-          "collapse",
-          "show"
-        );
-        accordionCollapseYear.setAttribute(
-          "aria-labelledby",
-          `headingYear${year}`
-        );
-        accordionCollapseYear.setAttribute(
-          "data-bs-parent",
-          "#accordionEvents"
-        );
+        accordionCollapseYear.classList.add("accordion-collapse", "collapse", "show");
+        accordionCollapseYear.setAttribute("aria-labelledby", `headingYear${year}`);
+        accordionCollapseYear.setAttribute("data-bs-parent", "#accordionEvents");
 
         // Create accordion body for the year
         const accordionBodyYear = document.createElement("div");
@@ -169,21 +158,12 @@ async function getData() {
           // Create accordion collapse container for the month within the year
           const accordionCollapseMonth = document.createElement("div");
           accordionCollapseMonth.id = `collapse${monthYear}`;
-          accordionCollapseMonth.classList.add(
-            "accordion-collapse",
-            "collapse"
-          );
+          accordionCollapseMonth.classList.add("accordion-collapse", "collapse");
           if (monthYear === currentMonthYear) {
             accordionCollapseMonth.classList.add("show"); // Open current month initially
           }
-          accordionCollapseMonth.setAttribute(
-            "aria-labelledby",
-            `heading${monthYear}`
-          );
-          accordionCollapseMonth.setAttribute(
-            "data-bs-parent",
-            `#collapseYear${year}`
-          );
+          accordionCollapseMonth.setAttribute("aria-labelledby", `heading${monthYear}`);
+          accordionCollapseMonth.setAttribute("data-bs-parent", `#collapseYear${year}`);
 
           // Create accordion body for the month within the year
           const accordionBodyMonth = document.createElement("div");
@@ -204,7 +184,7 @@ async function getData() {
                 <div class="event-item-header">
                   <div class="event-title">${event.summary}</div>
                   <div class="map-link"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
-                    event.location
+                  event.location
                   )}" target="_blank"><i class="fa-solid fa-location-dot"></i> Map</a></div>
                 </div>
                 <div class="event-date">${startDate}</div>
