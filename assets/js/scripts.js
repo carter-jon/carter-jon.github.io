@@ -102,6 +102,8 @@ async function getData() {
         for (let month = 1; month <= 12; month++) {
           console.log('Current Month - ' + currentMonth);
           console.log("Loop Month - " + month);
+          console.log("Current Year - " + currentYear);
+          console.log("Loop Year - " + year);
           // Check if the month has events and is not in the past
           if (
             eventsByMonth[month] &&
