@@ -99,57 +99,57 @@ async function getData() {
         const currentDate = new Date();
 
         // Loop through each month in the year
-        Object.entries(eventsByMonth).forEach(([month, events]) => {
-          // Create a date object for the month
-          const monthDate = new Date(`${year}-${month}-01`);
+        for (let month = 1; month <= 12; month++) {
+          // Check if the month has events
+          if (eventsByMonth[month]) {
+            // Create accordion item for the month
+            const accordionItem = document.createElement("div");
+            accordionItem.classList.add("accordion-item");
 
-          // Check if the month is in the past
-          if (monthDate < currentDate) {
-            return; // Skip past months
+            // Create accordion header
+            const accordionHeader = document.createElement("h2");
+            accordionHeader.classList.add("accordion-header");
+            accordionHeader.innerHTML = `
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
+                ${new Date(`${year}-${month}-01`).toLocaleString("en-US", {
+                  month: "long",
+                })}
+              </button>
+            `;
+
+            // Create accordion collapse container
+            const accordionCollapse = document.createElement("div");
+            accordionCollapse.id = `collapse${year}${month}`;
+            accordionCollapse.classList.add("accordion-collapse", "collapse");
+            accordionCollapse.setAttribute(
+              "aria-labelledby",
+              `heading${year}${month}`
+            );
+            accordionCollapse.setAttribute(
+              "data-bs-parent",
+              `#accordionEvents`
+            );
+
+            // Create accordion body
+            const accordionBody = document.createElement("div");
+            accordionBody.classList.add("accordion-body");
+
+            // Add events as list items
+            eventsByMonth[month].forEach((event) => {
+              const eventItem = document.createElement("div");
+              eventItem.textContent = event.summary;
+              accordionBody.appendChild(eventItem);
+            });
+
+            // Append accordion header, body, and collapse container
+            accordionCollapse.appendChild(accordionBody);
+            accordionItem.appendChild(accordionHeader);
+            accordionItem.appendChild(accordionCollapse);
+
+            // Append accordion item to the accordion
+            accordion.appendChild(accordionItem);
           }
-
-          // Create accordion item for the month
-          const accordionItem = document.createElement("div");
-          accordionItem.classList.add("accordion-item");
-
-          // Create accordion header
-          const accordionHeader = document.createElement("h2");
-          accordionHeader.classList.add("accordion-header");
-          accordionHeader.innerHTML = `
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
-              ${monthDate.toLocaleString("en-US", { month: "long" })}
-            </button>
-          `;
-
-          // Create accordion collapse container
-          const accordionCollapse = document.createElement("div");
-          accordionCollapse.id = `collapse${year}${month}`;
-          accordionCollapse.classList.add("accordion-collapse", "collapse");
-          accordionCollapse.setAttribute(
-            "aria-labelledby",
-            `heading${year}${month}`
-          );
-          accordionCollapse.setAttribute("data-bs-parent", `#accordionEvents`);
-
-          // Create accordion body
-          const accordionBody = document.createElement("div");
-          accordionBody.classList.add("accordion-body");
-
-          // Add events as list items
-          events.forEach((event) => {
-            const eventItem = document.createElement("div");
-            eventItem.textContent = event.summary;
-            accordionBody.appendChild(eventItem);
-          });
-
-          // Append accordion header, body, and collapse container
-          accordionCollapse.appendChild(accordionBody);
-          accordionItem.appendChild(accordionHeader);
-          accordionItem.appendChild(accordionCollapse);
-
-          // Append accordion item to the accordion
-          accordion.appendChild(accordionItem);
-        });
+        }
 
         // Append the accordion to the container
         container.appendChild(accordion);
@@ -163,6 +163,7 @@ async function getData() {
 }
 
 getData();
+
 
 
 
