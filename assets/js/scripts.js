@@ -80,6 +80,7 @@ async function getData() {
         }
         eventsByYearMonth[monthYear].push(event);
       });
+      
 
       // Get reference to the accordion container
       const accordionContainer = document.getElementById("accordionEvents");
