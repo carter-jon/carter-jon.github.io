@@ -70,18 +70,22 @@ async function getData() {
       data.items.forEach((event) => {
         const startDate = new Date(event.start.dateTime);
         const year = startDate.getFullYear();
+        const month = startDate.getMonth() + 1; // Month is zero-indexed, so add 1
 
         if (!eventsByYear[year]) {
-          eventsByYear[year] = [];
+          eventsByYear[year] = {};
         }
-        eventsByYear[year].push(event);
+        if (!eventsByYear[year][month]) {
+          eventsByYear[year][month] = [];
+        }
+        eventsByYear[year][month].push(event);
       });
 
       // Get the accordion container
       const accordionContainer = document.getElementById("accordionEvents");
 
-      // Output events by year
-      Object.entries(eventsByYear).forEach(([year, events]) => {
+      // Output events by year and month
+      Object.entries(eventsByYear).forEach(([year, eventsByMonth]) => {
         // Create list element for the year
         const yearList = document.createElement("ul");
         yearList.classList.add("accordion-item");
@@ -92,11 +96,28 @@ async function getData() {
         yearHeader.innerHTML = year;
         yearList.appendChild(yearHeader);
 
-        // Create list items for events
-        events.forEach((event) => {
-          const eventItem = document.createElement("li");
-          eventItem.textContent = event.summary;
-          yearList.appendChild(eventItem);
+        // Loop through each month in the year
+        Object.entries(eventsByMonth).forEach(([month, events]) => {
+          // Create list element for the month
+          const monthList = document.createElement("ul");
+
+          // Add month as a list item
+          const monthItem = document.createElement("li");
+          monthItem.textContent = new Date(
+            `${year}-${month}-01`
+          ).toLocaleString("en-US", { month: "long" });
+          monthItem.classList.add("accordion-header");
+          monthList.appendChild(monthItem);
+
+          // Add events as list items
+          events.forEach((event) => {
+            const eventItem = document.createElement("li");
+            eventItem.textContent = event.summary;
+            monthList.appendChild(eventItem);
+          });
+
+          // Append the month's list to the year's list
+          yearList.appendChild(monthList);
         });
 
         // Append the year's list to the accordion container
