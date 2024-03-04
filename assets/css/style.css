@@ -273,6 +273,7 @@ button {
   font-size: 12px;
   text-decoration: none;
   color: #fff;
+  display: block;
 }
 
 .event-item.expired {
