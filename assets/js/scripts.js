@@ -73,7 +73,7 @@ async function getData() {
         const startDate = new Date(event.start.dateTime);
         const currentMonth = new Date().getMonth();
         const eventMonth = startDate.getMonth();
-        if (startDate >= new Date() && currentMonth === eventMonth) {
+        if (startDate >= new Date() || currentMonth === eventMonth) {
           const monthYear = `${startDate.getFullYear()}${startDate.getMonth()}`;
           if (!eventsByMonth[monthYear]) {
             eventsByMonth[monthYear] = [];
