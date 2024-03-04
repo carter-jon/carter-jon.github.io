@@ -119,6 +119,14 @@ async function getData() {
 
         // Loop through each month and create accordion items
         for (const month of sortedMonthKeys) {
+          // Only include the current month if it has events scheduled
+          if (
+            year + month !== currentMonthYear &&
+            !eventsByMonth[month].length
+          ) {
+            continue;
+          }
+
           // Create accordion item
           const accordionItem = document.createElement("div");
           accordionItem.classList.add("accordion-item");
