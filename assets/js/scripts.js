@@ -106,7 +106,9 @@ async function getData() {
           const accordionHeader = document.createElement("h2");
           accordionHeader.classList.add("accordion-header");
           accordionHeader.innerHTML = `
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="${
+            <button class="accordion-button ${
+              monthYear === currentMonthYear ? "" : "collapsed"
+            }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="${
             monthYear === currentMonthYear ? "true" : "false"
           }" aria-controls="collapse${monthYear}">
               ${monthString}
