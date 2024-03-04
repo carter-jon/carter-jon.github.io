@@ -80,7 +80,6 @@ async function getData() {
         }
         eventsByYearMonth[monthYear].push(event);
       });
-      
 
       // Get reference to the accordion container
       const accordionContainer = document.getElementById("accordionEvents");
@@ -96,6 +95,9 @@ async function getData() {
       // Sort keys (months) chronologically
       const sortedMonthKeys = Object.keys(eventsByYearMonth).sort();
 
+      let previousYear = null;
+      let accordion = null;
+
       // Loop through each year-month and create accordion items
       for (const yearMonth of sortedMonthKeys) {
         const [year, month] = yearMonth.split("-");
@@ -105,6 +107,18 @@ async function getData() {
             month < currentMonth.toString().padStart(2, "0"))
         )
           continue; // Skip past months in previous years or past months in the current year
+
+        if (year !== previousYear) {
+          if (accordion) {
+            accordionContainer.appendChild(accordion);
+          }
+          accordion = document.createElement("div");
+          accordion.classList.add("accordion-item");
+          const accordionHeader = document.createElement("h3");
+          accordionHeader.innerHTML = year;
+          accordion.appendChild(accordionHeader);
+          previousYear = year;
+        }
 
         // Create accordion item
         const accordionItem = document.createElement("div");
@@ -176,7 +190,11 @@ async function getData() {
         accordionItem.appendChild(accordionCollapse);
 
         // Append accordion item to the container
-        accordionContainer.appendChild(accordionItem);
+        accordion.appendChild(accordionItem);
+      }
+
+      if (accordion) {
+        accordionContainer.appendChild(accordion);
       }
     } else {
       console.log("No events found.");
