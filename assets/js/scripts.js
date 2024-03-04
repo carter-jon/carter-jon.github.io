@@ -168,7 +168,7 @@ async function getData() {
                     <div class="event-title">${event.summary}</div>
                     <div class="map-link"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
                       event.location
-                    )}" target="_blank"><i class="fa-solid fa-location-dot"></i> Map</a></div>
+                    )}" target="_blank" title="Show on map"><i class="fa-solid fa-location-dot"></i></a></div>
                   </div>
 
                   <div class="event-date">${startDate}</div>
