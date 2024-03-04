@@ -264,16 +264,23 @@ button {
   font-size: 12px;
 }
 .map-link {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .map-link a {
-  background-color: #333;
-  padding: 5px 12px;
-  border-radius: 10px;
+  background-color: transparent;
+  border-radius: 50%;
   font-size: 12px;
   text-decoration: none;
-  color: #fff;
+  color: #333;
   display: block;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #333;
 }
 
 .event-item.expired {
