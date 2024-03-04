@@ -97,6 +97,9 @@ async function getData() {
         const currentDate = new Date();
         const currentYear = currentDate.getFullYear();
         const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so add 1
+        console.log('Current Date: ' + currentDate);
+        console.log("Current Year: " + currentYear);
+        console.log("Current Month: " + currentMonth);
 
         // Loop through each month in the year
         for (let month = 1; month <= 12; month++) {
