@@ -122,11 +122,10 @@ async function getData() {
         // Create accordion collapse container
         const accordionCollapse = document.createElement("div");
         accordionCollapse.id = `collapse${monthYear}`;
-        accordionCollapse.classList.add(
-          "accordion-collapse",
-          "collapse",
-          monthYear === currentMonthYear ? "show" : ""
-        );
+        accordionCollapse.classList.add("accordion-collapse", "collapse");
+        if (monthYear === currentMonthYear) {
+          accordionCollapse.classList.add("show"); // Open current month initially
+        }
         accordionCollapse.setAttribute(
           "aria-labelledby",
           `heading${monthYear}`
@@ -160,8 +159,8 @@ async function getData() {
         });
 
         // Append accordion header, body, and collapse container
-        accordionItem.appendChild(accordionHeader);
         accordionCollapse.appendChild(accordionBody);
+        accordionItem.appendChild(accordionHeader);
         accordionItem.appendChild(accordionCollapse);
 
         // Append accordion item to the container
