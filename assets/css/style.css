@@ -240,11 +240,12 @@ button {
 .accordion-body {
   text-align: left;
   background-color: #ddd;
+  padding: 0;
 }
 .event-item {
   margin-bottom: 20px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 20px;
+  border-bottom: 1px solid #bbb;
+  padding: 20px;
 }
 .event-item:last-child {
   margin-bottom: 0px;
