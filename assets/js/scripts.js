@@ -116,8 +116,11 @@ async function getData() {
             // Create accordion header
             const accordionHeader = document.createElement("h2");
             accordionHeader.classList.add("accordion-header");
-            accordionHeader.innerHTML = `
-        <button class="accordion-button` + (openMonthAccordionItem ? "" : " collapsed") + `" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
+            accordionHeader.innerHTML =
+              `
+        <button class="accordion-button` +
+              (openMonthAccordionItem ? "" : " collapsed") +
+              `" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
           ${new Date(`${year}-${month}-01`).toLocaleString("en-US", {
             month: "long",
           })}
@@ -146,6 +149,11 @@ async function getData() {
             // Create accordion body
             const accordionBody = document.createElement("div");
             accordionBody.classList.add("accordion-body");
+
+            // Sort events by start date
+            eventsByMonth[monthYear].sort((a, b) => {
+              return new Date(a.start.dateTime) - new Date(b.start.dateTime);
+            });
 
             // Add events as list items
             eventsByMonth[month].forEach((event) => {
