@@ -156,8 +156,9 @@ async function getData() {
         eventsByMonth[monthYear].forEach((event) => {
           const startDate = formatDate(new Date(event.start.dateTime));
           const endDate = new Date(event.end.dateTime).toLocaleString();
+          const isExpired = new Date(event.start.dateTime) < currentDate;
           const eventHtml = `
-            <div class="event-item">
+            <div class="event-item ${isExpired ? "expired" : ""}">
               <div class="event-title">${event.summary}</div>
               <div class="event-date">${startDate}</div>
               <div class="event-location">${event.location}</div>
