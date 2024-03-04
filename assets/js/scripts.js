@@ -92,6 +92,7 @@ async function getData() {
       // Get current year and month
       const currentDate = new Date();
       const currentYear = currentDate.getFullYear();
+      const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so we add 1
 
       // Sort years chronologically
       const sortedYears = Object.keys(eventsByYear).sort();
@@ -113,8 +114,22 @@ async function getData() {
         // Sort months chronologically
         monthsWithEvents.sort();
 
+        // Flag to check if the first month with events has been found
+        let firstMonthFound = false;
+
         // Loop through each month and create accordion items
         for (const monthYear of monthsWithEvents) {
+          // Parse month and year
+          const [eventYear, eventMonth] = monthYear.split("-").map(Number);
+
+          // Skip past months and years
+          if (
+            eventYear < currentYear ||
+            (eventYear === currentYear && eventMonth < currentMonth)
+          ) {
+            continue;
+          }
+
           // Create accordion item for the month
           const accordionItem = document.createElement("div");
           accordionItem.classList.add("accordion-item");
@@ -128,7 +143,11 @@ async function getData() {
           const accordionHeader = document.createElement("h2");
           accordionHeader.classList.add("accordion-header");
           accordionHeader.innerHTML = `
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="false" aria-controls="collapse${monthYear}">
+            <button class="accordion-button ${
+              !firstMonthFound ? "" : "collapsed"
+            }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="${
+            !firstMonthFound ? "true" : "false"
+          }" aria-controls="collapse${monthYear}">
               ${monthString}
             </button>
           `;
@@ -137,6 +156,10 @@ async function getData() {
           const accordionCollapse = document.createElement("div");
           accordionCollapse.id = `collapse${monthYear}`;
           accordionCollapse.classList.add("accordion-collapse", "collapse");
+          if (!firstMonthFound) {
+            accordionCollapse.classList.add("show"); // Open current month initially
+            firstMonthFound = true;
+          }
           accordionCollapse.setAttribute(
             "aria-labelledby",
             `heading${monthYear}`
