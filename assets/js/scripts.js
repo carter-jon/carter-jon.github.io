@@ -97,7 +97,6 @@ async function getData() {
         const currentDate = new Date();
         const currentYear = currentDate.getFullYear();
         const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so add 1
-
         // Loop through each month in the year
         for (let month = 1; month <= 12; month++) {
           // Check if the month has events and is not in the past
