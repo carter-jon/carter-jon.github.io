@@ -189,14 +189,6 @@ async function getData() {
 
         // Append accordion item to the container
         accordionContainer.appendChild(accordionItem);
-
-        // If current month was included and it has events, break the loop
-        if (
-          monthYear === currentMonthYear &&
-          eventsByMonth[monthYear].length > 0
-        ) {
-          break;
-        }
       }
     } else {
       console.log("No events found.");
