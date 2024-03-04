@@ -79,6 +79,8 @@ async function getData() {
         eventsByYear[year][month].push(event);
       });
 
+      const currentDate = new Date();
+
       // Get the container element
       const container = document.getElementById("accordionEvents");
 
@@ -149,6 +151,7 @@ async function getData() {
 
             // Add events as list items
             eventsByMonth[month].forEach((event) => {
+              const isExpired = new Date(event.start.dateTime) < currentDate;
               const eventHtml = `
                 <div class="event-item ${isExpired ? "expired" : ""}">
                   <div class="event-title">${event.summary}</div>
