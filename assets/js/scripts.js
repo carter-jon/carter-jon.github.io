@@ -95,9 +95,6 @@ async function getData() {
       // Sort keys (months) chronologically
       const sortedMonthKeys = Object.keys(eventsByYearMonth).sort();
 
-      let previousYear = null;
-      let accordion = null;
-
       // Loop through each year-month and create accordion items
       for (const yearMonth of sortedMonthKeys) {
         const [year, month] = yearMonth.split("-");
@@ -108,17 +105,14 @@ async function getData() {
         )
           continue; // Skip past months in previous years or past months in the current year
 
-        if (year !== previousYear) {
-          if (accordion) {
-            accordionContainer.appendChild(accordion);
-          }
-          accordion = document.createElement("div");
-          accordion.classList.add("accordion-item");
-          const accordionHeader = document.createElement("h3");
-          accordionHeader.innerHTML = year;
-          accordion.appendChild(accordionHeader);
-          previousYear = year;
-        }
+        // Create accordion container for each year
+        const accordion = document.createElement("div");
+        accordion.classList.add("accordion-item");
+
+        // Create year header
+        const yearHeader = document.createElement("h3");
+        yearHeader.innerHTML = year;
+        accordion.appendChild(yearHeader);
 
         // Create accordion item
         const accordionItem = document.createElement("div");
@@ -191,9 +185,8 @@ async function getData() {
 
         // Append accordion item to the container
         accordion.appendChild(accordionItem);
-      }
 
-      if (accordion) {
+        // Append accordion container to main container
         accordionContainer.appendChild(accordion);
       }
     } else {
