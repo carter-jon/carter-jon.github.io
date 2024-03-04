@@ -50,8 +50,6 @@ form.addEventListener("submit", function (e) {
 
 
 
-
-
 // calendar ******************************************************************************************
 async function getData() {
   try {
