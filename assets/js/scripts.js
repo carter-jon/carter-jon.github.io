@@ -67,118 +67,115 @@ async function getData() {
 
     // Check if the response contains items
     if (data.items && data.items.length > 0) {
-      // Group events by month
-      const eventsByMonth = {};
+      // Group events by year
+      const eventsByYear = {};
       data.items.forEach((event) => {
         const startDate = new Date(event.start.dateTime);
         const year = startDate.getFullYear();
-        const month = startDate.getMonth() + 1; // Month is zero-indexed, so we add 1
-        const monthYear = `${year}-${month.toString().padStart(2, "0")}`; // Format as 'YYYY-MM'
 
-        if (!eventsByMonth[monthYear]) {
-          eventsByMonth[monthYear] = [];
+        if (!eventsByYear[year]) {
+          eventsByYear[year] = [];
         }
-        eventsByMonth[monthYear].push(event);
+        eventsByYear[year].push(event);
       });
 
       // Get reference to the accordion container
       const accordionContainer = document.getElementById("accordionEvents");
 
-      // Get current month and year
-      const currentDate = new Date();
-      const currentYear = currentDate.getFullYear();
-      const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so we add 1
-      const currentMonthYear = `${currentYear}-${currentMonth
-        .toString()
-        .padStart(2, "0")}`;
+      // Loop through each year and create accordion
+      for (const year in eventsByYear) {
+        // Create year header
+        const yearHeader = document.createElement("h2");
+        yearHeader.textContent = year;
+        accordionContainer.appendChild(yearHeader);
 
-      // Sort keys (months) chronologically
-      const sortedMonthKeys = Object.keys(eventsByMonth).sort((a, b) => {
-        const [yearA, monthA] = a.split("-").map(Number);
-        const [yearB, monthB] = b.split("-").map(Number);
-        if (yearA !== yearB) {
-          return yearA - yearB;
-        } else {
-          return monthA - monthB;
-        }
-      });
+        // Create accordion container for the year
+        const accordionYearContainer = document.createElement("div");
+        accordionYearContainer.classList.add("accordion");
 
-      // Loop through each month and create accordion items
-      for (const monthYear of sortedMonthKeys) {
-        if (monthYear < currentMonthYear) continue; // Skip past months
+        // Group events by month within the year
+        const eventsByMonth = {};
+        eventsByYear[year].forEach((event) => {
+          const startDate = new Date(event.start.dateTime);
+          const month = startDate.getMonth() + 1; // Month is zero-indexed, so we add 1
+          const monthYear = `${month.toString().padStart(2, "0")}`; // Format as 'MM'
 
-        // Create accordion item
-        const accordionItem = document.createElement("div");
-        accordionItem.classList.add("accordion-item");
-
-        // Create accordion header
-        const [year, month] = monthYear.split("-");
-        const startDate = new Date(year, parseInt(month) - 1); // Month is zero-indexed, so we subtract 1
-        const monthString = startDate.toLocaleString("en-US", {
-          month: "long",
-          year: "numeric",
-        });
-        const accordionHeader = document.createElement("h2");
-        accordionHeader.classList.add("accordion-header");
-        accordionHeader.innerHTML = `
-          <button class="accordion-button ${
-            monthYear === currentMonthYear ? "" : "collapsed"
-          }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${monthYear}" aria-expanded="${
-          monthYear === currentMonthYear ? "true" : "false"
-        }" aria-controls="collapse${monthYear}">
-            ${monthString}
-          </button>
-        `;
-
-        // Create accordion collapse container
-        const accordionCollapse = document.createElement("div");
-        accordionCollapse.id = `collapse${monthYear}`;
-        accordionCollapse.classList.add("accordion-collapse", "collapse");
-        if (monthYear === currentMonthYear) {
-          accordionCollapse.classList.add("show"); // Open current month initially
-        }
-        accordionCollapse.setAttribute(
-          "aria-labelledby",
-          `heading${monthYear}`
-        );
-        accordionCollapse.setAttribute("data-bs-parent", "#accordionEvents");
-
-        // Create accordion body
-        const accordionBody = document.createElement("div");
-        accordionBody.classList.add("accordion-body");
-
-        // Sort events by start date
-        eventsByMonth[monthYear].sort((a, b) => {
-          return new Date(a.start.dateTime) - new Date(b.start.dateTime);
+          if (!eventsByMonth[monthYear]) {
+            eventsByMonth[monthYear] = [];
+          }
+          eventsByMonth[monthYear].push(event);
         });
 
-        // Add events to the accordion body
-        eventsByMonth[monthYear].forEach((event) => {
-          const startDate = formatDate(new Date(event.start.dateTime));
-          const endDate = new Date(event.end.dateTime).toLocaleString();
-          const isExpired = new Date(event.start.dateTime) < currentDate;
-          const eventHtml = `
-            <div class="event-item ${isExpired ? "expired" : ""}">
-              <div class="event-item-header">
-                <div class="event-title">${event.summary}</div>
-                <div class="map-link"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
-                event.location
-                )}" target="_blank"><i class="fa-solid fa-location-dot"></i> Map</a></div>
-              </div>
-              <div class="event-date">${startDate}</div>
-              <div class="event-location">${event.location}</div>
-            </div>
+        // Sort keys (months) chronologically
+        const sortedMonthKeys = Object.keys(eventsByMonth).sort();
+
+        // Loop through each month and create accordion items
+        for (const month of sortedMonthKeys) {
+          // Create accordion item
+          const accordionItem = document.createElement("div");
+          accordionItem.classList.add("accordion-item");
+
+          // Create accordion header
+          const monthString = new Date(`${year}-${month}-01`).toLocaleString(
+            "en-US",
+            {
+              month: "long",
+            }
+          );
+          const accordionHeader = document.createElement("h2");
+          accordionHeader.classList.add("accordion-header");
+          accordionHeader.innerHTML = `
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
+              ${monthString}
+            </button>
           `;
-          accordionBody.innerHTML += eventHtml;
-        });
 
-        // Append accordion header, body, and collapse container
-        accordionCollapse.appendChild(accordionBody);
-        accordionItem.appendChild(accordionHeader);
-        accordionItem.appendChild(accordionCollapse);
+          // Create accordion collapse container
+          const accordionCollapse = document.createElement("div");
+          accordionCollapse.id = `collapse${year}${month}`;
+          accordionCollapse.classList.add("accordion-collapse", "collapse");
+          accordionCollapse.setAttribute(
+            "aria-labelledby",
+            `heading${year}${month}`
+          );
+          accordionCollapse.setAttribute("data-bs-parent", `#accordion${year}`);
 
-        // Append accordion item to the container
-        accordionContainer.appendChild(accordionItem);
+          // Create accordion body
+          const accordionBody = document.createElement("div");
+          accordionBody.classList.add("accordion-body");
+
+          // Sort events by start date
+          eventsByMonth[month].sort((a, b) => {
+            return new Date(a.start.dateTime) - new Date(b.start.dateTime);
+          });
+
+          // Add events to the accordion body
+          eventsByMonth[month].forEach((event) => {
+            const startDate = formatDate(new Date(event.start.dateTime));
+            const eventHtml = `
+              <div class="event-item">
+                <div class="event-title">${event.summary}</div>
+                <div class="event-date">${startDate}</div>
+                <div class="event-location">${event.location}</div>
+                <div class="map-link"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
+                  event.location
+                )}" target="_blank">Show Map</a></div>
+              </div>
+            `;
+            accordionBody.innerHTML += eventHtml;
+          });
+
+          // Append accordion header, body, and collapse container
+          accordionCollapse.appendChild(accordionBody);
+          accordionItem.appendChild(accordionHeader);
+          accordionItem.appendChild(accordionCollapse);
+
+          // Append accordion item to the year container
+          accordionYearContainer.appendChild(accordionItem);
+        }
+
+        // Append accordion year container to the main accordion container
+        accordionContainer.appendChild(accordionYearContainer);
       }
     } else {
       console.log("No events found.");
