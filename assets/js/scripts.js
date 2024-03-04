@@ -107,7 +107,7 @@ async function getData() {
             eventsByMonth[month] &&
             // eventsByMonth[month].length > 0 &&
             // (year > currentYear || (year === currentYear && month >= currentMonth))
-            (year > currentYear || (year === currentYear))
+            (year > currentYear || (year == currentYear))
           ) {
             // Create accordion item for the month
             const accordionItem = document.createElement("div");
