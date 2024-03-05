@@ -262,8 +262,13 @@ button {
 
 .event-title {
   font-size: 16px;
-  color: #111;
+  color: #fff;
   font-weight: bold;
+  background: #555;
+  display: inline-block;
+  padding: 3px 10px;
+  margin-bottom: 5px;
+  border-radius: 3px;
 }
 .event-location {
   font-size: 12px;
