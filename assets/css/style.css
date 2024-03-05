@@ -349,6 +349,7 @@ button {
   border-top: 1px solid #333;
   font-family: "Bebas Neue";
   font-size: 20px;
+  text-align: center;
 }
 .nav-link:focus {
   color: #fff;
