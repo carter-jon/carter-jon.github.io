@@ -388,6 +388,7 @@ nav.navbar {
 @media (min-width: 992px) {
   .navbar-nav {
     margin-top: 0px;
+    margin-left: 0 !important;
   }
   .nav-link {
     padding: 0px 16px !important;
