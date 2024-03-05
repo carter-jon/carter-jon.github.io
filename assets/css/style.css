@@ -415,6 +415,9 @@ nav.navbar {
     padding: 0px 16px !important;
     border-top: none;
   }
+  .navbar-collapse {
+    background-color: transparent;
+  }
 }
 
 .footer-logo {
