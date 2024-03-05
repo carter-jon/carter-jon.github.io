@@ -110,6 +110,10 @@ p {
 .band .member {
   margin-bottom: 40px;
 }
+.band .role {
+  color: #f25500;
+  font-size: 18px;
+}
 .band p {
   color: #bbb;
 }
