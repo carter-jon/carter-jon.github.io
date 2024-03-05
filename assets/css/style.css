@@ -358,6 +358,12 @@ button {
 .navbar-nav {
   margin-top: 12px;
 }
+.navbar-collapse {
+  justify-content: center;
+}
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+  justify-content: flex-end;
+}
 nav.navbar {
   background-color: #222;
   background-color: rgb(17, 17, 17);
@@ -375,12 +381,13 @@ nav.navbar {
 }
 .navbar-brand {
   display: block;
-  height: 40px;
+  height: 32px;
   width: 200px;
   padding: 0;
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
   position: absolute;
+  left: 20px;
 }
 .navbar-brand.active {
   opacity: 1;
