@@ -35,7 +35,7 @@ img {
   }
 }
 .banner .logo {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -44,9 +44,10 @@ img {
   width: 320px;
   height: 320px;
   padding: 40px;
-  animation: showLogo 1s;
-  animation-delay: 1s;
-  /* border: 2px solid #444; */
+  animation: showLogo 2s;
+  animation-delay: 2s;
+  /* opacity: 0; */
+  /* border: 2px solid #444/; */
   /* box-shadow: 0 0 60px rgba(255,255,255,0.3); */
 }
 @keyframes showLogo {
@@ -54,7 +55,7 @@ img {
     opacity: 0;
   }
   to {
-    opacity: 1
+    opacity: 1;
   }
 }
 .banner .logo img {
