@@ -303,14 +303,14 @@ button {
   color: #fff;
 }
 
-.event-item.expired {
+.event-item.expired .event-item-content {
   opacity: 0.4;
 }
 .event-item.expired .event-title {
   background-color: #333;
 }
 .event-item.expired .map-link a {
-  /* color: #111; */
+  opacity: 0.4;
 }
 
 .event-date {
