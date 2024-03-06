@@ -88,8 +88,8 @@ img {
 }
 @media (min-width: 800px) {
   .banner .logo {
-    height: 420px;
-    width: 420px;
+    height: 380px;
+    width: 380px;
   }
 }
 
