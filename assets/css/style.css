@@ -34,18 +34,29 @@ img {
     object-position: center center;
   }
 }
-.banner img.logo {
+.banner .logo {
+  background-color: rgba(0,0,0,0.5);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: auto;
-  height: 280px;
-  border-radius: 20px;
+  border-radius: 50%;
+  width: 320px;
+  height: 320px;
+  padding: 40px;
+  border: 2px solid #444;
+  box-shadow: 0 0 60px rgba(255,255,255,0.3);
+}
+.banner .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 @media (min-width: 800px) {
-  .banner img.logo {
-    height: 380px;
+  .banner .logo {
+    height: 420px;
+    width: 420px;
   }
 }
 
