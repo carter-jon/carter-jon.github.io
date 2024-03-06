@@ -47,8 +47,8 @@ img {
 .banner .logo {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
-  width: 320px;
-  height: 320px;
+  width: 280px;
+  height: 280px;
   padding: 40px;
 
   opacity: 0; /* make things invisible upon start */
