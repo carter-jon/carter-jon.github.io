@@ -44,8 +44,18 @@ img {
   width: 320px;
   height: 320px;
   padding: 40px;
+  animation: showLogo 1s;
+  animation-delay: 1s;
   /* border: 2px solid #444; */
   /* box-shadow: 0 0 60px rgba(255,255,255,0.3); */
+}
+@keyframes showLogo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1
+  }
 }
 .banner .logo img {
   width: 100%;
