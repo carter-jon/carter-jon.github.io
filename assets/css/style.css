@@ -585,7 +585,7 @@ nav.navbar {
   left: 0; */
   width: 430px;
   height: 100px;
-  margin: 0px auto;
+  margin: 100px auto 0;
 }
 
 /* #bg-artwork {
@@ -733,6 +733,10 @@ nav.navbar {
   box-shadow: 0 30px 80px #656565;
   border-radius: 15px;
   z-index: 2;
+  border: 2px solid green;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
 }
 
 #album-art {
@@ -746,6 +750,7 @@ nav.navbar {
   box-shadow: 0 0 0 10px #fff;
   border-radius: 50%;
   overflow: hidden;
+  
 }
 
 #album-art.active {
@@ -840,8 +845,8 @@ nav.navbar {
   width: 250px;
   height: 100%;
   margin: 0 5px 0 141px;
-  float: right;
   overflow: hidden;
+  border: 1px solid red
 }
 
 .control {
