@@ -73,7 +73,7 @@ img {
   }
   60% {
     opacity: 0.8;
-    transform: scale(1.2) rotate(20deg);
+    transform: scale(1.2);
   }
   100% {
     opacity: 1;
