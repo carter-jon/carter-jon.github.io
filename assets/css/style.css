@@ -850,7 +850,7 @@ nav.navbar {
 }
 
 .control .button {
-  width: 66px;
+  width: 58px;
   height: 76px;
   border-radius: 6px;
   cursor: pointer;
@@ -858,6 +858,11 @@ nav.navbar {
   align-items: center;
   justify-content: center;
   background-color: rgba(0,0,0,0.2);
+}
+@media(min-width: 380px) {
+  .control .button {
+    width: 66px;
+  }
 }
 @media(min-width: 420px) {
   .control .button {
