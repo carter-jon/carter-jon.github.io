@@ -596,15 +596,20 @@ nav.navbar {
   top: 0;
   right: 15px;
   left: 15px;
-  padding: 10px 16px 10px 156px;
+  padding: 10px 16px 10px 16px;
   background-color: #444;
   background: rgb(51,51,51);
-background: linear-gradient(0deg, rgba(51,51,51,1) 0%, rgba(85,85,85,1) 100%);
+  background: linear-gradient(0deg, rgba(51,51,51,1) 0%, rgba(85,85,85,1) 100%);
   border-radius: 15px 15px 0 0;
   transition: 0.3s ease top;
   z-index: 1;
   height: 80px;
   overflow: hidden;
+}
+@media (min-width: 600px) {
+  #player-track {
+    padding: 10px 16px 10px 156px;
+  }
 }
 
 #player-track.active {
@@ -836,7 +841,7 @@ background: linear-gradient(0deg, rgba(51,51,51,1) 0%, rgba(85,85,85,1) 100%);
 }
 
 .control .button {
-  width: 76px;
+  width: 66px;
   height: 76px;
   border-radius: 6px;
   cursor: pointer;
@@ -844,6 +849,12 @@ background: linear-gradient(0deg, rgba(51,51,51,1) 0%, rgba(85,85,85,1) 100%);
   align-items: center;
   justify-content: center;
   background-color: rgba(0,0,0,0.2);
+}
+@media(min-width: 400px) {
+  .control .button {
+    width: 76px;
+    height: 76px;
+  }
 }
 
 .button i {
