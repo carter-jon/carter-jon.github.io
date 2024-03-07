@@ -606,7 +606,7 @@ nav.navbar {
   height: 80px;
   overflow: hidden;
 }
-@media (min-width: 600px) {
+@media (min-width: 480px) {
   #player-track {
     padding: 10px 16px 10px 156px;
   }
@@ -732,11 +732,20 @@ nav.navbar {
   border-radius: 50%;
   overflow: hidden;
 }
-@media(min-width: 600px) {
+@media (min-width: 400px) {
   #album-art {
+    width: 80px;
+    height: 80px;
+    left: 20px;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.1);
+  }
+}
+@media (min-width: 480px) {
+  #album-art {
+    transform: rotateZ(0);
     top: -40px;
-    width: 115px;
-    height: 115px;
+    width: 110px;
+    height: 110px;
     left: 32px;
     box-shadow: 0 0 0 8px rgba(255,255,255,0.1);
   }
