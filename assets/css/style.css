@@ -734,9 +734,9 @@ nav.navbar {
   border-radius: 15px;
   z-index: 2;
   border: 2px solid green;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #album-art {
@@ -744,7 +744,7 @@ nav.navbar {
   top: -40px;
   width: 115px;
   height: 115px;
-  margin-left: 40px;
+  left: 30px;
   transform: rotateZ(0);
   transition: 0.3s ease all;
   box-shadow: 0 0 0 10px #fff;
@@ -842,16 +842,17 @@ nav.navbar {
 }
 
 #player-controls {
-  width: 250px;
+  width: 50%;
   height: 100%;
-  margin: 0 5px 0 141px;
   overflow: hidden;
-  border: 1px solid red
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  align-items: center;
 }
 
 .control {
-  width: 33.333%;
-  float: left;
+  border: 1px solid red;
   padding: 12px 0;
 }
 
