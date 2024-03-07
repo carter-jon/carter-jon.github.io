@@ -859,7 +859,7 @@ nav.navbar {
   justify-content: center;
   background-color: rgba(0,0,0,0.2);
 }
-@media(min-width: 400px) {
+@media(min-width: 420px) {
   .control .button {
     width: 76px;
     height: 76px;
