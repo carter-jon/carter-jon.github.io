@@ -733,10 +733,10 @@ nav.navbar {
   box-shadow: 0 30px 80px #656565;
   border-radius: 15px;
   z-index: 2;
-  border: 2px solid green;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding: 20px;
 }
 
 #album-art {
@@ -842,7 +842,7 @@ nav.navbar {
 }
 
 #player-controls {
-  width: 50%;
+
   height: 100%;
   overflow: hidden;
   display: grid;
@@ -852,17 +852,18 @@ nav.navbar {
 }
 
 .control {
-  border: 1px solid red;
-  padding: 12px 0;
+  
 }
 
-.button {
-  width: 26px;
-  height: 26px;
-  padding: 25px;
-  background-color: #fff;
+.control .button {
+  width: 50px;
+  height: 50px;
+  background-color: #333;
   border-radius: 6px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button i {
