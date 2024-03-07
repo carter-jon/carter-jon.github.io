@@ -62,18 +62,22 @@ img {
 
   -webkit-animation-duration: 2s;
   -moz-animation-duration: 2s;
-  animation-duration: 1s;
+  animation-duration: 2s;
   animation-delay: 1s;
-  transform: scale(0.1) rotate(-350deg);
+  transform: scale(0.1) rotate(-180deg);
 }
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: scale(0.1) rotate(-350deg);
+    transform: scale(0.1) rotate(-1080deg);
   }
-  30% {
+  40% {
     opacity: 0.8;
-    transform: scale(1.2);
+    transform: scale(1.2) rotate(20deg);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.7) rotate(-20deg);
   }
   100% {
     opacity: 1;
