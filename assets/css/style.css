@@ -625,7 +625,7 @@ nav.navbar {
   top: 0;
   right: 15px;
   left: 15px;
-  padding: 13px 22px 10px 184px;
+  padding: 13px 22px 10px 142px;
   background-color: #fff7f7;
   border-radius: 15px 15px 0 0;
   transition: 0.3s ease top;
@@ -636,12 +636,11 @@ nav.navbar {
 
 #player-track.active {
   top: -100px;
-  Z
 }
 
 #album-name {
   color: #54576f;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: bold;
 }
 
