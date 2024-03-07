@@ -300,6 +300,7 @@ overlay.addEventListener("click", function (event) {
 
 // audio 
 $(function () {
+  alert();
   var playerTrack = $("#player-track"),
     bgArtwork = $("#bg-artwork"),
     bgArtworkUrl,
