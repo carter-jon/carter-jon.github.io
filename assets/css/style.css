@@ -512,7 +512,7 @@ nav.navbar.active {
   position: absolute;
   left: 20px;
   top: 10px;
-  z-index: 2;
+  z-index: 22;
 }
 .navbar-brand.active {
   opacity: 1;
