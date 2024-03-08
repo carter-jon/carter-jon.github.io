@@ -893,6 +893,8 @@ nav.navbar {
 }
 
 .button.disabled, .button.disabled:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+.button.disabled i, .button.disabled:hover i {
   opacity: 0.5;
-  background-color: rgba(0,0,0,0.1.5);
 }
