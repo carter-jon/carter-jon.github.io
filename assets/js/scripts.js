@@ -488,6 +488,16 @@ $(function () {
     }
 
     console.log(currIndex);
+    if (currIndex <= 0) {
+      prevButton.addClass("disabled");
+    } else {
+      prevButton.removeClass("disabled");
+    }
+    if (currIndex >= albumArtworks.length-1) {
+      nextButton.addClass("disabled");
+    } else {
+      nextButton.removeClass("disabled");
+    }
 
     if (currIndex > -1 && currIndex < albumArtworks.length) {
       if (flag == 0) i.attr("class", "fa fa-play");

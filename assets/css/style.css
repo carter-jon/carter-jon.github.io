@@ -871,10 +871,6 @@ nav.navbar {
   }
 }
 
-.button.disabled, .button.disabled:hover {
-  background-color: red;
-}
-
 .button i {
   display: block;
   color: #d6dee7;
@@ -894,4 +890,9 @@ nav.navbar {
 
 .button:hover i {
   color: #fff;
+}
+
+.button.disabled, .button.disabled:hover {
+  opacity: 0.5;
+  background-color: rgba(0,0,0,0.1.5);
 }
