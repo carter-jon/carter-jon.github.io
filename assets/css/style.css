@@ -449,9 +449,7 @@ nav.navbar.active .navbar-toggler {
   text-align: center;
   color: #ccc;
 }
-.nav-link:focus {
-  color: #fff;
-}
+
 .navbar-toggler:focus {
   box-shadow: none;
 }
@@ -525,23 +523,33 @@ nav.navbar.active {
   .nav-link {
     padding: 0px 16px !important;
     border-top: none;
+    color: #eee;
   }
   .navbar-collapse {
-    background-color: rgba(255,0,0,0.4);
+    background-color: rgba(0,0,0,0.5);
     flex-grow: 0;
     width: auto;
     margin: 0 auto;
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 30px;
     display: inline-flex;
     transform: translateY(0);
     position: initial;
     transform: translateY(40px);
   }
-  .navbar-nav.active .navbar-collapse {
+  nav.navbar.active .navbar-collapse {
     padding: 0;
     border-radius: 0;
     background-color: transparent;
+  }
+  nav.navbar.active .nav-link {
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: #aaa;
+  }
+  nav.navbar.active .nav-link:focus {
+    color: #fff;
   }
 }
 
