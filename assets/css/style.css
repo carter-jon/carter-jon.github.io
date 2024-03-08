@@ -458,8 +458,7 @@ nav.navbar.active .navbar-toggler {
 .navbar .container-fluid {
   padding: 0;
 }
-.navbar-nav {
-}
+
 .navbar-collapse {
   justify-content: center;
   background-color: #222;
@@ -469,7 +468,8 @@ nav.navbar.active .navbar-toggler {
   top:50px;
   width: 100%;
   transform: translateY(-50px);
-  transition: all 0.2s ease-in-out
+  transition: all 0.2s ease-in-out;
+
 }
 nav.navbar.active .navbar-collapse {
   position: initial;
@@ -527,10 +527,21 @@ nav.navbar.active {
     border-top: none;
   }
   .navbar-collapse {
-    background-color: transparent;
+    background-color: rgba(255,0,0,0.4);
+    flex-grow: 0;
+    width: auto;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 20px;
+    display: inline-flex;
     transform: translateY(0);
     position: initial;
     transform: translateY(40px);
+  }
+  .navbar-nav.active .navbar-collapse {
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
   }
 }
 
