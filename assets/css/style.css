@@ -862,7 +862,7 @@ nav.navbar.active {
   z-index: 1;
 }
 
-#album-art:not('.buffering').active img.active {
+#album-art:not(.buffering).active img.active {
   z-index: 1;
   animation: rotateAlbumArt 3s linear 0s infinite forwards;
 }
