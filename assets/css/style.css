@@ -871,6 +871,10 @@ nav.navbar {
   }
 }
 
+.button.disabled, .button.disabled:hover {
+  background-color: red;
+}
+
 .button i {
   display: block;
   color: #d6dee7;

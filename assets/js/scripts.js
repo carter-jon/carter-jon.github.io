@@ -312,6 +312,8 @@ $(function () {
     insTime = $("#ins-time"),
     sHover = $("#s-hover"),
     playPauseButton = $("#play-pause-button"),
+    prevButton = $("#play-previous"),
+    nextButton = $("#play-next"),
     i = playPauseButton.find("i"),
     tProgress = $("#current-time"),
     tTime = $("#track-length"),
@@ -346,7 +348,9 @@ $(function () {
       // "Blondie",
       // "Fleetwood Mac",
     ],
-    albumArtworks = ["_1", "_2",
+    albumArtworks = [
+      "_1",
+      "_2",
       // "_3", "_4", "_5", "_6",
     ],
     trackUrl = [
@@ -477,8 +481,13 @@ $(function () {
   }
 
   function selectTrack(flag) {
-    if (flag == 0 || flag == 1) ++currIndex;
-    else --currIndex;
+    if (flag == 0 || flag == 1) {
+      ++currIndex;
+    } else {
+      --currIndex;
+    }
+
+    console.log(currIndex);
 
     if (currIndex > -1 && currIndex < albumArtworks.length) {
       if (flag == 0) i.attr("class", "fa fa-play");
@@ -520,8 +529,11 @@ $(function () {
 
       bgArtwork.css({ "background-image": "url(" + bgArtworkUrl + ")" });
     } else {
-      if (flag == 0 || flag == 1) --currIndex;
-      else ++currIndex;
+      if (flag == 0 || flag == 1) {
+        --currIndex;
+      } else {
+        ++currIndex;
+      }
     }
   }
 
