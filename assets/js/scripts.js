@@ -226,6 +226,7 @@ getData();
 // scroll *******************************************************************************************
 let scrollpos = window.scrollY;
 const header = document.querySelector(".navbar-brand");
+const navbar = document.querySelector("nav.navbar");
 const dropdown = document.querySelector("navbar-collapse");
 
 window.addEventListener("scroll", function () {
@@ -234,6 +235,11 @@ window.addEventListener("scroll", function () {
     header.classList.add("active");
   } else {
     header.classList.remove("active");
+  }
+  if (scrollpos >= 200) {
+    navbar.classList.add("active");
+  } else {
+    navbar.classList.remove("active");
   }
 });
 

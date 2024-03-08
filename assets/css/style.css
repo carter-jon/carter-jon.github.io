@@ -424,6 +424,22 @@ button {
   margin: 0;
   border: none;
   height: 50px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50% ;
+  z-index: 20;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  transition: all 0.2s ease-in;
+  transform: translate(-10px, 10px);
+}
+nav.navbar.active .navbar-toggler {
+  position: initial;
+  background: none;
+  transform: translate(0);
+}
+.navbar-toggler .navbar-toggler-icon {
+  color: #fff;
 }
 .nav-link {
   padding: 10px 15px;
@@ -431,6 +447,7 @@ button {
   font-family: "Bebas Neue";
   font-size: 20px;
   text-align: center;
+  color: #ccc;
 }
 .nav-link:focus {
   color: #fff;
@@ -447,6 +464,16 @@ button {
   justify-content: center;
   background-color: #222;
   margin: 0;
+  z-index: 10;
+  position: fixed;
+  top:50px;
+  width: 100%;
+  transform: translateY(-50px);
+  transition: all 0.2s ease-in-out
+}
+nav.navbar.active .navbar-collapse {
+  position: initial;
+  transform: translate(0);
 }
 .navbar > .container,
 .navbar > .container-fluid,
@@ -458,12 +485,15 @@ button {
   justify-content: flex-end;
 }
 nav.navbar {
-  background-color: #222;
-  background-color: rgb(17, 17, 17);
-  background: linear-gradient(0deg, #333333 0%, #111111 100%) !important;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
   height: 50px;
   padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+nav.navbar.active {
+  background-color: #222;
+  /* background-color: rgb(17, 17, 17); */
+  /* background: linear-gradient(0deg, #333333 0%, #111111 100%) !important; */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
 }
 .navbar .logo {
   height: 100%;
@@ -498,6 +528,9 @@ nav.navbar {
   }
   .navbar-collapse {
     background-color: transparent;
+    transform: translateY(0);
+    position: initial;
+    transform: translateY(40px);
   }
 }
 
