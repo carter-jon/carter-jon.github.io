@@ -616,13 +616,13 @@ nav.navbar {
   top: -80px;
 }
 
-#album-name {
+#track-name {
   color: #ddd;
   font-size: 14px;
   font-weight: bold;
 }
 
-#track-name {
+#artist-name {
   color: #acaebd;
   font-size: 13px;
 }

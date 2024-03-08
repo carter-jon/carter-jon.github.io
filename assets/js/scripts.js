@@ -303,8 +303,8 @@ $(function () {
   var playerTrack = $("#player-track"),
     bgArtwork = $("#bg-artwork"),
     bgArtworkUrl,
-    albumName = $("#album-name"),
     trackName = $("#track-name"),
+    artistName = $("#artist-name"),
     albumArt = $("#album-art"),
     sArea = $("#s-area"),
     seekBar = $("#seek-bar"),
@@ -330,7 +330,7 @@ $(function () {
     nTime = 0,
     buffInterval = null,
     tFlag = false,
-    albums = [
+    tracks = [
       "Where the Streets Have No Name",
       "Who Knew",
       // "Castle on the Hill",
@@ -338,7 +338,7 @@ $(function () {
       // "Maria",
       // "Go Your Own Way",
     ],
-    trackNames = [
+    artistNames = [
       "U2",
       "Pink",
       // "Ed Sheeran",
@@ -492,8 +492,8 @@ $(function () {
       tProgress.text("00:00");
       tTime.text("00:00");
 
-      currAlbum = albums[currIndex];
-      currTrackName = trackNames[currIndex];
+      currTrack = tracks[currIndex];
+      currArtistName = artistNames[currIndex];
       currArtwork = albumArtworks[currIndex];
 
       audio.src = trackUrl[currIndex];
@@ -511,8 +511,8 @@ $(function () {
         checkBuffering();
       }
 
-      albumName.text(currAlbum);
-      trackName.text(currTrackName);
+      trackName.text(currTrack);
+      artistName.text(currArtistName);
       albumArt.find("img.active").removeClass("active");
       $("#" + currArtwork).addClass("active");
 
