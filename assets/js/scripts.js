@@ -315,6 +315,7 @@ $(function () {
     sArea = $("#s-area"),
     seekBar = $("#seek-bar"),
     trackTime = $("#track-time"),
+    bufferText = $("#buffer-box"),
     insTime = $("#ins-time"),
     sHover = $("#s-hover"),
     playPauseButton = $("#play-pause-button"),
@@ -383,7 +384,7 @@ $(function () {
         playerTrack.removeClass("active");
         albumArt.removeClass("active");
         clearInterval(buffInterval);
-        albumArt.removeClass("buffering");
+        bufferText.removeClass("active");
         i.attr("class", "fas fa-play");
         audio.pause();
       }
@@ -470,7 +471,7 @@ $(function () {
       i.attr("class", "fa fa-play");
       seekBar.width(0);
       tProgress.text("00:00");
-      albumArt.removeClass("buffering").removeClass("active");
+      bufferText.removeClass("active").removeClass("active");
       clearInterval(buffInterval);
     }
   }
@@ -478,8 +479,8 @@ $(function () {
   function checkBuffering() {
     clearInterval(buffInterval);
     buffInterval = setInterval(function () {
-      if (nTime == 0 || bTime - nTime > 1000) albumArt.addClass("buffering");
-      else albumArt.removeClass("buffering");
+      if (nTime == 0 || bTime - nTime > 1000) bufferText.addClass("active");
+      else bufferText.removeClass("active");
 
       bTime = new Date();
       bTime = bTime.getTime();
@@ -508,7 +509,7 @@ $(function () {
     if (currIndex > -1 && currIndex < albumArtworks.length) {
       if (flag == 0) i.attr("class", "fa fa-play");
       else {
-        albumArt.removeClass("buffering");
+        bufferText.removeClass("active");
         i.attr("class", "fa fa-pause");
       }
 
