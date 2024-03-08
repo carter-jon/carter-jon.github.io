@@ -385,6 +385,7 @@ $(function () {
         albumArt.removeClass("active");
         clearInterval(buffInterval);
         bufferText.removeClass("active");
+        albumArt.removeClass("buffering");
         i.attr("class", "fas fa-play");
         audio.pause();
       }
@@ -472,6 +473,7 @@ $(function () {
       seekBar.width(0);
       tProgress.text("00:00");
       bufferText.removeClass("active").removeClass("active");
+      albumArt.removeClass("buffering");
       clearInterval(buffInterval);
     }
   }
@@ -479,8 +481,13 @@ $(function () {
   function checkBuffering() {
     clearInterval(buffInterval);
     buffInterval = setInterval(function () {
-      if (nTime == 0 || bTime - nTime > 1000) bufferText.addClass("active");
-      else bufferText.removeClass("active");
+      if (nTime == 0 || bTime - nTime > 1000) {
+        bufferText.addClass("active");
+        albumArt.addClass("buffering");
+      } else {
+        bufferText.removeClass("active");
+        albumArt.removeClass("buffering");
+      }
 
       bTime = new Date();
       bTime = bTime.getTime();
@@ -510,6 +517,7 @@ $(function () {
       if (flag == 0) i.attr("class", "fa fa-play");
       else {
         bufferText.removeClass("active");
+        albumArt.removeClass("buffering");
         i.attr("class", "fa fa-pause");
       }
 
