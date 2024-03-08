@@ -836,9 +836,9 @@ nav.navbar {
   -webkit-filter: blur(2px);
 }
 
-#album-art.buffering #buffer-box {
+/* #album-art.buffering #buffer-box {
   opacity: 1;
-}
+} */
 
 #player-controls {
   height: 100%;
