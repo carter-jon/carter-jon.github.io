@@ -707,7 +707,6 @@ nav.navbar.active .navbar-brand {
 
 #track-time.active #current-time,
 #track-time.active #track-length {
-  color: #fff;
   background-color: transparent;
 }
 
