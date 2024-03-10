@@ -424,8 +424,8 @@ button {
   margin: 0;
   border: none;
   height: 50px;
-  background: rgba(0,0,0,0.5);
-  border-radius: 50% ;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
   z-index: 20;
   position: fixed;
   top: 0px;
@@ -463,11 +463,10 @@ nav.navbar.active .navbar-toggler {
   margin: 0;
   z-index: 10;
   position: fixed;
-  top:50px;
+  top: 50px;
   width: 100%;
   transform: translateY(-50px);
   transition: all 0.2s ease-in-out;
-
 }
 nav.navbar.active .navbar-collapse {
   position: initial;
@@ -501,7 +500,7 @@ nav.navbar.active {
   display: block;
 }
 .navbar-brand {
-  display: block;
+  display: none;
   height: 32px;
   width: 200px;
   padding: 0;
@@ -511,6 +510,9 @@ nav.navbar.active {
   left: 20px;
   top: 10px;
   z-index: 22;
+}
+nav.navbar.active .navbar-brand {
+  display: block;
 }
 .navbar-brand.active {
   opacity: 1;
@@ -526,7 +528,7 @@ nav.navbar.active {
     color: #eee;
   }
   .navbar-collapse {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     flex-grow: 0;
     width: auto;
     margin: 0 auto;
@@ -621,14 +623,11 @@ nav.navbar.active {
   } */
 }
 
-
-
 /* audio */
 
 *:focus {
   outline: none;
 }
-
 
 #app-cover {
   width: 100%;
@@ -650,8 +649,12 @@ nav.navbar.active {
   left: 15px;
   padding: 10px 16px 10px 16px;
   background-color: #444;
-  background: rgb(51,51,51);
-  background: linear-gradient(0deg, rgba(51,51,51,1) 0%, rgba(85,85,85,1) 100%);
+  background: rgb(51, 51, 51);
+  background: linear-gradient(
+    0deg,
+    rgba(51, 51, 51, 1) 0%,
+    rgba(85, 85, 85, 1) 100%
+  );
   border-radius: 15px 15px 0 0;
   transition: 0.3s ease top;
   z-index: 1;
@@ -761,7 +764,11 @@ nav.navbar.active {
   height: 100%;
   background-color: #555;
 
-  background: linear-gradient(0deg, rgba(51,51,51,1) 0%, rgba(85,85,85,1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(51, 51, 51, 1) 0%,
+    rgba(85, 85, 85, 1) 100%
+  );
   box-shadow: 0 30px 80px #000;
   border-radius: 15px;
   z-index: 2;
@@ -769,7 +776,6 @@ nav.navbar.active {
   justify-content: flex-end;
   align-items: center;
   padding: 12px;
-
 }
 
 #album-art {
@@ -780,17 +786,17 @@ nav.navbar.active {
   left: 12px;
   transform: rotateZ(0) translateY(-50%);
   transition: 0.3s ease all;
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   overflow: hidden;
 }
-@media(min-width: 350px) {
+@media (min-width: 350px) {
   #album-art {
     width: 70px;
     height: 70px;
   }
 }
-@media(min-width: 375px) {
+@media (min-width: 375px) {
   #album-art {
     width: 80px;
     height: 80px;
@@ -801,7 +807,7 @@ nav.navbar.active {
     width: 86px;
     height: 86px;
     left: 20px;
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
   }
 }
 @media (min-width: 430px) {
@@ -809,7 +815,7 @@ nav.navbar.active {
     width: 110px;
     height: 110px;
     left: 20px;
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
     top: 75%;
     left: 14px;
   }
@@ -821,15 +827,14 @@ nav.navbar.active {
     width: 110px;
     height: 110px;
     left: 32px;
-    box-shadow: 0 0 0 8px rgba(255,255,255,0.1);
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.1);
   }
   #album-art.active {
     top: -60px;
-    box-shadow: 0 0 0 4px rgba(255,255,255,0.3), 0 30px 50px -15px rgba(0,0,0,0.6);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3),
+      0 30px 50px -15px rgba(0, 0, 0, 0.6);
   }
 }
-
-
 
 #album-art:before {
   content: "";
@@ -842,7 +847,7 @@ nav.navbar.active {
   margin: -10px auto 0 auto;
   background-color: #333;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.6);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.6);
   z-index: 2;
 }
 
@@ -930,14 +935,14 @@ nav.navbar.active {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
-@media(min-width: 380px) {
+@media (min-width: 380px) {
   .control .button {
     width: 66px;
   }
 }
-@media(min-width: 420px) {
+@media (min-width: 420px) {
   .control .button {
     width: 76px;
     height: 76px;
@@ -958,18 +963,20 @@ nav.navbar.active {
 }
 
 .button:hover {
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .button:hover i {
   color: #fff;
 }
 
-.button.disabled, .button.disabled:hover {
-  background-color: rgba(0,0,0,0.1);
-  cursor:not-allowed
+.button.disabled,
+.button.disabled:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: not-allowed;
 }
-.button.disabled i, .button.disabled:hover i {
+.button.disabled i,
+.button.disabled:hover i {
   opacity: 0.15;
   color: #d6dee7;
 }
