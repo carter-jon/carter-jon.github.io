@@ -67,14 +67,7 @@ img {
   transform: scale(0.1) rotateZ(-1080deg) rotateY(180deg);
   filter: grayscale(1);
 }
-@keyframes fadeInNav {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -545,7 +538,7 @@ nav.navbar.active .navbar-brand {
     display: inline-flex;
     transform: translateY(0);
     position: initial;
-    transform: translateY(40px);
+    transform: translateY(-50px);
     opacity: 0; /* make things invisible upon start */
     -webkit-animation: fadeInNav ease-in 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
     -moz-animation: fadeInNav ease-in 1;
@@ -570,6 +563,17 @@ nav.navbar.active .navbar-brand {
   }
   nav.navbar.active .nav-link:focus {
     color: #fff;
+  }
+}
+
+@keyframes fadeInNav {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(40px);
   }
 }
 
