@@ -254,11 +254,18 @@ audio {
 } */
 
 /* contact us */
-button {
-  background-color: #f25500;
+button, #mc_embed_signup .button, #mc_embed_signup .button:hover {
+  background-color: #f25500 !important;
   border: none;
   padding: 10px 30px;
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  font-weight: normal;
+}
+#mc_embed_signup label {
+  margin-bottom: 10px !important;
 }
 .form-row {
   display: grid;
@@ -271,21 +278,22 @@ button {
 .form-row label {
   text-align: left;
 }
-.form-row input,
-.form-row textarea {
+input,
+textarea {
   padding: 10px;
   background-color: #ccc;
   border: none;
   font-weight: bold;
   transition: all 0.3s ease-out;
+  border-radius: 5px;
 }
-.form-row input:focus,
-.form-row textarea:focus {
+input:focus,
+textarea:focus {
   outline: 1px solid red;
   background-color: #fff;
 }
-.form-row input:visited,
-.form-row textarea:visited {
+input:visited,
+textarea:visited {
   background-color: #fff;
 }
 .form-label {
@@ -969,7 +977,7 @@ nav.navbar.active .navbar-brand {
   }
 }
 
-.button i {
+.control .button i {
   display: block;
   color: #d6dee7;
   font-size: 26px;
@@ -977,26 +985,28 @@ nav.navbar.active .navbar-brand {
   line-height: 1;
 }
 
-.button,
-.button i {
+.control .button,
+.control .button i {
   transition: 0.2s ease all;
 }
 
-.button:hover {
+.control .button:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.button:hover i {
+.control .button:hover i {
   color: #fff;
 }
 
-.button.disabled,
-.button.disabled:hover {
+.control .button.disabled,
+.control .button.disabled:hover {
   background-color: rgba(0, 0, 0, 0.1);
   cursor: not-allowed;
 }
-.button.disabled i,
-.button.disabled:hover i {
+.control .button.disabled i,
+.control .button.disabled:hover i {
   opacity: 0.15;
   color: #d6dee7;
 }
+
+
