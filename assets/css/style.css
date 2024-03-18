@@ -254,7 +254,7 @@ audio {
 } */
 
 /* contact us */
-button, #mc_embed_signup .button, #mc_embed_signup .button:hover {
+button[type="submit"], #mc_embed_signup .button, #mc_embed_signup .button:hover {
   background-color: #f25500 !important;
   border: none;
   padding: 10px 30px;
@@ -266,6 +266,7 @@ button, #mc_embed_signup .button, #mc_embed_signup .button:hover {
 }
 #mc_embed_signup label {
   margin-bottom: 10px !important;
+  margin-right: 10px !important;
 }
 .form-row {
   display: grid;
