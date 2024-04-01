@@ -302,9 +302,7 @@ menuItems.forEach(function (menuItem) {
 //   imageWrapper.classList.remove("dark");
 // });
 
-
-
-// audio 
+// audio
 $(function () {
   var playerTrack = $("#player-track"),
     bgArtwork = $("#bg-artwork"),
@@ -344,7 +342,7 @@ $(function () {
       "Who Knew",
       // "Castle on the Hill",
       // "When Tomorrow Comes",
-      // "Maria",
+      "Maria",
       // "Go Your Own Way",
     ],
     artistNames = [
@@ -352,18 +350,20 @@ $(function () {
       "Pink",
       // "Ed Sheeran",
       // "Eurythmics",
-      // "Blondie",
+      "Blondie",
       // "Fleetwood Mac",
     ],
     albumArtworks = [
       "_1",
       "_2",
-      // "_3", "_4", "_5", "_6",
+      // "_3", "_4",
+      "_5",
+      // "_6",
     ],
     trackUrl = [
       "https://hottinruth.com/audio/Where the Streets Have No Name.mp3",
       "https://hottinruth.com/audio/Who Knew.mp3",
-      // "https://hottinruth.com/audio/Who Knew.mp3",
+      "https://hottinruth.com/audio/Maria.mp3",
       // "https://hottinruth.com/audio/Who Knew.mp3",
       // "https://hottinruth.com/audio/Who Knew.mp3",
       // "https://hottinruth.com/audio/Who Knew.mp3",
@@ -507,7 +507,7 @@ $(function () {
     } else {
       prevButton.removeClass("disabled");
     }
-    if (currIndex >= albumArtworks.length-1) {
+    if (currIndex >= albumArtworks.length - 1) {
       nextButton.addClass("disabled");
     } else {
       nextButton.removeClass("disabled");
