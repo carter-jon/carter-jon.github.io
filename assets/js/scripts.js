@@ -476,6 +476,7 @@ $(function () {
       albumArt.removeClass("buffering").removeClass("active");
       playerTrack.removeClass("active");
       clearInterval(buffInterval);
+      selectTrack(1);
     }
   }
 
@@ -502,7 +503,6 @@ $(function () {
       --currIndex;
     }
 
-    console.log(currIndex);
     if (currIndex <= 0) {
       prevButton.addClass("disabled");
     } else {
