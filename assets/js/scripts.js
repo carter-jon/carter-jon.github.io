@@ -473,8 +473,10 @@ $(function () {
       seekBar.width(0);
       tProgress.text("00:00");
       bufferText.removeClass("active").removeClass("active");
-      albumArt.removeClass("buffering");
+      albumArt.removeClass("buffering").removeClass("active");
+      playerTrack.removeClass("active");
       clearInterval(buffInterval);
+      selectTrack(1);
     }
   }
 
@@ -501,7 +503,6 @@ $(function () {
       --currIndex;
     }
 
-    console.log(currIndex);
     if (currIndex <= 0) {
       prevButton.addClass("disabled");
     } else {
