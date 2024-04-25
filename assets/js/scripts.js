@@ -75,7 +75,7 @@ async function getData() {
 
       // Get the container element
       const container = document.getElementById("accordionEvents");
-      const nextEventContainer = document.getElementById("next-event");
+      const nextEventContainer = document.getElementById("nextEvent");
 
       let openMonthAccordionItem = true;
       // Output events by year and month, filtering out past months
@@ -173,7 +173,7 @@ async function getData() {
                   </div>
                 `;
                 nextEventSet = true;
-                nextEventContainer.appendChild(nextEventHTML);
+                nextEventContainer.innerHTML = nextEventHTML;
               }
               const eventHtml = `
                 <div class="event-item ${isExpired ? "expired" : ""}">
