@@ -422,6 +422,9 @@ textarea:visited {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
 }
 
+.accordion-item:first-of-type .accordion-button {
+  border-radius: 20px 20px 0 0;
+}
 .accordion-item:last-of-type .accordion-button.collapsed {
   border-radius: 0;
 }
