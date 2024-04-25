@@ -128,10 +128,10 @@ async function getData() {
               "aria-labelledby",
               `heading${year}${month}`
             );
-            accordionCollapse.setAttribute(
-              "data-bs-parent",
-              `#accordionEvents`
-            );
+            // accordionCollapse.setAttribute(
+            //   "data-bs-parent",
+            //   `#accordionEvents`
+            // );
 
             // Add 'show' class to the first accordion collapse container that meets the criteria
             if (openMonthAccordionItem) {
