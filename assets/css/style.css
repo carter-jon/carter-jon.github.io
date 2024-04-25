@@ -1024,4 +1024,12 @@ nav.navbar.active .navbar-brand {
     margin-right: auto;
     border-radius: 20px;
 }
+
+#nextEvent .event-title {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+#nextEvent .event-date {
+  font-size: 15px;
+  margin-bottom: 15px;
 }
