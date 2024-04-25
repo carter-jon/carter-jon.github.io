@@ -431,6 +431,7 @@ textarea:visited {
 .accordion-item:last-of-type .accordion-button.collapsed {
   border-radius: 0 0 20px 20px;
 }
+.accordion-item:last-of-type .accordion-body,
 .accordion-item:last-of-type .accordion-body .event-item:last-child {
   border-radius: 0 0 20px 20px;
 }
