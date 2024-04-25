@@ -78,6 +78,7 @@ async function getData() {
       const nextEventContainer = document.getElementById("nextEvent");
 
       let openMonthAccordionItem = true;
+      let nextEventSet = false;
       // Output events by year and month, filtering out past months
       Object.entries(eventsByYear).forEach(([year, eventsByMonth]) => {
         // Create an h3 tag for the year
@@ -150,7 +151,6 @@ async function getData() {
             });
 
             // Add events as list items
-            let nextEventSet = false;
             eventsByMonth[month].forEach((event) => {
               const startDate = formatDate(
                 new Date(event.start.dateTime),
