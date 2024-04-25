@@ -433,14 +433,17 @@ textarea:visited {
   background: none;
 }
 .accordion-item:first-of-type .accordion-button {
-  border-radius: 20px 20px 0 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .accordion-item:last-of-type .accordion-button.collapsed {
-  border-radius: 0 0 20px 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 .accordion-item:last-of-type .accordion-body,
 .accordion-item:last-of-type .accordion-body .event-item:last-child {
-  border-radius: 0 0 20px 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .accordion {
