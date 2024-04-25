@@ -75,6 +75,7 @@ async function getData() {
 
       // Get the container element
       const container = document.getElementById("accordionEvents");
+      const nextEventContainer = document.getElementById("next-event");
 
       let openMonthAccordionItem = true;
       // Output events by year and month, filtering out past months
@@ -149,12 +150,31 @@ async function getData() {
             });
 
             // Add events as list items
+            let nextEventSet = false;
             eventsByMonth[month].forEach((event) => {
               const startDate = formatDate(
                 new Date(event.start.dateTime),
                 currentDate
               );
               const isExpired = new Date(event.start.dateTime) < currentDate;
+              if (!isExpired && !nextEventSet) {
+                const nextEventHTML = `
+                  <div class="next-event-item">
+                    <div class="event-item-content">
+                      <div class="event-title">${event.summary}</div>
+                      <div class="event-date">${startDate}</div>
+                      <div class="event-location">${event.location}</div>
+                    </div>
+                    <div class="map-link">
+                      <a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
+                        event.location
+                      )}" target="_blank" title="Show on map"><i class="fa-solid fa-location-dot"></i></a>
+                    </div>
+                  </div>
+                `;
+                nextEventSet = true;
+                nextEventContainer.appendChild(nextEventHTML);
+              }
               const eventHtml = `
                 <div class="event-item ${isExpired ? "expired" : ""}">
                   <div class="event-item-content">
