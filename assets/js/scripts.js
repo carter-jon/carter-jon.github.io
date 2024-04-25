@@ -77,7 +77,6 @@ async function getData() {
       const container = document.getElementById("accordionEvents");
       const nextEventContainer = document.getElementById("nextEvent");
 
-      let openMonthAccordionItem = true;
       let nextEventSet = false;
       // Output events by year and month, filtering out past months
       Object.entries(eventsByYear).forEach(([year, eventsByMonth]) => {
@@ -113,9 +112,7 @@ async function getData() {
             accordionHeader.classList.add("accordion-header");
             accordionHeader.innerHTML =
               `
-        <button class="accordion-button` +
-              (openMonthAccordionItem ? "" : " collapsed") +
-              `" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
           ${new Date(`${year}-${month}-01`).toLocaleString("en-US", {
             month: "long",
           })}
@@ -130,16 +127,6 @@ async function getData() {
               "aria-labelledby",
               `heading${year}${month}`
             );
-            // accordionCollapse.setAttribute(
-            //   "data-bs-parent",
-            //   `#accordionEvents`
-            // );
-
-            // Add 'show' class to the first accordion collapse container that meets the criteria
-            if (openMonthAccordionItem) {
-              accordionCollapse.classList.add("show");
-              openMonthAccordionItem = false;
-            }
 
             // Create accordion body
             const accordionBody = document.createElement("div");
