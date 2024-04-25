@@ -159,16 +159,12 @@ async function getData() {
               const isExpired = new Date(event.start.dateTime) < currentDate;
               if (!isExpired && !nextEventSet) {
                 const nextEventHTML = `
+                  <h3>Next Show</h3>
                   <div class="next-event-item">
                     <div class="event-item-content">
                       <div class="event-title">${event.summary}</div>
                       <div class="event-date">${startDate}</div>
                       <div class="event-location">${event.location}</div>
-                    </div>
-                    <div class="map-link">
-                      <a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
-                        event.location
-                      )}" target="_blank" title="Show on map"><i class="fa-solid fa-location-dot"></i></a>
                     </div>
                   </div>
                 `;
