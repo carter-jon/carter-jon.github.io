@@ -112,8 +112,10 @@ async function getData() {
             accordionHeader.classList.add("accordion-header");
             accordionHeader.innerHTML = `
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
-        ${new Date(year, month - 1, 1).toLocaleString("en-US", { month: "long" })}
-        </button>
+  ${new Date(Date.parse(`${year}-${month}-01`)).toLocaleString("en-US", {
+    month: "long",
+  })}
+</button>
       `;
 
             // Create accordion collapse container
