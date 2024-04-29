@@ -111,12 +111,10 @@ async function getData() {
             const accordionHeader = document.createElement("h2");
             accordionHeader.classList.add("accordion-header");
             accordionHeader.innerHTML = `
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
-  ${new Date(Date.parse(`${year}-${month}-01`)).toLocaleString("en-US", {
-    month: "long",
-  })}
-</button>
-      `;
+  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
+    ${new Date(year, month - 1, 1).toLocaleString("en-US", { month: "long" })}
+  </button>
+`;
 
             // Create accordion collapse container
             const accordionCollapse = document.createElement("div");
