@@ -1065,6 +1065,7 @@ nav.navbar.active .navbar-brand {
   display: grid;
   grid-template-columns: auto auto;
   gap: 20px;
+  justify-content: center;
 }
 .shares a {
   background-color: transparent;
@@ -1079,4 +1080,5 @@ nav.navbar.active .navbar-brand {
   height: 40px;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
