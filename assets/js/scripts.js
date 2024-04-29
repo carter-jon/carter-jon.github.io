@@ -172,7 +172,7 @@ async function getData() {
                     <a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
                       event.location
                     )}" target="_blank" title="Show on map"><i class="fa-solid fa-location-dot"></i></a>
-                    <div class="fb-share-button" data-href="https://hottinruth.com#events" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhottinruth.com%2F%23events&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                    <div class="fb-share-button" data-href="https://hottinruth.com#events" data-layout="" data-size=""><a title="Share on Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhottinruth.com%2F%23events&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><i class="fa-brands fa-facebook"></i></a></div>
                   </div>
                 </div>
               `;
