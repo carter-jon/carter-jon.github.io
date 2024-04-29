@@ -1060,3 +1060,18 @@ nav.navbar.active .navbar-brand {
     margin: 0 auto;
     border-radius: 20px;
 }
+
+.shares {
+  display: grid;
+  grid-template-columns: auto;
+  
+}
+.shares a {
+  background-color: transparent;
+  background: #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 30px;
+  color: #111;
+  line-height: 30px;
+}
