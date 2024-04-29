@@ -117,10 +117,10 @@ async function getData() {
               new Date(year, month - 1, 1)
             );
             accordionHeader.innerHTML = `
-  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
-    ${formattedMonth}
-  </button>
-`;
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${year}${month}" aria-expanded="false" aria-controls="collapse${year}${month}">
+                ${formattedMonth}
+              </button>
+            `;
 
             // Create accordion collapse container
             const accordionCollapse = document.createElement("div");
@@ -172,6 +172,7 @@ async function getData() {
                     <a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
                       event.location
                     )}" target="_blank" title="Show on map"><i class="fa-solid fa-location-dot"></i></a>
+                    <div class="fb-share-button" data-href="https://hottinruth.com#events" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhottinruth.com%2F%23events&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                   </div>
                 </div>
               `;
