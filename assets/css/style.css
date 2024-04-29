@@ -370,12 +370,12 @@ textarea:visited {
 .event-location {
   font-size: 12px;
 }
-.map-link {
+.event-links {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.map-link a {
+.event-links a {
   background-color: #eee;
   border-radius: 20%;
   font-size: 18px;
@@ -391,7 +391,7 @@ textarea:visited {
   transition: all 0.2s ease-in-out;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
-.map-link a:hover {
+.event-links a:hover {
   background-color: #333;
   color: #fff;
 }
