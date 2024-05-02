@@ -76,6 +76,7 @@ async function getData() {
       // Get the container element
       const container = document.getElementById("accordionEvents");
       const nextEventContainer = document.getElementById("nextEvent");
+      const bannerNextEventContainer = document.getElementById("banner-nextEvent");
 
       let nextEventSet = false;
       // Output events by year and month, filtering out past months
@@ -160,6 +161,7 @@ async function getData() {
                 `;
                 nextEventSet = true;
                 nextEventContainer.innerHTML = nextEventHTML;
+                bannerNextEventContainer;.innerHTML = nextEventHTML;
               }
               const eventHtml = `
                 <div class="event-item ${isExpired ? "expired" : ""}">
