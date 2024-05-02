@@ -107,7 +107,7 @@ img {
 }
 .banner .next-event {
   position: absolute;
-  bottom: 10%;
+  bottom: 7%;
   left: -10%;
   width: 120%;
   text-align: center;
@@ -128,6 +128,10 @@ img {
 }
 .banner .next-event .event-title {
   margin-bottom: 20px;
+}
+.banner .next-event .event-location {
+  max-width: 200px;
+  margin: 0 auto;
 }
 .banner .next-event .event-date {
   margin-bottom: 20px;
