@@ -148,7 +148,7 @@ img {
 }
 @media (min-width: 992px) {
   .banner .logo-wrapper {
-    top: 40%;
+    top: 44%;
     transform: translate(-50%, -50%);
   }
   .banner .next-event {
