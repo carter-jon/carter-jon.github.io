@@ -114,6 +114,15 @@ img {
   background: rgba(0,0,0,0.6);
   padding: 30px;
   z-index: 2;
+  opacity: 0;
+  -webkit-animation-fill-mode: forwards; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+  animation-delay: 3s;
+  -webkit-animation: fadeInNextEvent ease-out 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation: fadeInNextEvent ease-out 1;
+  animation: fadeInNextEvent ease-out 1;
 }
 .banner .next-event .event-title {
   margin-bottom: 20px;
@@ -121,6 +130,14 @@ img {
 .banner .next-event .event-date {
   margin-bottom: 20px;
   font-size: 16px;
+}
+@keyframes fadeInNextEvent {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @media (min-width: 800px) {
   .banner .logo {
