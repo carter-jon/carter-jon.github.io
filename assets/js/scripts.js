@@ -161,7 +161,7 @@ async function getData() {
                 `;
                 nextEventSet = true;
                 nextEventContainer.innerHTML = nextEventHTML;
-                bannerNextEventContainer;.innerHTML = nextEventHTML;
+                bannerNextEventContainer.innerHTML = nextEventHTML;
               }
               const eventHtml = `
                 <div class="event-item ${isExpired ? "expired" : ""}">
