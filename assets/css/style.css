@@ -124,6 +124,7 @@ img {
   animation-fill-mode: forwards;
   animation-duration: 0.5s;
   animation-delay: 3s;
+  left: 50%;
 }
 .banner .next-event .event-title {
   margin-bottom: 20px;
@@ -154,7 +155,7 @@ img {
     transform: translate(-50%, -50%);
   }
   .banner .next-event {
-    left: 50%;
+
     width: auto;
     border-radius: 300px 300px 0 0;
     max-width: 500px;
