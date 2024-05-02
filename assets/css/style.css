@@ -135,9 +135,11 @@ img {
 @keyframes fadeInNextEvent {
   0% {
     opacity: 0;
+    transform: translateY(100%);
   }
   100% {
     opacity: 1;
+    transform: translateY(0%);
   }
 }
 @media (min-width: 800px) {
@@ -153,25 +155,24 @@ img {
   }
   .banner .next-event {
     left: 50%;
-    transform: translateX(-50%);
     width: auto;
     border-radius: 300px 300px 0 0;
     max-width: 500px;
     box-shadow: 0px 0px 400px -33px rgba(255,255,355,0.8);
-    transform: translate(-50%, 100%);
-    -webkit-animation: shiftNextEvent ease-out 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-    -moz-animation: shiftNextEvent ease-out 1;
-    animation: shiftNextEvent ease-out 1;
+    /* transform: translate(-50%, 100%); */
+    /* -webkit-animation: shiftNextEvent ease-out 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    /* -moz-animation: shiftNextEvent ease-out 1; */
+    /* animation: shiftNextEvent ease-out 1; */ 
   }
 }
 @keyframes shiftNextEvent {
   0% {
-    transform: translate(-50%, 100%);
-    opacity: 0;
+    /* transform: translate(-50%, 100%); */
+    /* opacity: 0; */
   }
   100% {
-    transform: translate(-50%, 0%);
-    opacity: 1;
+    /* transform: translate(-50%, 0%); */
+    /* opacity: 1; */
   }
 }
 
