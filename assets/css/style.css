@@ -148,7 +148,7 @@ img {
     transform: translateY(0%) rotate(-10deg);
   }
 }
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   @keyframes fadeInNextEvent {
     0% {
       opacity: 0;
@@ -159,7 +159,7 @@ img {
       transform: translateY(0%) translateX(-50%) rotate(-38deg);
     }
   }
-}
+} */
 @media (min-width: 800px) {
   .banner .logo {
     height: 380px;
@@ -172,10 +172,9 @@ img {
     transform: translate(-50%, -50%);
   }
   .banner .next-event {
-    bottom: 6%;
-    left: 87vw; 
+    bottom: 0px;
     box-shadow: 0px 0px 400px -33px rgba(255,255,355,0.8);
-    transform-origin: center;
+    transform-origin: left;
   }
 }
 
