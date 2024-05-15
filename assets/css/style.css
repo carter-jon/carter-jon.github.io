@@ -113,7 +113,7 @@ img {
   width: 120%;
   text-align: center;
   background: rgba(0,0,0,0.6);
-  padding: 30px;
+  padding: 20px;
   z-index: 2;
   opacity: 0; /* make things invisible upon start */
   -webkit-animation: fadeInNextEvent ease-out 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
@@ -128,15 +128,21 @@ img {
 
 }
 .banner .next-event .event-title {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+  font-size: 18px;
 }
 .banner .next-event .event-location {
-  max-width: 200px;
+  max-width: 280px;
   margin: 0 auto;
+  display: none;
 }
 .banner .next-event .event-date {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   font-size: 16px;
+}
+.banner .next-event .h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
 }
 @keyframes fadeInNextEvent {
   0% {
