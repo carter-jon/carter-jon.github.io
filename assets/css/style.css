@@ -146,6 +146,10 @@ img {
   margin-bottom: 12px;
   font-size: 24px;
 }
+
+.banner .next-event-link {
+  text-decoration: none;
+}
 @keyframes fadeInNextEvent {
   0% {
     opacity: 0;
