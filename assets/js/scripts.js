@@ -603,3 +603,22 @@ $(function () {
 
   initPlayer();
 });
+
+
+// shop
+const apiToken = "PbdLCn8cDpQVEgkn0mDutsXhcSUpMA2zaHI7rMoT";
+
+// Make a GET request to the API endpoint
+$.ajax({
+  url: "https://api.printful.com/products",
+  headers: {
+    Authorization: "Bearer " + apiToken,
+  },
+  success: function (data) {
+    // Handle the product data response
+    console.log(data);
+  },
+  error: function (error) {
+    console.error("Error fetching products:", error);
+  },
+});
