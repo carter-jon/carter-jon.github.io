@@ -611,7 +611,7 @@ const apiToken = "PbdLCn8cDpQVEgkn0mDutsXhcSUpMA2zaHI7rMoT";
 
 // Make a GET request to the API endpoint
 $.ajax({
-  url: "https://cors.bridged.cc/https://api.printful.com/products",
+  url: "https://cors.bridged.cc/https://api.printful.com/products?status=active",
   headers: {
     Authorization: "Bearer " + apiToken,
   },
