@@ -606,22 +606,12 @@ $(function () {
 
 
 // shop
-const express = require("express");
-const cors = require("cors");
-const app = express();
-
-// Allow cross-origin requests from your website's domain
-app.use(
-  cors({
-    origin: "https://hottinruth.com",
-  })
-);
 
 const apiToken = "PbdLCn8cDpQVEgkn0mDutsXhcSUpMA2zaHI7rMoT";
 
 // Make a GET request to the API endpoint
 $.ajax({
-  url: "https://api.printful.com/products",
+  url: "https://cors.bridged.cc/https://api.printful.com/products",
   headers: {
     Authorization: "Bearer " + apiToken,
   },
