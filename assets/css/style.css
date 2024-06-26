@@ -108,7 +108,7 @@ img {
   object-fit: contain;
   object-position: center;
 }
-.banner .next-event {
+.banner .next {
   position: absolute;
   bottom: 7%;
   left: -10%;
