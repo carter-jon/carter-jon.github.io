@@ -152,6 +152,7 @@ async function getData() {
               if (!isExpired && !nextEventSet) {
                 console.log(startDate);
                 console.log(event.start.dateTime);
+                console.log(updateCountdown(event.start.dateTime));
                 const nextEventHTML = `
                   <h3>Next Show</h3>
                   <div class="next-event-item">
@@ -232,6 +233,22 @@ function formatDate(date, currentDate) {
   // Construct the formatted date string
   const formattedDay = day.charAt(0).toUpperCase() + day.slice(1); // Capitalize the first letter
   return `${formattedDay}, ${dayOfMonth}${suffix} ${formattedDate}`;
+}
+
+function updateCountdown(startDate) {
+  const targetDate = new Date(startDate);
+  const now = new Date();
+  const difference = targetDate - now;
+
+  if (difference > 0) {
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+    return `${days} days ${hours} hours ${minutes} minutes`;
+  }
 }
 
 getData();
