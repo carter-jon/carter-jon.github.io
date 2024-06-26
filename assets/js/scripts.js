@@ -152,7 +152,7 @@ async function getData() {
               if (!isExpired && !nextEventSet) {
                 setInterval(() => updateCountdown(event.start.dateTime), 60000);
                 const nextEventHTML = `
-                  <h3>Next Show</h3>
+                  <h3>Next Show in <div id="banner-nextEvent-countdown" class="next-event-countdown"></div></h3>
                   <div class="next-event-item">
                     <div class="event-item-content">
                       <div class="event-title">${event.summary}</div>
