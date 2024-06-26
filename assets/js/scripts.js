@@ -244,12 +244,17 @@ function updateCountdown(startDate) {
 
   if (difference > 0) {
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const daysOutput = (days > 0 ? `<span class="highlight">${days}</span> days &nbsp;` : '');
+    const daysOutput =
+      days > 0
+        ? `<span class="highlight">${days}</span> days &nbsp;&nbsp;`
+        : "";
     const hours = Math.floor(
       (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
     const hoursOutput =
-      hours > 0 ? `<span class="highlight">${hours}</span> hours &nbsp;` : "";
+      hours > 0
+        ? `<span class="highlight">${hours}</span> hours &nbsp;&nbsp;`
+        : "";
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const minutesOutput =
       minutes > 0
