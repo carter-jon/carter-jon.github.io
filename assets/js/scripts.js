@@ -261,7 +261,7 @@ function updateCountdown(startDate) {
     const minutesLabel = minutes == 1 ? `minute` : `minutes`;
     const minutesOutput =
       minutes > 0
-        ? `<span class="highlight">${minutes} ${minutesLabel}</span> minutes`
+        ? `<span class="highlight">${minutes}</span> ${minutesLabel}`
         : "";
 
     let output = '';
