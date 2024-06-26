@@ -247,7 +247,7 @@ function updateCountdown(startDate) {
     const daysLabel = days == 1 ? `day` : `days`;
     const daysOutput =
       days > 0
-        ? `<span class="highlight">${days}</span> ${daysLabel} &nbsp;`
+        ? `<span class="highlight">${days}</span> <span class="label">${daysLabel}</span> &nbsp;`
         : "";
     const hours = Math.floor(
       (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
@@ -255,13 +255,13 @@ function updateCountdown(startDate) {
     const hoursLabel = hours == 1 ? `hour` : `hours`;
     const hoursOutput =
       hours > 0
-        ? `<span class="highlight">${hours}</span> ${hoursLabel} &nbsp;`
+        ? `<span class="highlight">${hours}</span> <span class="label">${hoursLabel}</span> &nbsp;`
         : "";
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const minutesLabel = minutes == 1 ? `minute` : `minutes`;
     const minutesOutput =
       minutes > 0
-        ? `<span class="highlight">${minutes}</span> ${minutesLabel}`
+        ? `<span class="highlight">${minutes}</span> <span class="label">${minutesLabel}</span>`
         : "";
 
     let output = '';
