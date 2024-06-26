@@ -150,7 +150,7 @@ async function getData() {
               );
               const isExpired = new Date(event.start.dateTime) < currentDate;
               if (!isExpired && !nextEventSet) {
-                setInterval(() => updateCountdown(event.start.dateTime), 60000);
+                
                 const nextEventHTML = `
                   <h3 class="header-countdown"><div id="banner-nextEvent-countdown" class="next-event-countdown"></div></h3>
                   <h3 class="header">Next Show</h3>
@@ -165,6 +165,8 @@ async function getData() {
                 nextEventSet = true;
                 nextEventContainer.innerHTML = nextEventHTML;
                 bannerNextEventContainer.innerHTML = nextEventHTML;
+                updateCountdown(event.start.dateTime);
+                setInterval(() => updateCountdown(event.start.dateTime), 60000);
               }
               const eventHtml = `
                 <div class="event-item ${isExpired ? "expired" : ""}">
@@ -250,9 +252,9 @@ function updateCountdown(startDate) {
     let output = '';
 
     if (days > 0) {
-      output = "Next show in ${days} days ${hours} hours ${minutes} minutes";
+      output = `Next show in ${days} days ${hours} hours ${minutes} minutes`;
     } else {
-      output = "Next show today in ${hours} hours ${minutes} minutes";
+      output = `Next show today in ${hours} hours ${minutes} minutes`;
     }
     document.getElementById(
       "banner-nextEvent-countdown"
