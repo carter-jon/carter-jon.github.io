@@ -244,17 +244,24 @@ function updateCountdown(startDate) {
 
   if (difference > 0) {
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const daysOutput = (days > 0 ? `<span class="highlight">${days}</span> days &nbsp;` : '');
     const hours = Math.floor(
       (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
+    const hoursOutput =
+      hours > 0 ? `<span class="highlight">${hours}</span> hours &nbsp;` : "";
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const minutesOutput =
+      minutes > 0
+        ? `<span class="highlight">${minutes}</span> minutes`
+        : "";
 
     let output = '';
 
     if (days > 0) {
-      output = `Next show in <div><span class="highlight">${days}</span> days &nbsp;<span class="highlight">${hours}</span> hours &nbsp;<span class="highlight">${minutes}</span> minutes</div>`;
+      output = `Next show in <div>${daysOutput} ${hoursOutput} ${minutesOutput}</div>`;
     } else {
-      output = `Next show today in <div><span class="highlight">${hours}</span> hours <span class="highlight">${minutes}</span> minutes</div>`;
+      output = `Next show today in <div>${hoursOutput} ${minutesOutput}</div>`;
     }
     document.getElementById(
       "banner-nextEvent-countdown"
