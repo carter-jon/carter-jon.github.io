@@ -150,9 +150,6 @@ async function getData() {
               );
               const isExpired = new Date(event.start.dateTime) < currentDate;
               if (!isExpired && !nextEventSet) {
-                console.log(startDate);
-                console.log(event.start.dateTime);
-                console.log(updateCountdown(event.start.dateTime));
                 setInterval(updateCountdown(event.start.dateTime), 60000);
                 const nextEventHTML = `
                   <h3>Next Show</h3>
@@ -237,6 +234,7 @@ function formatDate(date, currentDate) {
 }
 
 function updateCountdown(startDate) {
+  console.log('updating..');
   const targetDate = new Date(startDate);
   const now = new Date();
   const difference = targetDate - now;
