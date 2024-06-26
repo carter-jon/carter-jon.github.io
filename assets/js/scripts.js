@@ -150,7 +150,7 @@ async function getData() {
               );
               const isExpired = new Date(event.start.dateTime) < currentDate;
               if (!isExpired && !nextEventSet) {
-                setInterval(updateCountdown(event.start.dateTime), 60000);
+                setInterval(() => updateCountdown(event.start.dateTime), 60000);
                 const nextEventHTML = `
                   <h3>Next Show</h3>
                   <div class="next-event-item">
