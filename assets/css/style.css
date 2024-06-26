@@ -129,6 +129,9 @@ img {
   animation-delay: 3s;
 
 }
+.banner .next-event {
+  box-shadow: none;
+}
 .banner .next-event .event-title {
   margin-bottom: 12px;
   font-size: 18px;
