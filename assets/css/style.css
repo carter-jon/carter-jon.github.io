@@ -152,6 +152,9 @@ img {
   text-decoration: none;
   color: #eee;
 }
+.banner .header-title {
+  display: none;
+}
 @keyframes fadeInNextEvent {
   0% {
     opacity: 0;
