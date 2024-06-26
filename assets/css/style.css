@@ -152,7 +152,7 @@ img {
   text-decoration: none;
   color: #eee;
 }
-.banner .header-title {
+.banner .next-event .header {
   display: none;
 }
 @keyframes fadeInNextEvent {
