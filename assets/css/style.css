@@ -1134,6 +1134,9 @@ nav.navbar.active .navbar-brand {
     margin-right: auto;
     border-radius: 20px;
 }
+#nextEvent .header-countdown {
+  display: none;
+}
 
 #nextEvent .event-title {
   font-size: 18px;
