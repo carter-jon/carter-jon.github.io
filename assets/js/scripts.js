@@ -153,6 +153,7 @@ async function getData() {
                 console.log(startDate);
                 console.log(event.start.dateTime);
                 console.log(updateCountdown(event.start.dateTime));
+                setInterval(updateCountdown(event.start.dateTime), 60000);
                 const nextEventHTML = `
                   <h3>Next Show</h3>
                   <div class="next-event-item">
@@ -247,7 +248,9 @@ function updateCountdown(startDate) {
     );
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
 
-    return `${days} days ${hours} hours ${minutes} minutes`;
+    document.getElementById(
+      "banner-nextEvent-countdown"
+    ).innerHTML = `${days} days ${hours} hours ${minutes} minutes`;
   }
 }
 
