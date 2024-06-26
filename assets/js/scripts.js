@@ -150,6 +150,7 @@ async function getData() {
               );
               const isExpired = new Date(event.start.dateTime) < currentDate;
               if (!isExpired && !nextEventSet) {
+                console.log(startDate);
                 const nextEventHTML = `
                   <h3>Next Show</h3>
                   <div class="next-event-item">
