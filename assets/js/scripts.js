@@ -252,9 +252,9 @@ function updateCountdown(startDate) {
     let output = '';
 
     if (days > 0) {
-      output = `Next show in <span class="highlight">${days}</span> days <span class="highlight">${hours}</span> hours <span class="highlight">${minutes}</span> minutes`;
+      output = `Next show in <div><span class="highlight">${days}</span> days <span class="highlight">${hours}</span> hours <span class="highlight">${minutes}</span> minutes</div>`;
     } else {
-      output = `Next show today in ${hours} hours ${minutes} minutes`;
+      output = `Next show today in <div><span class="highlight">${hours}</span> hours <span class="highlight">${minutes}</span> minutes</div>`;
     }
     document.getElementById(
       "banner-nextEvent-countdown"

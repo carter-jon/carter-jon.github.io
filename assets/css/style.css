@@ -158,6 +158,7 @@ img {
 
 .banner .next-event .highlight {
   color: #f25500;
+  font-size: 30px;
 }
 @keyframes fadeInNextEvent {
   0% {
