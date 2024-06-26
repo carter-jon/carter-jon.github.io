@@ -252,7 +252,7 @@ function updateCountdown(startDate) {
     let output = '';
 
     if (days > 0) {
-      output = `Next show in ${days} days ${hours} hours ${minutes} minutes`;
+      output = `Next show in <span class="highlight">${days}</span> days <span class="highlight">${hours}</span> hours <span class="highlight">${minutes}</span> minutes`;
     } else {
       output = `Next show today in ${hours} hours ${minutes} minutes`;
     }

@@ -155,6 +155,10 @@ img {
 .banner .next-event .header {
   display: none;
 }
+
+.banner .next-event .highlight {
+  color: #f25500;
+}
 @keyframes fadeInNextEvent {
   0% {
     opacity: 0;
