@@ -1204,3 +1204,6 @@ nav.navbar.active .navbar-brand {
     grid-template-columns: 1fr auto;
     gap: 20px;
 }
+.resource-list .resource a i {
+  font-size: 24px;
+}
