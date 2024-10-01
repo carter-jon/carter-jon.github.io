@@ -367,6 +367,7 @@ button[type="submit"], #mc_embed_signup .button, #mc_embed_signup .button:hover 
   color: #fff;
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 13px;
 }
 #mc_embed_signup label {
   margin-bottom: 10px !important;
