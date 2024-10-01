@@ -1180,18 +1180,27 @@ nav.navbar.active .navbar-brand {
   text-decoration: none;
 }
 
+.resource-list {
+    background: #333;
+    padding: 30px;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
 .resource-list .resource a {
-  display: inline-grid;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-decoration: none;
-  background: #f25500;
-  padding: 20px 40px;
-  border-radius: 30px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 14px;
-  grid-template-columns: 1fr auto;
-  gap: 20px;
+    display: inline-grid;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    background: #f25500;
+    padding: 20px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
 }
