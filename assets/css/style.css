@@ -358,12 +358,15 @@ audio {
 button[type="submit"], #mc_embed_signup .button, #mc_embed_signup .button:hover {
   background-color: #f25500 !important;
   border: none;
-  padding: 10px 30px;
+  padding: 20px 30px;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
   font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 #mc_embed_signup label {
   margin-bottom: 10px !important;
