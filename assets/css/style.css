@@ -1207,6 +1207,7 @@ nav.navbar.active .navbar-brand {
     font-size: 13px;
     grid-template-columns: 1fr auto;
     gap: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 .resource-list .resource a i {
   font-size: 24px;
