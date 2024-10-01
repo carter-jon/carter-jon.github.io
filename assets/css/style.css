@@ -1179,3 +1179,19 @@ nav.navbar.active .navbar-brand {
   justify-content: center;
   text-decoration: none;
 }
+
+.resource-list .resource a {
+  display: inline-grid;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  background: #f25500;
+  padding: 20px 40px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+}
