@@ -63,6 +63,7 @@ async function getData() {
         const startDate = new Date(event.start.dateTime);
         const year = startDate.getFullYear();
         const month = startDate.getMonth() + 1; // Month is zero-indexed, so add 1
+console.log(year);
 
         if (!eventsByYear[year]) {
           eventsByYear[year] = {};
