@@ -63,7 +63,6 @@ async function getData() {
         const startDate = new Date(event.start.dateTime);
         const year = startDate.getFullYear();
         const month = startDate.getMonth() + 1; // Month is zero-indexed, so add 1
-console.log(year);
 
         if (!eventsByYear[year]) {
           eventsByYear[year] = {};
@@ -83,6 +82,15 @@ console.log(year);
       let nextEventSet = false;
       // Output events by year and month, filtering out past months
       Object.entries(eventsByYear).forEach(([year, eventsByMonth]) => {
+        // Ensure year is a valid number before creating an element
+        if (
+          isNaN(year) ||
+          !eventsByMonth ||
+          Object.keys(eventsByMonth).length === 0
+        ) {
+          return; // Skip this iteration if the year is invalid or has no events
+        }
+        
         // Create an h3 tag for the year
         const yearHeader = document.createElement("h3");
         yearHeader.textContent = year;
@@ -151,7 +159,6 @@ console.log(year);
               );
               const isExpired = new Date(event.start.dateTime) < currentDate;
               if (!isExpired && !nextEventSet) {
-                
                 const nextEventHTML = `
                   <h3 class="header-countdown"><div id="banner-nextEvent-countdown" class="next-event-countdown"></div></h3>
                   <h3 class="header">Next Show</h3>
@@ -179,7 +186,7 @@ console.log(year);
                   <div class="event-links">
                     <div class="map-link">
                       <a href="https://www.google.com/maps/search/?api=1&query=${encodeURI(
-                      event.location
+                        event.location
                       )}" target="_blank" title="Show on map"><i class="fa-solid fa-location-dot"></i></a>
                     </div>
                   </div>
