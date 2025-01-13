@@ -82,12 +82,17 @@ async function getData() {
       let nextEventSet = false;
       // Output events by year and month, filtering out past months
       Object.entries(eventsByYear).forEach(([year, eventsByMonth]) => {
+        // Get the current date
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so add 1
         // Ensure year is a valid number before creating an element
         console.log('Year - ' + year);
         if (
           isNaN(year) ||
           !eventsByMonth ||
-          Object.keys(eventsByMonth).length === 0
+          Object.keys(eventsByMonth).length === 0 ||
+          year < currentYear
         ) {
           return; // Skip this iteration if the year is invalid or has no events
         }
@@ -100,11 +105,6 @@ async function getData() {
         // Create accordion element for the year
         const accordion = document.createElement("div");
         accordion.classList.add("accordion", "mb-5");
-
-        // Get the current date
-        const currentDate = new Date();
-        const currentYear = currentDate.getFullYear();
-        const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so add 1
 
         // Loop through each month in the year
         for (let month = 1; month <= 12; month++) {
