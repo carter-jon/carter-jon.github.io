@@ -87,7 +87,6 @@ async function getData() {
         const currentYear = currentDate.getFullYear();
         const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so add 1
         // Ensure year is a valid number before creating an element
-        console.log('Year - ' + year);
         if (
           isNaN(year) ||
           !eventsByMonth ||
