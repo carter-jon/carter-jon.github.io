@@ -83,6 +83,7 @@ async function getData() {
       // Output events by year and month, filtering out past months
       Object.entries(eventsByYear).forEach(([year, eventsByMonth]) => {
         // Ensure year is a valid number before creating an element
+        console.log('Year - ' + year);
         if (
           isNaN(year) ||
           !eventsByMonth ||
@@ -90,7 +91,7 @@ async function getData() {
         ) {
           return; // Skip this iteration if the year is invalid or has no events
         }
-
+        
         // Create an h3 tag for the year
         const yearHeader = document.createElement("h3");
         yearHeader.textContent = year;
@@ -104,20 +105,6 @@ async function getData() {
         const currentDate = new Date();
         const currentYear = currentDate.getFullYear();
         const currentMonth = currentDate.getMonth() + 1; // Month is zero-indexed, so add 1
-
-        // Check if there are any valid (not expired) events for the year
-        const hasValidEvents = Object.keys(eventsByMonth).some((month) => {
-          return (
-            month >= currentMonth &&
-            eventsByMonth[month].some(
-              (event) => new Date(event.start.dateTime) >= currentDate
-            )
-          );
-        });
-
-        if (!hasValidEvents) {
-          return; // Skip adding the year header if no valid events
-        }
 
         // Loop through each month in the year
         for (let month = 1; month <= 12; month++) {
