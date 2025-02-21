@@ -1364,7 +1364,7 @@ nav.navbar.active .navbar-brand {
   }
   .social-list .social-item a i, .social-list .social-item a img {
     font-size: 30px;
-    width: 30px;
+    width: auto;
     height: 30px;
   }
 }
