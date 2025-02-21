@@ -3,6 +3,7 @@
 body {
   background-color: #111;
   color: #eee;
+  position: relative;
 }
 
 .text-centre {
@@ -595,7 +596,7 @@ nav.navbar.active .navbar-toggler {
   justify-content: center;
   background-color: #222;
   margin: 0;
-  z-index: 10;
+  z-index: 5;
   position: fixed;
   top: 50px;
   width: 100%;
@@ -619,6 +620,10 @@ nav.navbar {
   height: 50px;
   padding: 0;
   transition: all 0.3s ease-in-out;
+}
+nav.navbar.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 nav.navbar.active {
   background-color: #222;
@@ -722,7 +727,6 @@ nav.navbar.active .navbar-brand {
 
 /* images */
 .gallery {
-  position: relative;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -752,39 +756,69 @@ nav.navbar.active .navbar-brand {
   filter: blur(6px) grayscale();
   opacity: 0.6;
 }
-.gallery .overlay {
+.overlay {
   opacity: 0;
   visibility: hidden;
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: 50vh;
   left: 50%;
   width: 20%;
   height: auto;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
-  border: 3px solid rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
 }
-.gallery .overlay .close {
+.overlay .close {
   background-color: rgba(0, 0, 0, 0.6);
   padding: 10px;
   border-radius: 50%;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0px;
+  right: 0px;
   border: 1px solid rgba(255,255,255,0.3);
 }
-.gallery .overlay svg {
+.overlay svg {
   width: 30px;
   height: 30px;
   z-index: 2;
   cursor: pointer;
 }
-.gallery .overlay.active {
+.overlay img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 2;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  border: 3px solid rgba(255, 255, 255, 0.5);
+}
+.overlay.active {
   opacity: 1;
   visibility: visible;
-  width: 100%;
+  width: 90%;
+  height: 100vh;
+  max-width: 1000px;
   max-height: 80vh;
+}
+.overlay-mask {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0; 
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+}
+.overlay-mask.active {
+  opacity: 1;
+  visibility: visible;
 }
 @media (min-width: 600px) {
   .images {

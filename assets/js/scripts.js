@@ -351,19 +351,24 @@ menuItems.forEach(function (menuItem) {
 const imageWrapper = document.querySelector(".images");
 const images = document.querySelectorAll(".images img");
 const overlay = document.getElementById("overlay");
+const overlayMask = document.querySelector(".overlay-mask");
 var overlayImage = overlay.querySelector("img");
 images.forEach(function (image) {
   image.addEventListener("click", function (event) {
     const target = this.getAttribute("src");
     overlayImage.setAttribute("src", target);
     overlay.classList.add("active");
+    overlayMask.classList.add("active");
     imageWrapper.classList.add("dark");
+    navbar.classList.add("hidden");
   });
 });
 
 overlay.addEventListener("click", function (event) {
   overlay.classList.remove("active");
+  overlayMask.classList.remove("active");
   imageWrapper.classList.remove("dark");
+  navbar.classList.remove("hidden");
 });
 
 // audio
