@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="42"
+   height="42"
+   id="svg2383"
+   version="1.0"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2385" />
+  <metadata
+     id="metadata2388">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(3.083496e-6,-351.30707)">
+    <g
+       id="g855"
+       transform="translate(-120.73228,175.65354)">
+      <rect
+         ry="7.2200046"
+         rx="7.2200046"
+         y="175.65353"
+         x="120.73228"
+         height="42"
+         width="42"
+         id="rect4628"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.461274" />
+      <text
+         transform="scale(1.0497174,0.95263735)"
+         id="text35244"
+         y="219.71394"
+         x="121.39668"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:44.8545px;line-height:0%;font-family:'Courier New';-inkscape-font-specification:'Courier New, Bold';font-variant-ligatures:no-common-ligatures;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.542595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="letter-spacing:2.71456;fill:#000000;fill-opacity:1;stroke-width:0.542595px"
+           y="219.71394"
+           x="121.39668"
+           id="tspan3821">L</tspan></text>
+    </g>
+  </g>
+</svg>
