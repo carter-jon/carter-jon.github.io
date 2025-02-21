@@ -348,23 +348,23 @@ menuItems.forEach(function (menuItem) {
 });
 
 // gallery
-// const imageWrapper = document.querySelector(".images");
-// const images = document.querySelectorAll(".images img");
-// const overlay = document.getElementById("overlay");
-// var overlayImage = overlay.querySelector("img");
-// images.forEach(function (image) {
-//   image.addEventListener("click", function (event) {
-//     const target = this.getAttribute("src");
-//     overlayImage.setAttribute("src", target);
-//     overlay.classList.add("active");
-//     imageWrapper.classList.add("dark");
-//   });
-// });
+const imageWrapper = document.querySelector(".images");
+const images = document.querySelectorAll(".images img");
+const overlay = document.getElementById("overlay");
+var overlayImage = overlay.querySelector("img");
+images.forEach(function (image) {
+  image.addEventListener("click", function (event) {
+    const target = this.getAttribute("src");
+    overlayImage.setAttribute("src", target);
+    overlay.classList.add("active");
+    imageWrapper.classList.add("dark");
+  });
+});
 
-// overlay.addEventListener("click", function (event) {
-//   overlay.classList.remove("active");
-//   imageWrapper.classList.remove("dark");
-// });
+overlay.addEventListener("click", function (event) {
+  overlay.classList.remove("active");
+  imageWrapper.classList.remove("dark");
+});
 
 // audio
 $(function () {
