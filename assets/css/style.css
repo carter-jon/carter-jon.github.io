@@ -1243,7 +1243,7 @@ nav.navbar.active .navbar-brand {
 
 #links {
   margin-bottom: 40px;
-  max-width: 800px;
+  max-width: 880px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
@@ -1308,7 +1308,7 @@ nav.navbar.active .navbar-brand {
     height: 70px;
   }
 }
-@media(min-width: 780px) {
+@media(min-width: 800px) {
   .social-list {
     grid-template-columns: 1fr 1fr 1fr;
   }
