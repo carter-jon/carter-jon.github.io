@@ -1350,7 +1350,7 @@ nav.navbar.active .navbar-brand {
     display:grid;
     justify-content: start;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     color: #fff;
     text-decoration: none;
     background: #f25500;
