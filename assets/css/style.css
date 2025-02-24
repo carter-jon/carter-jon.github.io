@@ -102,7 +102,7 @@ img {
     opacity: 1;
     transform: scale(1);
     filter: grayscale(0);
-    outline: 20px solid rgba(255,255,255,0.1);
+    outline: 50px solid rgba(255,255,255,0.1);
     /* box-shadow: 0px 0px 100px 0px rgba(255,255,355,0.8); */
   }
 }
@@ -1319,6 +1319,7 @@ nav.navbar.active .navbar-brand {
     padding: 20px;
     text-align: center;
     border-radius: 20px;
+    position: relative;
 }
 
 .social-list .social-item a .icon {
@@ -1332,14 +1333,17 @@ nav.navbar.active .navbar-brand {
   align-items: center;
   justify-content: center;
 }
-.social-list .download a .icon {
+.social-list .social-item.download a .icon {
   position: absolute;
-  top: 50%;
-  right: 50%;
-  border: 1px solid #fff;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid #fff;
   z-index: 5;
+  width: 40px;
+  height: 40px;
 }
-.social-list .social-item a i, .social-list .social-item a img {
+.social-list .social-item a .icon i, .social-list .social-item a .icon img {
   font-size: 24px;
   width: auto;
   height: 24px;
