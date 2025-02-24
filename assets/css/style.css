@@ -1346,14 +1346,14 @@ nav.navbar.active .navbar-brand {
   gap: 10px;
   grid-template-columns: 1fr 1fr;
 }
-.downloads .download a {
+.downloads .download {
     display:grid;
     justify-content: start;
     align-items: center;
     gap: 20px;
     color: #fff;
     text-decoration: none;
-    background: #f25500;
+    background: #444;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 12px;
@@ -1364,7 +1364,7 @@ nav.navbar.active .navbar-brand {
     border-radius: 20px;
     position: relative;
 }
-.downloads .download a .icon i {
+.downloads .download .icon i {
   font-size: 18px;
   width: auto;
   height: 18px;
@@ -1380,7 +1380,7 @@ nav.navbar.active .navbar-brand {
   object-position: center;
 }
 
-.downloads .download a .icon {
+.downloads .download .icon {
   border-radius: 50%;
   background-color: #111;
   padding: 10px;
@@ -1395,6 +1395,18 @@ nav.navbar.active .navbar-brand {
   z-index: 5;
   width: 40px;
   height: 40px;
+}
+
+.downloads .buttons {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+.downloads .button {
+  background-color: #111;
+  color: #bbb;
+  text-decoration: none;
+  padding: 10px 20px;
 }
 @media(min-width: 780px) {
   .downloads {
