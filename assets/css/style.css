@@ -1295,6 +1295,7 @@ nav.navbar.active .navbar-brand {
 }
 .downloads {
   margin-bottom: 20px;
+  grid-template-columns: 1fr 1fr;
 }
 .social-list .social-item a {
     display:grid;
@@ -1313,6 +1314,12 @@ nav.navbar.active .navbar-brand {
     text-align: right;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
+.social-list .social-item.download a {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+}
 
 .social-list .social-item a .icon {
   border-radius: 50%;
@@ -1325,10 +1332,27 @@ nav.navbar.active .navbar-brand {
   align-items: center;
   justify-content: center;
 }
+.social-list .download a .icon {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  border: 1px solid #fff;
+  z-index: 5;
+}
 .social-list .social-item a i, .social-list .social-item a img {
   font-size: 24px;
   width: auto;
   height: 24px;
+}
+
+.downloads .download .thumb {
+  border: 1px solid #fff;
+}
+.downloads .download .thumb img {
+  width: 100%;
+  height: auto;
+  object-fit: covcontainer;
+  object-position: center;
 }
 
 @media(min-width: 440px) {
@@ -1353,6 +1377,9 @@ nav.navbar.active .navbar-brand {
   .social-list {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .social-list.downloads {
+    grid-template-columns: 1fr 1fr;
+  }
   .social-list .social-item a {
     grid-template-columns: 1fr;
     justify-content: center;
@@ -1369,5 +1396,10 @@ nav.navbar.active .navbar-brand {
     font-size: 30px;
     width: auto;
     height: 30px;
+  }
+}
+@media(min-width: 980px) {
+  .social-list.downloads {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
