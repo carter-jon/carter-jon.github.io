@@ -1293,6 +1293,9 @@ nav.navbar.active .navbar-brand {
   grid-template-columns: 1fr;
   gap: 20px;
 }
+.downloads {
+  margin-bottom: 20px;
+}
 .social-list .social-item a {
     display:grid;
     grid-template-columns: auto 1fr;
@@ -1348,7 +1351,7 @@ nav.navbar.active .navbar-brand {
 }
 @media(min-width: 780px) {
   .social-list {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .social-list .social-item a {
     grid-template-columns: 1fr;
