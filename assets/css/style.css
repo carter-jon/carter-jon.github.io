@@ -1336,7 +1336,7 @@ nav.navbar.active .navbar-brand {
 .social-list .social-item.download a .icon {
   position: absolute;
   top: 10px;
-  left: 50%;
+  right: 10px;
   transform: translateX(-50%);
   border: 2px solid #fff;
   z-index: 5;
@@ -1347,6 +1347,11 @@ nav.navbar.active .navbar-brand {
   font-size: 24px;
   width: auto;
   height: 24px;
+}
+.downloads .download a .icon i {
+  font-size: 18px;
+  width: auto;
+  height: 18px;
 }
 
 .downloads .download .thumb {
