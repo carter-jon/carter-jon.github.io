@@ -1400,7 +1400,7 @@ nav.navbar.active .navbar-brand {
 .downloads .buttons {
   display: grid;
   gap: 10px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 .downloads .button {
   background-color: #111;
