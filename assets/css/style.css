@@ -1400,13 +1400,13 @@ nav.navbar.active .navbar-brand {
 .downloads .buttons {
   display: grid;
   gap: 10px;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 .downloads .button {
   background-color: #111;
   color: #bbb;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   transition: all 0.2s ease-in-out;
   border-radius: 5px;
 }
