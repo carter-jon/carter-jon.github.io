@@ -288,20 +288,26 @@ function updateCountdown(startDate) {
 getData();
 
 // scroll *******************************************************************************************
-let scrollpos = window.scrollY;
-const header = document.querySelector(".navbar-brand");
-const navbar = document.querySelector("nav.navbar");
-const dropdown = document.querySelector("navbar-collapse");
+document.addEventListener("DOMContentLoaded", function () {
+  let scrollpos = window.scrollY;
+  const header = document.querySelector(".navbar-brand");
+  const navbar = document.querySelector("nav.navbar");
+  const dropdown = document.querySelector("navbar-collapse");
 
-window.addEventListener("scroll", function () {
-  scrollpos = window.scrollY;
-  if (scrollpos >= 200) {
-    navbar.classList.add("active");
-    header.classList.add("active");
-  } else {
-    navbar.classList.remove("active");
-    header.classList.remove("active");
+  function updateNavbar() {
+    scrollpos = window.scrollY;
+    if (scrollpos >= 200) {
+      navbar.classList.add("active");
+      header.classList.add("active");
+    } else {
+      navbar.classList.remove("active");
+      header.classList.remove("active");
+    }
   }
+
+  updateNavbar();
+  window.addEventListener("scroll", updateNavbar);
+  
 });
 
 // $(function () {
