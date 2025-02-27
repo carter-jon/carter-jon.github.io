@@ -295,15 +295,12 @@ const dropdown = document.querySelector("navbar-collapse");
 
 window.addEventListener("scroll", function () {
   scrollpos = window.scrollY;
-  if (scrollpos >= 300) {
-    header.classList.add("active");
-  } else {
-    header.classList.remove("active");
-  }
   if (scrollpos >= 200) {
     navbar.classList.add("active");
+    header.classList.add("active");
   } else {
     navbar.classList.remove("active");
+    header.classList.remove("active");
   }
 });
 

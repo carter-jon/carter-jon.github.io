@@ -594,7 +594,7 @@ nav.navbar.active .navbar-toggler {
 }
 
 .navbar-collapse {
-  justify-content: center;
+  justify-content: flex-end;
   background-color: #222;
   margin: 0;
   z-index: 5;
@@ -640,22 +640,22 @@ nav.navbar.active {
   display: block;
 }
 .navbar-brand {
-  display: none;
   height: 32px;
   width: 200px;
   padding: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  transition-delay: 0.3s;
   opacity: 0;
   position: absolute;
   left: 20px;
   top: 10px;
   z-index: 22;
+  visibility: hidden;
 }
-nav.navbar.active .navbar-brand {
-  display: block;
-}
+
 .navbar-brand.active {
   opacity: 1;
+  visibility: visible;
 }
 @media (min-width: 992px) {
   .navbar-nav {
@@ -693,6 +693,8 @@ nav.navbar.active .navbar-brand {
     padding: 0;
     border-radius: 0;
     background-color: transparent;
+    justify-content: flex-end;
+    width: 100%;
   }
   nav.navbar.active .nav-link {
     padding: 0;
