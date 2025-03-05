@@ -730,17 +730,30 @@ nav.navbar.active {
 
 /* images */
 .gallery {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 .images {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 10px;
 }
-.images .image:first-child {
-  grid-column: 1 / span 3;
+
+@media (min-width: 500px) {
+  .images {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .image1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
 }
+
+
 .image {
   aspect-ratio: 1 / 1;
   width: 100%;
